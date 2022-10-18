@@ -1,48 +1,48 @@
-<!DOCTYPEhtml>
+<!DOCTYPE html>
 <html>
-<cabeza>
-    <script src="./lib/phaser.min.js"></script>
-</cabeza>
-<cuerpo>
+<head>
+    <script src=".lib/phaser.min.js"></script>
+</head>
+<body>
 
     <script>
-    var configuración = {
-        tipo: Phaser.AUTO,
-        ancho: 800,
-        altura: 600,
-        física: {
-            predeterminado: 'arcade',
-            arcada: {
-                gravedad: { y: 200 }
+    var config = {
+        type: Phaser.AUTO,
+        width: 800,
+        height: 600,
+        physics: {
+            default: 'arcade',
+            arcade: {
+                gravity: { y: 200 }
             }
         },
-        escena: {
-            precarga: precarga,
-            crear: crear
+        scene: {
+            preload: preload,
+            create: create
         }
     };
 
-    var juego = nuevo Phaser.Game(config);
+    var game = new Phaser.Game(config);
 
-    función de precarga ()
+    function preload ()
     {
         this.load.setBaseURL('http://labs.phaser.io');
 
-        this.load.image('cielo', 'activos/cielos/espacio3.png');
+        this.load.image('sky', 'assets/skies/space3.png');
         this.load.image('logo', 'assets/sprites/phaser3-logo.png');
-        this.load.image('rojo', 'activos/partículas/rojo.png');
+        this.load.image('red', 'assets/particles/red.png');
     }
 
-    función crear ()
+    function create ()
     {
-        this.add.image(400, 300, 'cielo');
+        this.add.image(400, 300, 'sky');
 
-        var partículas = this.add.particles('red');
+        var particles = this.add.particles('red');
 
-        var emisor = partículas.createEmitter({
-            velocidad: 100,
-            escala: {inicio: 1, fin: 0},
-            modo de mezcla: 'AÑADIR'
+        var emitter = particles.createEmitter({
+            speed: 100,
+            scale: { start: 1, end: 0 },
+            blendMode: 'ADD'
         });
 
         var logo = this.physics.add.image(400, 100, 'logo');
@@ -51,9 +51,9 @@
         logo.setBounce(1, 1);
         logo.setCollideWorldBounds(true);
 
-        emitter.startFollow(logotipo);
+        emitter.startFollow(logo);
     }
     </script>
 
-</cuerpo>
+</body>
 </html>
