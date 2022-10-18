@@ -1,25 +1,59 @@
-<!doctype html>
-<html>
-<head>
-    <title>Ejercicios</title>
-    <meta charset="utf-8">
-    <!--vincularlo con el archivo .css-->
-    <link rel="stylesheet" href="./css/styles.css" type="text/css">
-    <!--vincularlo con el archivo .js-->
-    <script src="./src/main.js"></script>
-</head>
-<body>
-    <h1>Kill monsters</h1>
-    <!--lista no ordenada de elementos-->
-    <ul id="party-monsters">
-    </ul>
-    <!--formulario-->
-    <form name="killing-machine">
-        <p>
-            <!--dropdown del formulario-->
-            <select name="chara"></select>
-            <button type="submit">Kill!</button>
-        </p>
-    </form>
-</body>
-</html>
+<!DOCTYPEhtml>
+<html><html>
+<cabeza><cabeza>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script><script src = "https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js" ></script> 
+</cabeza></cabeza>
+<cuerpo><cuerpo>
+
+    <script><script>
+    var configuración = {var configuración = { 
+        tipo: Phaser.AUTO,: Phaser . AUTOMÁTICO , 
+        ancho: 800,: 800 , 
+        altura: 600,: 600 , 
+        física: {: { 
+            predeterminado: 'arcade',predeterminado : 'arcada' , 
+            arcada: {: { 
+                gravedad: { y: 200 }: { y : 200 }   
+            }}
+        },},
+        escena: {: { 
+            precarga: precarga,: precarga ,
+            crear: crear: crear
+        }}
+    };};
+
+    var juego = nuevo Phaser.Game(config);var juego = nuevo Phaser . Juego ( configuración );  
+
+    función de precarga ()función de precarga ()
+    {{
+        this.load.setBaseURL('http://labs.phaser.io');esto _ cargar _ setBaseURL ( 'http://labs.phaser.io' );
+
+        this.load.image('cielo', 'activos/cielos/espacio3.png');esto _ cargar _ imagen ( 'cielo' , 'activos/cielos/espacio3.png' ); 
+        this.load.image('logo', 'assets/sprites/phaser3-logo.png');esto _ cargar _ imagen ( 'logotipo' , 'assets/sprites/phaser3-logo.png' ); 
+        this.load.image('rojo', 'activos/partículas/rojo.png');esto _ cargar _ imagen ( 'rojo' , 'activos/partículas/rojo.png' ); 
+    }}
+
+    función crear ()función crear ()
+    {{
+        this.add.image(400, 300, 'cielo');esto _ añadir _ imagen ( 400 , 300 , 'cielo' );  
+
+        var partículas = this.add.particles('red');var partículas = esto . añadir _ partículas ( 'rojo' ); 
+
+        var emisor = partículas.createEmitter({var emisor = partículas . crear emisor ({
+            velocidad: 100,: 100 , 
+            escala: {inicio: 1, fin: 0},: { inicio : 1 , fin : 0 },    
+            modo de mezcla: 'AÑADIR': 'AÑADIR' 
+        });});
+
+        var logo = this.physics.add.image(400, 100, 'logo');var logotipo = esto . física _ añadir _ imagen ( 400 , 100 , 'logotipo' );   
+
+        logo.setVelocity(100, 200);. establecerVelocidad ( 100 , 200 ); 
+        logo.setBounce(1, 1);. establecerRebote ( 1 , 1 ); 
+        logo.setCollideWorldBounds(true);. setCollideWorldBounds ( verdadero );
+
+        emitter.startFollow(logotipo);. iniciarSeguir ( logotipo );
+    }}
+    </script></script>
+
+</cuerpo></cuerpo>
+</html></html>
