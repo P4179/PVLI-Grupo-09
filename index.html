@@ -1,11 +1,25 @@
+<!doctype html>
 <html>
 <head>
     <title>Ejercicios</title>
     <meta charset="utf-8">
+    <!--vincularlo con el archivo .css-->
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <!--vincularlo con el archivo .js-->
+    <script src="main.js"></script>
 </head>
 <body>
-    <h1>Fear the horde!</h1>
-    <p><button type="button" id="summon">Summon cat</button></p>
-    <p id="kittens"></p>
+    <h1>Kill monsters</h1>
+    <!--lista no ordenada de elementos-->
+    <ul id="party-monsters">
+    </ul>
+    <!--formulario-->
+    <form name="killing-machine">
+        <p>
+            <!--dropdown del formulario-->
+            <select name="chara"></select>
+            <button type="submit">Kill!</button>
+        </p>
+    </form>
 </body>
 </html>
