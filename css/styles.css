@@ -1,0 +1,7 @@
+.canvas{
+	color: brown;	/*color fuente*/
+	font-family: "Arial";
+	font-size: 50px;	/*tamaño fuente*/
+	font-weight: bold;	/*grosor fuente*/
+	text-align: center;	/*alineación fuente*/
+}
