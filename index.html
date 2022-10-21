@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
-    <script src="./lib/phaser.min.js"></script>
     <!-- basic -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,7 +19,7 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- Responsive-->
     <link rel="stylesheet" href="css/responsive.css">
-    <!-- fevicon -->
+    <!-- FEVICON, SE TRATA DE UN ICONO QUE IDENTIFICA LA PÁGINA WEB -->
     <link rel="icon" href="websiteassets/images/fevicon.png" type="image/gif" />
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
@@ -31,62 +30,22 @@
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+
+    <!--REFERENCIAS A OTROS ARCHIVOS-->
+    <script src="./lib/phaser.min.js"></script>
+    <script src="./src/game.js"></script>
+
 </head>
 
 <body class="main-layout">
 
-    <script>
-        var config = {
-            type: Phaser.AUTO,
-            width: 800,
-            height: 600,
-            physics: {
-                default: 'arcade',
-                arcade: {
-                    gravity: {
-                        y: 200
-                    }
-                }
-            },
-            scene: {
-                preload: preload,
-                create: create
-            }
-        };
+    <!--ELEMENTO DONDE SE COLOCA EL CANVAS-->
+    <div id='juego'>
+        <h2>
+            <center>Canvas de phaser</center>
+        </h2>
+    </div>
 
-        var game = new Phaser.Game(config);
-
-        function preload() {
-            this.load.setBaseURL('https://labs.phaser.io');
-
-            this.load.image('sky', 'assets/skies/space3.png');
-            this.load.image('logo', 'assets/sprites/phaser3-logo.png');
-            this.load.image('red', 'assets/particles/red.png');
-        }
-
-        function create() {
-            this.add.image(400, 300, 'sky');
-
-            var particles = this.add.particles('red');
-
-            var emitter = particles.createEmitter({
-                speed: 100,
-                scale: {
-                    start: 1,
-                    end: 0
-                },
-                blendMode: 'ADD'
-            });
-
-            var logo = this.physics.add.image(400, 100, 'logo');
-
-            logo.setVelocity(100, 200);
-            logo.setBounce(1, 1);
-            logo.setCollideWorldBounds(true);
-
-            emitter.startFollow(logo);
-        }
-    </script>
     <!-- loader  -->
     <div class="loader_bg">
         <div class="loader"><img src="websiteassets/images/loading.gif" alt="#" /></div>
