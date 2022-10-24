@@ -1,24 +1,29 @@
-export default class Documents extends Phaser.GameObjects.Sprite {
+import Date from "../classes/Date.js";
+
+export default class Documents extends Phaser.GameObjects.Container {
 	/**
 	 * Documents constructor
 	 * @param {Scene} scene - the GO's scene
 	 * @param {number} x - coordinate x
 	 * @param {number} y - coordinate y
 	 */
-	constructor(scene, x, y, sprt) {
-		super(scene, x, y, sprt);
-		this.setScale(0.5,.5);
-		this.scene.add.existing(this, true); 
+	constructor(scene, x, y, sprite) {
+		super(scene, x, y);
+		this.scene.add.existing(this); 
+
+		// se crean los hijos y se añaden al propio container, es decir, al this
+		let aspecto = scene.add.sprite(0, 0, sprite);
+		aspecto.setDisplaySize(300, 400);
+		this.add(aspecto);
+		
+		// aspecto.setInteractive();
+		// this.scene.input.setDraggable(aspecto);
+		// this.scene.input.on('drag', function (pointer, gameObject, dragX, dragY) {
+
+		// 	gameObject.x = dragX;
+		// 	gameObject.y = dragY;
+	
+		// });
 	}
 
-	/**
-	 * Bucle principal de la caja, comprobamos la velocidad para reducirla y setearla a 0 en ciertos umbrales
-	 * Así no se movera de manera infinita cuando la golpeemos
-	 * @param {number} t - Tiempo total
-	 * @param {number} dt - Tiempo entre frames
-	 */
-	preUpdate(t, dt) {
-		super.preUpdate(t, dt);
-
-	}
 }

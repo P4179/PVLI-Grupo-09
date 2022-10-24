@@ -1,5 +1,8 @@
 import Clock from '../objects/clock.js';
 import Authenticity_Certificate from '../objects/Authenticity_Certificate.js'
+import Documents from '../objects/Documents.js'
+import Date from "../classes/Date.js";
+
 
 // Escena que se trata del nivel 1 del juego
 
@@ -14,13 +17,15 @@ export default class Level1 extends Phaser.Scene {
     // cambiar el color del fondo a blanco
     this.cameras.main.backgroundColor.setTo(255, 255, 255);
     new Clock(this, 300, 300, "23/10/2022");
-    new Authenticity_Certificate(this, 500, 300, "Balls", "22/02/2222", "01001", "11/11/1111", 'man1', 500, "aaaa");
+    let creaDate = new Date(22, 2, -235)
+    let expiDate = new Date(11, 11, 2055)
+    new Authenticity_Certificate(this, 500, 300, "Balls", creaDate, "01001", expiDate, 'man1', 500, "aaaa");
   }
 
   update(t, dt){
     // si han pasado 10 segundos se suporne la escena de la pantalla final a la actual
     // y se para la escena actual para que no se continue ejecutando
-    console.log(t);
+    // console.log(t);
     if(t > 10000){
       // se para la escena actual
       this.scene.pause(this.scene.key);
