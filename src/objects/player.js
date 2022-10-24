@@ -1,6 +1,6 @@
-class Player { // clase Player: se ocupa de la puntuación del jugador ¿...?
-	constructor(){ // constructor de la clase Player
-		this.name = "Player"; // asignación de nombre
+export default class Score extends Phaser.GameObjects.Text { // clase Score: se ocupa de la puntuación del jugador 
+	constructor(){ // constructor de la clase Score
+		this.name = "Score"; // asignación de nombre
 		this.score = 0; // puntuación inicial del jugador
 	}
 
