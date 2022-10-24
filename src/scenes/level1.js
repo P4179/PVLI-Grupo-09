@@ -1,4 +1,5 @@
 import Clock from '../objects/clock.js';
+import Authenticity_Certificate from '../objects/Authenticity_Certificate.js'
 
 // Escena que se trata del nivel 1 del juego
 
@@ -13,6 +14,7 @@ export default class Level1 extends Phaser.Scene {
     // cambiar el color del fondo a blanco
     this.cameras.main.backgroundColor.setTo(255, 255, 255);
     new Clock(this, 300, 300, "23/10/2022");
+    new Authenticity_Certificate(this, 500, 300, "Balls", "22/02/2222", "01001", "11/11/1111", 'man1', 500, "aaaa");
   }
 
   update(t, dt){

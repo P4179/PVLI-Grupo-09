@@ -1,4 +1,4 @@
-import Documents from './Documents'
+import Documents from './Documents.js'
 	/**
 	 * Documents constructor
 	 * @param {Scene} scene - the GO's scene
@@ -15,7 +15,8 @@ import Documents from './Documents'
 export default class Authenticity_Certificate extends Documents{
     //Authenticity certificate's creator
     constructor(scene, x, y, sName, sCreationD, sSerialNumber, sExpirationD, sPhoto, sWear, sSculptor){
-        super(scene, x, y);
+        super(scene, x, y, 'auth_cert');
+		this.setDisplaySize(200, 300);
         this._sName = sName;
         this._sCreationD = sCreationD;
         this._sSerialNumber = sSerialNumber;

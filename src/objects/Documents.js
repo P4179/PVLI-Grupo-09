@@ -5,11 +5,10 @@ export default class Documents extends Phaser.GameObjects.Sprite {
 	 * @param {number} x - coordinate x
 	 * @param {number} y - coordinate y
 	 */
-	constructor(scene, x, y) {
-		super(scene, x, y, 'box');
+	constructor(scene, x, y, sprt) {
+		super(scene, x, y, sprt);
 		this.setScale(0.5,.5);
 		this.scene.add.existing(this, true); 
-		this.body.setCollideWorldBounds();
 	}
 
 	/**
