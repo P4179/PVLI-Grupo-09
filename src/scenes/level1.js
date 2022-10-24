@@ -1,4 +1,5 @@
 import Clock from '../objects/clock.js';
+import Score from '../objects/score.js';
 import Authenticity_Certificate from '../objects/Authenticity_Certificate.js'
 
 // Escena que se trata del nivel 1 del juego
