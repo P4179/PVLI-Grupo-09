@@ -16,15 +16,15 @@ export default class Documents extends Phaser.GameObjects.Container {
 		aspecto.setScale(2)
 		this.add(aspecto);
 		
-		// aspecto.setInteractive();
-		// this.scene.input.setDraggable(aspecto);
-		// this.scene.input.on('drag', function (pointer, gameObject, dragX, dragY) {
-		// 	gameObject.x = dragX;
-		// 	gameObject.y = dragY;
+		aspecto.setInteractive();
+		this.scene.input.setDraggable(aspecto);
+		this.scene.input.on('drag', function (pointer, gameObject, dragX, dragY) {
+			gameObject.x = dragX;
+			gameObject.y = dragY;
 
-		// 	console.log(this.x);
-		// 	console.log(this.y);
-		// });
+			console.log(this.x);
+			console.log(this.y);
+		});
 	}
 
 }

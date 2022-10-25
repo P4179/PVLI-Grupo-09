@@ -64,6 +64,11 @@ export default class Authenticity_Certificate extends Documents{
 		fechaExpi.setFontSize(22);
 		this.add(fechaExpi);
 
+		//foto de la estatua
+		let photo = this.scene.add.sprite(-78, 140, this._sPhoto);
+		photo.setScale(0.73);
+		this.add(photo);
+
 		//firma
 		let _sSculptortext = this.scene.add.text(50, 135, this._sSculptor);
 		_sSculptortext.setOrigin(0.5,0.5);
