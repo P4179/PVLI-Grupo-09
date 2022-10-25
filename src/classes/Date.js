@@ -35,11 +35,11 @@ export default class Date extends Phaser.GameObjects.Text{
         if(this._day < 10){
             written_Date += "0";
         }
-        written_Date += this._day + "-";
+        written_Date += this._day + "/";
         if(this._month < 10){
             written_Date += "0";
         }
-        written_Date += this._month + "-" + this._year;
+        written_Date += this._month + "/" + this._year;
         return written_Date;
     }
 
