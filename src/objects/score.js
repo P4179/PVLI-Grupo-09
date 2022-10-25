@@ -1,7 +1,9 @@
 // clase Score: se ocupa de la puntuación del jugador 
 export default class Score extends Phaser.GameObjects.Text { 
 	// constructor de la clase Score
-	constructor(){ 
+	constructor(scene, x, y){ 
+		super(scene, x, y);
+		this.scene.add.existing(this);
 		this.name = "Score"; // asignación de nombre
 		this.score = 0; // puntuación inicial del jugador
 	}
@@ -12,7 +14,7 @@ export default class Score extends Phaser.GameObjects.Text {
 	}
 
 	// actualiza la puntuación del jugador
-	setScore(int newScore){ 
+	setScore(newScore){ 
 		this.score = newScore
 	}
 

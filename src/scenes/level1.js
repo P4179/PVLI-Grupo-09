@@ -19,6 +19,8 @@ export default class Level1 extends Phaser.Scene {
     // se pasa la fecha como un solo objeto con tres parámetros
     new Clock(this, 100, 400, {d: 2, m: 3, y: 5});
     // new Authenticity_Certificate(this, 500, 300, "Balls", new Date(22, 2, -235), "01001", new Date(11, 11, 2055), 'man1', 500, "aaaa");
+    // instancia de Score
+    let score = new Score(this, 100, 100);
     }
 
   update(t, dt){
