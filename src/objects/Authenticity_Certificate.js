@@ -37,13 +37,10 @@ export default class Authenticity_Certificate extends Documents{
 		this.add(_sNametext);
 
 		//texto del día de creacion
-		let dateText = this._sCreationD.Getday() + "/" + this._sCreationD.Getmonth() + "/" + this._sCreationD.Getyear();
-		let _sCreationDtext = this.scene.add.text(-56, -51, dateText);
-		_sCreationDtext.setOrigin(0.5,0.5);
-		_sCreationDtext.setAlign('center');
-		_sCreationDtext.setFill('#896789');
-		_sCreationDtext.setFontSize(22);
-		this.add(_sCreationDtext);
+		let fechaCrea = new Date(scene, -66, -51, this._sCreationD.d, this._sCreationD.m, this._sCreationD.y);
+		fechaCrea.setFill('#896789');
+		fechaCrea.setFontSize(22);
+		this.add(fechaCrea);
 
 		//texto numero de serie
 		let _sSerialNumbertext = this.scene.add.text(-84, -6, this._sSerialNumber);
@@ -62,13 +59,10 @@ export default class Authenticity_Certificate extends Documents{
 		this.add(_sWeartext);
 
 		//texto dia de expiracion
-		let edateText = this._sExpirationD.Getday() + "/" + this._sExpirationD.Getmonth() + "/" + this._sExpirationD.Getyear();
-		let _sExpirationDtext = this.scene.add.text(-52, 38, edateText);
-		_sExpirationDtext.setOrigin(0.5,0.5);
-		_sExpirationDtext.setAlign('center');
-		_sExpirationDtext.setFill('#896789');
-		_sExpirationDtext.setFontSize(22);
-		this.add(_sExpirationDtext);
+		let fechaExpi = new Date(scene, -66, 36, this._sExpirationD.d, this._sExpirationD.m, this._sExpirationD.y);
+		fechaExpi.setFill('#896789');
+		fechaExpi.setFontSize(22);
+		this.add(fechaExpi);
 
 		//firma
 		let _sSculptortext = this.scene.add.text(50, 135, this._sSculptor);
