@@ -42,4 +42,8 @@ export default class Date extends Phaser.GameObjects.Text{
         written_Date += this._month + "-" + this._year;
         return written_Date;
     }
+
+    Getday(){return this._day}
+    Getmonth(){return this._month}
+    Getyear(){return this._year}
 }
