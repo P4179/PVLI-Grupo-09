@@ -13,7 +13,7 @@ export default class Level1 extends Phaser.Scene {
   // Creación de los elementos que componen el nivel 1
   create() {
     //se crea el certificado de autenticidad y dos fechas
-    new Authenticity_Certificate(this, 600, 300, "Balls", {d: 22, m: 2, y: -933}, "01001", {d: 11, m: 1, y: 2222}, 'man1', 500, "nombredeartista");
+    new Authenticity_Certificate(this, 600, 300, "Balls", {d: 22, m: 2, y: -933}, "01001", {d: 11, m: 1, y: 2222}, 'man2_Fake', 500, "nombredeartista");
     // se instancia el reloj
     // se pasa la fecha como un solo objeto con tres parámetros
     new Clock(this, 100, 400, {d: 2, m: 3, y: 5});
