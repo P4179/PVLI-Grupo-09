@@ -8,4 +8,8 @@ export default class Date{
     CorrectCreationDate(date) {
         return((date._day > 0 && date._day < 32) && (date._month > 0 && date._month < 13) && (date._year < -217 && date._year > - 247))
     }
+
+    Getday(){return this._day}
+    Getmonth(){return this._month}
+    Getyear(){return this._year}
 }
