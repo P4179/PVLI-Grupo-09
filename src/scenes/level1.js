@@ -23,13 +23,15 @@ export default class Level1 extends Phaser.Scene {
   update(t, dt){
     // si han pasado 10 segundos se superpone la escena de la pantalla final a la actual
     // y se para la escena actual para que no se continue ejecutando
-    // console.log(t);
-    // if(t > 10000){
-    //   // se para la escena actual
-    //   this.scene.pause(this.scene.key);
-    //   // se lanza encima la pantalla final
-    //   this.scene.launch('end');
-    // }
+    this.elapsed_Time += dt;
+    console.log(this.elapsed_Time);
+    if(this.elapsed_Time > 10000){
+      this.elapsed_Time = 0;
+      // se para la escena actual
+      this.scene.pause(this.scene.key);
+      // se lanza encima la pantalla final
+      this.scene.launch('end');
+    }
   }
 
 }
