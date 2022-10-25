@@ -21,14 +21,29 @@ export default class Title extends Phaser.Scene {
 	// Se crean los objetos que va a haber en esta escena
 	create() {
 		// Añadimos la imagen de la pantalla del título a la escena
+		// los objetos de la clase Image se utilizan para elementos estáticos
+		// se diferencian de los sprites en que no se pueden animar
 		var back = this.add.image(0, 0, 'title_Screen');
 		// cambiar el centro de la textura, por defecto está situado en el medio
 		back.setOrigin(0, 0);
 		// this.sys.canvas. para acceder al canvas sin tener una variable que guarda su configuración
+		// setDisplaySize y setScale tienen la misma función, que es cambiar el tamaño de un objeto
+		// La diferencia es que en el primero se dan los valores en píxeles y en el segundo, es la propia escala
 		back.setDisplaySize(this.sys.canvas.width, this.sys.canvas.height);
 
 		// Se crea el texto start
 		new Start(this, this.sys.canvas.width/2, this.sys.canvas.height/2 + 100);
+
+		// Se crea la nota que se muestra en la esquina inferior derecha de la pantalla de título
+		var note = this.add.text(this.sys.canvas.width - 5, 
+			this.sys.canvas.height - 5, 
+			"Made with love, care and caffeine by Dog Lovers", 
+			{fontFamily: 'Calibri'});
+		note.setOrigin(1, 1);
+		note.setStyle({
+			fontSize: '15px',
+			color: 'black'
+		})
 
 		// se registra una función callback (NUNCA VA EN EL UPDATE)
 		// son funciones que se ejecutan después de que se haya ejecutado otra función,
