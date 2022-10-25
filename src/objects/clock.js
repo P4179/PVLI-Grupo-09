@@ -1,20 +1,34 @@
 // Clase reloj
 // Es un container que tiene como hijos un sprite del marco del reloj y un texto con la fecha actual
 
+import Date from "../classes/Date.js";
+
 export default class Clock extends Phaser.GameObjects.Container {
+	/*
+	* Constructor de Start
+	* @param {Phaser.Scene} scene Escena a la que pertenece Clock
+	* @param {number} x Coordenada X
+	* @param {number} y Coordenada Y
+	* @param {number} date.d es el día, date.m es el mes, date.y es el año
+	*/
 	constructor (scene, x, y, date) {
+		// tiene un cuarto parámetro opcional que sirve para añadir hijos
+		// luego, se pueden añadir más
 		super(scene, x, y);
 		this.scene.add.existing(this);
 
 		// se crean los hijos y se añaden al propio container, es decir, al this
-		let aspecto = scene.add.sprite(0, 0, 'clock');
-		aspecto.setDisplaySize(100, 100);
+		// se crea el sprite del reloj
+		let aspecto = this.scene.add.sprite(0, 0, 'clock');
+		// se cambia el tamaño del sprite
+		aspecto.setDisplaySize(150, 100);
+		// se añade como hijo al container
 		this.add(aspecto);
 
-		let fecha = this.scene.add.text(0, 0, date, {fontFamily: 'Cambria'});
-		fecha.setOrigin(0.5, 0.5);
-		fecha.setColor('black');
-		fecha.setSize('25px');
+		let fecha = new Date(scene, 0, 0, date.d, date.m, date.y);
 		this.add(fecha);
+
+		// cambiar la escala del container, de modo que cambia el tamaño de todos sus hijos
+		this.setScale(1.2, 1.2);
 	}
 }
