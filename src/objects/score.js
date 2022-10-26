@@ -21,7 +21,7 @@ export default class Score extends Phaser.GameObjects.Text {
 	// muestra la puntuación por pantalla
 	writeScore(){
 		let escritura = this.getScore();
-		this.scene.add.text(100, 100, 'Score: ' + escritura, {fontFamily: 'Cambria'});
+		this.scene.add.text(100, 100, 'Score: ' + escritura, {fontFamily: 'Arial'});
 	}
 
 	// to-do:
