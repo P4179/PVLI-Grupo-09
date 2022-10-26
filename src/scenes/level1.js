@@ -25,7 +25,7 @@ export default class Level1 extends Phaser.Scene {
       p9: {d: 22, m: 2, y: -933},
       p10: "01001",
       p11: {d: 11, m: 1, y: 2222},
-      p12: 'man1',
+      p12: 'man3',
       p13: 500,
       p14: "nombredeartista"
     }

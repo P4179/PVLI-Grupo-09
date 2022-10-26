@@ -20,6 +20,10 @@
     <script src="./lib/jquery.min.js"></script>
     <!-- Círculo de carga -->
     <script src="./lib/custom.js"></script>
+    <!-- Animación del menú -->
+    <script src="./lib/menu.js"></script>
+    <!-- Barra de navegacion -->
+    <script src="./lib/navbar.js"></script>
     <!-- Precargar fuentes externas -->
     <span style="font-family:ink_free"></span>
     <span style="font-family:ds_digi"></span>
@@ -36,8 +40,27 @@
         </div>
     </div>
 
+    <!-- Navegador  -->
+    <div class="topnav" id="myTopnav" hidden="true">  
+        <a href="#home" class="active">Home</a>
+        <a href="#HowTo">How to play</a>
+        <a href="#socials">Socials</a>
+        <a href="javascript:void(0);" class="icon" onclick="navB(this)">
+          <i class="fa fa-bars"></i>
+        </a>
+    </div>
+
+    <!-- Boton menu tres barras  -->
+    <div class="container" onclick="hideMenu(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </div> 
+
     <!-- Cabecera -->
-    <header>BMY</header>
+    <header>
+        <img src="./assets/images/Titulo.png">
+    </header>
 
     <!-- Cuerpo principal -->
     <main>
@@ -48,8 +71,8 @@
     <!-- Pie de página -->
     <footer class="footer">
         <div class="call_now2">
-            <h3>Free Multipurpose Responsive </h3>
-            <span>Landing Page 2019</span>
+            <h3>BMY (兵马俑)</h3>
+            <span>PVLI grupo 09 - Dog lovers</span>
         </div>
         <div class="copyright">
             <p>© 2022 All Rights Reserved. Dog lovers games</p>
