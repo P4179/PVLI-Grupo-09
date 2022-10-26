@@ -6,6 +6,11 @@ export default class End extends Phaser.Scene {
 	constructor() {
 		super({ key: 'end' });
 	}
+
+	// se reciben los datos que se han pasado de la escena anterior y se guardan en un atributo de la clase
+	init(data){
+		this.score = data.score;
+	}
 	
 	// Creación de la escena
 	create() {
@@ -28,5 +33,12 @@ export default class End extends Phaser.Scene {
 			this.scene.stop('level1');
 			this.scene.start('title');
 		});
+
+		// texto con la puntuación
+		var score = this.add.text(this.sys.game.canvas.width/2, 
+			this.sys.game.canvas.height/2 + 80, 
+			"Score: " + this.score, 
+			{fontFamily: 'Arial'}).setOrigin(0.5, 0.5);
+		score.setFontSize('25px');
 	}
 }

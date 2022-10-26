@@ -31,7 +31,7 @@ export default class Date extends Phaser.GameObjects.Text{
     }
 
     Written_Date(){
-        var written_Date = "";
+        let written_Date = "";
         if(this._day < 10){
             written_Date += "0";
         }
