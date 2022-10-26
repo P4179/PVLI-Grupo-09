@@ -21,10 +21,10 @@ export default class Boot extends Phaser.Scene {
     this.load.image('man4_FAKE', 'hombre_4_FAKE.png');
     // Reloj
     this.load.image('clock', 'digital-clock.png');
-    this.load.image('auth_cert', 'AccessPermitInner.jpg');
+    this.load.image('auth_cert', 'AccessPermitInner.png');
     //Botones
-    this.load.atlas('yes_button', 'boton_verde_SpriteSheet.png', 'atlasverde_atlas.json');
-    this.load.atlas('no_button', 'boton_rojo_SpriteSheet.png', 'atlasrojo_atlas.json');
+    // this.load.atlas('yes_button', 'boton_verde_SpriteSheet.png', 'atlasverde_atlas.json');
+    // this.load.atlas('no_button', 'boton_rojo_SpriteSheet.png', 'atlasrojo_atlas.json');
   }
 
   // Creación de la escena
