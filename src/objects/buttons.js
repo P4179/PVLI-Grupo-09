@@ -1,6 +1,6 @@
 //import Boot from "../scenes/boot.js";
 
-export class Buttons_Yes_No extends Phaser.GameObjects.Sprite {
+export default class Buttons_Yes_No extends Phaser.GameObjects.Sprite {
     
     constructor(scene, x, y){
         super(scene, x, y);
@@ -18,14 +18,14 @@ export class Buttons_Yes_No extends Phaser.GameObjects.Sprite {
 
         this.setScale(3,3);
         
-        this.scene.anims.create({
+        this.sprite.anims.create({
 			key: 'clickYes',
 			frames: scene.anims.generateFrameNumbers( 'yes_button', {start:0, end:1}),
 			frameRate: 5,
 			repeat: 1
 		});
 
-        this.scene.anims.create({
+        this.sprite.anims.create({
 			key: 'clickNo',
 			frames: scene.anims.generateFrameNumbers('no_button', {start:0, end:1}),
 			frameRate: 5,
@@ -47,7 +47,7 @@ export class Buttons_Yes_No extends Phaser.GameObjects.Sprite {
         //Funciones que no hacen pasar la estatua
 
         });
-        
+
     }
     
     
