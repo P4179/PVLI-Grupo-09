@@ -2,26 +2,25 @@
 export default class Score extends Phaser.GameObjects.Text { 
 	// constructor de la clase Score
 	constructor(scene, x, y){ 
-		super(scene, x, y);
+		super(scene, x, y, "", {fontFamily:'Arial'});
 		this.scene.add.existing(this);
-		this.name = "Score"; // asignación de nombre
 		this.score = 0; // puntuación inicial del jugador
+		this.actScore();
 	}
 
 	// devuelve la puntuación del jugador
 	getScore(){ 
-		return this.score
+		return this.score;
 	}
 
 	// actualiza la puntuación del jugador
-	setScore(newScore){ 
-		this.score = newScore
+	updateScore(){ 
+		++this.score;
+		this.actScore();
 	}
 
-	// muestra la puntuación por pantalla
-	writeScore(){
-		let escritura = this.getScore();
-		this.scene.add.text(100, 100, 'Score: ' + escritura, {fontFamily: 'Arial'});
+	actScore(){
+		this.setText("Fallos: " + this.score);
 	}
 
 	// to-do:

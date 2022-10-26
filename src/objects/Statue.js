@@ -1,4 +1,3 @@
-import Documents from './Documents.js'
 import Authenticity_Certificate from '../objects/Authenticity_Certificate.js'
 
 export default class Estatua extends Phaser.GameObjects.Sprite {
@@ -11,14 +10,10 @@ export default class Estatua extends Phaser.GameObjects.Sprite {
 	 * @param {string} filename - nombre del archivo con el sprite
 	 */
 	constructor(scene, x, y, sprite, cont, xD, yD, sName, sCreationD, sSerialNumber, sExpirationD, sPhoto, sWear, sSculptor) {
-		super(scene, x, y, 'estatua');
+		super(scene, x, y, sprite);
 		this.scene.add.existing(this);
 
 		this.pasar = cont;
-
-		//sprite de la estatua
-		let spriteStatue = this.scene.add.sprite(x, y, sprite);
-		//spriteStatue.setScale(0.73);
 		/*
 		// Creamos las animaciones de nuestra estatua
 		this.scene.anims.create({
@@ -39,7 +34,7 @@ export default class Estatua extends Phaser.GameObjects.Sprite {
 		this.play('idle');
 		*/
 		
-		let ACDocument = new Authenticity_Certificate(scene, xD, yD, sName, sCreationD, sSerialNumber, sExpirationD, sPhoto, sWear, sSculptor);
+		this.ACDocument = new Authenticity_Certificate(scene, xD, yD, sName, sCreationD, sSerialNumber, sExpirationD, sPhoto, sWear, sSculptor);
 		
 	}
 
@@ -47,8 +42,9 @@ export default class Estatua extends Phaser.GameObjects.Sprite {
 		return this.pasar;
 	}
 
-	destroy(){
-
+	destroyMe(){
+		this.destroy();
+		this.ACDocument.destroy();
 	}
 
 }

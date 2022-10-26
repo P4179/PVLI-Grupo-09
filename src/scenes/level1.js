@@ -1,6 +1,5 @@
 import Clock from '../objects/clock.js';
 import Score from '../objects/score.js';
-import Authenticity_Certificate from '../objects/Authenticity_Certificate.js';
 import Estatua from '../objects/Statue.js';
 
 // Escena que se trata del nivel 1 del juego
@@ -66,8 +65,6 @@ export default class Level1 extends Phaser.Scene {
 
     // instancia de Score
     this.score = new Score(this, 100, 100);
-    // escritura de la puntuación por pantalla
-    this.score.writeScore();
 
     // se registra el input de la tecla P
     this.p = this.input.keyboard.addKey('P');
@@ -93,8 +90,10 @@ export default class Level1 extends Phaser.Scene {
 
   // se destruye la estatua anterior y se pasa a la siguiente
   nextStatue(){ 
-    this.statueInst.destroy();  // tendría que ser un método de la estatua
+    this.score.updateScore();
+    this.statueInst.destroyMe();  // tendría que ser un método de la estatua
     this.newStatue();
+
   }
 
   update(t, dt){
@@ -102,6 +101,7 @@ export default class Level1 extends Phaser.Scene {
 
     // si ha pasado el suficiente tiempo para que termine la jornada, la estatua actual obviamente no se considera que se haya comprobado
     if(this.elapsed_Time > this.timer * 60 * 1000 || this.statueAct > this.statues.length){
+      this.statueAct = 0;
       this.elapsed_Time = 0;
       // se para la escena actual
       this.scene.pause(this.scene.key);
