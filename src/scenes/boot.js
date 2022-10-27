@@ -11,20 +11,22 @@ export default class Boot extends Phaser.Scene {
     // Con setPath podemos establecer el prefijo que se añadirá a todos los load que aparecen a continuación
     this.load.setPath('assets/sprites/');
     // Estatuas
-    this.load.image('man1', 'retrato_hombre_1.png');
-    this.load.image('man1_Fake', 'retrato_hombre_1_FAKE.png');
-    this.load.image('man2', 'retrato_hombre_2.png');
-    this.load.image('man2_Fake', 'retrato_hombre_2_FAKE.png');
-    this.load.image('man3', 'hombre_3.png');
-    this.load.image('man3_Fake', 'hombre_3_FAKE.png');
-    this.load.image('man4', 'hombre_4.png');
-    this.load.image('man4_FAKE', 'hombre_4_FAKE.png');
+    this.load.image('man1', 'retrato_hombre_1_peque.png');
+    this.load.image('man1_Fake', 'retrato_hombre_1_FAKE_peque.png');
+    this.load.image('man2', 'retrato_hombre_2_peque.png');
+    this.load.image('man2_Fake', 'retrato_hombre_2_FAKE_peque.png');
+    this.load.image('man3', 'Hombre_3.png');
+    this.load.image('man3_Fake', 'Hombre_3_FAKE.png');
+    this.load.image('man4', 'Hombre_4.png');
+    this.load.image('man4_Fake', 'Hombre_4_FAKE.png');
     // Reloj
     this.load.image('clock', 'digital-clock.png');
     this.load.image('auth_cert', 'AccessPermitInner.png');
-    //Botones
-    // this.load.atlas('yes_button', 'boton_verde_SpriteSheet.png', 'atlasverde_atlas.json');
-    // this.load.atlas('no_button', 'boton_rojo_SpriteSheet.png', 'atlasrojo_atlas.json');
+    // Fondo de los niveles
+    this.load.image('background', 'fondo_beta.png');
+    // Botones
+    this.load.spritesheet('button_yes', 'Boton_verde_SpriteSheet.png', {frameWidth: 150, frameHeight: 147});
+    this.load.spritesheet('button_no', 'Boton_rojo_SpriteSheet.png', {frameWidth: 150, frameHeight: 147});
   }
 
   // Creación de la escena

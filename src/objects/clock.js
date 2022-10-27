@@ -1,7 +1,7 @@
 // Clase reloj
 // Es un container que tiene como hijos un sprite del marco del reloj y un texto con la fecha actual
 
-import Date from "../classes/Date.js";
+import Date from "../auxs/Date.js";
 
 export default class Clock extends Phaser.GameObjects.Container {
 	/*
@@ -21,7 +21,7 @@ export default class Clock extends Phaser.GameObjects.Container {
 		// se crea el sprite del reloj
 		let aspecto = this.scene.add.sprite(0, 0, 'clock');
 		// se cambia el tamaño del sprite
-		aspecto.setDisplaySize(150, 100);
+		aspecto.setDisplaySize(130, 90);
 		// se añade como hijo al container
 		this.add(aspecto);
 
@@ -29,6 +29,7 @@ export default class Clock extends Phaser.GameObjects.Container {
 		this.add(fecha);
 
 		// cambiar la escala del container, de modo que cambia el tamaño de todos sus hijos
-		this.setScale(1.2, 1.2);
+		// si no se pone el parámetro de la y se toma que es el mismo que el de la x
+		this.setScale(1.1);
 	}
 }

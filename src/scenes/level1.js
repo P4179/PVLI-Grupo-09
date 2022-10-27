@@ -1,6 +1,7 @@
 import Clock from '../objects/clock.js';
-import Score from '../objects/score.js';
+import Fails from '../objects/fails.js';
 import Estatua from '../objects/Statue.js';
+import Buttons_Yes_No from '../objects/button_yes_no.js';
 
 // Escena que se trata del nivel 1 del juego
 
@@ -8,108 +9,173 @@ export default class Level1 extends Phaser.Scene {
   // Constructor de la escena
   constructor() {
     super({ key: 'level1' });
-    this.elapsed_Time = 0;
-    // tiempo que tiene que pasar para que se cambie de escena
-    this.timer = 0.1;
-
-    // datos de las estatuas y los certificados
-    let statue1 = {
-      p1: this,
-      p2: 200,
-      p3: 200,
-      p4: "man1",
-      p5: true,
-      p6: 600,
-      p7: 300,
-      p8: "Balls",
-      p9: {d: 22, m: 2, y: -933},
-      p10: "01001",
-      p11: {d: 11, m: 1, y: 2222},
-      p12: 'man3',
-      p13: 500,
-      p14: "nombredeartista"
-    }
-
-    let statue2 = {
-      p1: this,
-      p2: 200,
-      p3: 200,
-      p4: "man2",
-      p5: true,
-      p6: 600,
-      p7: 300,
-      p8: "Balls",
-      p9: {d: 22, m: 2, y: -933},
-      p10: "01001",
-      p11: {d: 11, m: 1, y: 2222},
-      p12: 'man2_Fake',
-      p13: 500,
-      p14: "hola"
-    }
-
-    // array con los datos de las estatuas y los certificados
-    this.statues = [statue1, statue2];
-
-    // estatua actual
-    this.statueAct = 0;
   }
 
   // Creación de los elementos que componen el nivel 1
+  // el código que hay en el create se vuelve a ejecutar cuando se haya cargado la escena de nuevo, 
+  // sin embargo, el constructor solo se ejecuta una vez
   create() {
-    // se crea la primera estatua
-    this.newStatue();
+    const CANVAS_WIDTH = this.sys.canvas.width;
+    const CANVAS_HEIGHT = this.sys.canvas.height;
+
+    // se añade el fondo a la estatua
+    // todos los sprites se añaden después del fondo porque sino quedan debajo
+    this.add.image(0, 0, 'background').setOrigin(0, 0).setDisplaySize(CANVAS_WIDTH, CANVAS_HEIGHT);
+
+    this.elapsed_Time = 0;
+    // tiempo que tiene que pasar para que se cambie de escena
+    this.timer = 1;
+
+    new Buttons_Yes_No(this, CANVAS_WIDTH - 100, 380, true);
+    new Buttons_Yes_No(this, CANVAS_WIDTH - 100, 530, false);
 
     // se instancia el reloj
     // se pasa la fecha como un solo objeto con tres parámetros
-    new Clock(this, 100, 400, {d: 2, m: 3, y: 5});
+    new Clock(this, 90, CANVAS_HEIGHT - 70, {d: 15, m: 10, y: 2022});
 
-    // instancia de Score
-    this.score = new Score(this, 100, 100);
+    // instancia de Fails
+    this.fails = new Fails(this, CANVAS_WIDTH - 10, 10);
 
-    // se registra el input de la tecla P
-    this.p = this.input.keyboard.addKey('P');
-    // se registra un callback, es decir, se llama a este método después de que se produzca un evento, pulsar la tecla P
-    this.p.on('down', () => {
-      this.nextStatue();
-    });
+    this.infoStatues(CANVAS_WIDTH, CANVAS_HEIGHT);
+
+    // estatua instanciada
+    // si es null quiere decir que no hay ninguna estatua instanciada
+    this.statueInst = null;
+    // se crea la primera estatua
+    this.newStatue();
+  }
+
+  infoStatues(canvasWidth, canvasHeight){
+    const POS_X = canvasWidth/2;
+    const POS_Y = 210;
+    const POS_X_CERT = canvasWidth/2;
+    const POS_Y_CERT = canvasHeight/2 + 140;
+
+    // datos de las estatuas y los certificados
+    let statue1 = {
+      escena: this,
+      posX: POS_X,
+      posY: POS_Y,
+      sprite: "man1",
+      pass: false,
+      posXCert: POS_X_CERT,
+      posYCert: POS_Y_CERT,
+      name: "Huang",
+      creation: {d: 23, m: 9, y: -218},
+      number: "0010",
+      expiration: {d: 28, m: 10, y: 2005},
+      photo: 'man1_Fake',
+      wear: 500,  // hay que quitarlo
+      sculptor: "juan" // hay que quitarlo
+    }
+
+    let statue2 = {
+      escena: this,
+      posX: POS_X,
+      posY: POS_Y,
+      sprite: "man2",
+      pass: false,
+      posXCert: POS_X_CERT,
+      posYCert: POS_Y_CERT,
+      name: "Chang",
+      creation: {d: 25, m: 2, y: -232},
+      number: "0011",
+      expiration: {d: 1, m: 12, y: 2000},
+      photo: 'man2',
+      wear: 500,  // hay que quitarlo
+      sculptor: "juan" // hay que quitarlo
+    }
+
+    let statue3 = {
+      escena: this,
+      posX: POS_X,
+      posY: POS_Y,
+      sprite: "man3",
+      pass: true,
+      posXCert: POS_X_CERT,
+      posYCert: POS_Y_CERT,
+      name: "Jian",
+      creation: {d: 8, m: 10, y: -222},
+      number: "0100",
+      expiration: {d: 16, m: 5, y: 2030},
+      photo: 'man3',
+      wear: 500,  // hay que quitarlo
+      sculptor: "juan" // hay que quitarlo
+    }
+
+    let statue4 = {
+      escena: this,
+      posX: POS_X,
+      posY: POS_Y,
+      sprite: "man4",
+      pass: true,
+      posXCert: POS_X_CERT,
+      posYCert: POS_Y_CERT,
+      name: "Mao Mao",
+      creation: {d: 9, m: 11, y: -245},
+      number: "0110",
+      expiration: {d: 16, m: 4, y: 2032},
+      photo: 'man4',
+      wear: 500,  // hay que quitarlo
+      sculptor: "juan" // hay que quitarlo
+    }
+
+    // array con los datos de las estatuas y los certificados
+    this.statues = [statue1, statue2, statue3, statue4];
   }
 
   newStatue(){ 
-    // si se está en la última estatua no se instancia una nueva
-    if(this.statueAct === this.statues.length){
+    // como no hay ninguna estatua instanciada, hay que instanciar la primera
+    if(this.statueInst === null){
+      // estatua actual
+      // corresponde con el índice del array de la info de estatuas
+      this.statueAct = 0;
+    }
+    // como ya hay una estatua instanciada, se instancia la siguiente
+    else {
       ++this.statueAct;
     }
-    // se instancia una nueva estatua
-    else {
-      this.statueInst = new Estatua(this.statues[this.statueAct].p1, this.statues[this.statueAct].p2, this.statues[this.statueAct].p3, this.statues[this.statueAct].p4, this.statues[this.statueAct].p5,
-      this.statues[this.statueAct].p6, this.statues[this.statueAct].p7, this.statues[this.statueAct].p8, this.statues[this.statueAct].p9, this.statues[this.statueAct].p10, this.statues[this.statueAct].p11,
-      this.statues[this.statueAct].p12, this.statues[this.statueAct].p13, this.statues[this.statueAct].p14);
-      ++this.statueAct;
+
+    if(this.statueAct != this.statues.length){
+      this.statueInst = new Estatua(this.statues[this.statueAct].escena, 
+        this.statues[this.statueAct].posX, 
+        this.statues[this.statueAct].posY, 
+        this.statues[this.statueAct].sprite, 
+        this.statues[this.statueAct].pass,
+        this.statues[this.statueAct].posXCert, 
+        this.statues[this.statueAct].posYCert, 
+        this.statues[this.statueAct].name, 
+        this.statues[this.statueAct].creation, 
+        this.statues[this.statueAct].number, 
+        this.statues[this.statueAct].expiration,
+        this.statues[this.statueAct].photo, 
+        this.statues[this.statueAct].wear, 
+        this.statues[this.statueAct].sculptor);
     }
   }
 
   // se destruye la estatua anterior y se pasa a la siguiente
-  nextStatue(){ 
-    this.score.updateScore();
-    this.statueInst.destroyMe();  // tendría que ser un método de la estatua
-    this.newStatue();
+  nextStatue(button){ 
+    if(this.statueInst.canPass() !== button){
+      this.fails.addFail();
+    }
 
+    this.statueInst.destroyMe();
+    this.newStatue();
   }
 
   update(t, dt){
     this.elapsed_Time += dt;
 
     // si ha pasado el suficiente tiempo para que termine la jornada, la estatua actual obviamente no se considera que se haya comprobado
-    if(this.elapsed_Time > this.timer * 60 * 1000 || this.statueAct > this.statues.length){
-      this.statueAct = 0;
-      this.elapsed_Time = 0;
+    if(this.elapsed_Time > this.timer * 60 * 1000 || this.statueAct >= this.statues.length){
       // se para la escena actual
       this.scene.pause(this.scene.key);
       // se lanza encima la pantalla final
       // se pasa a la pantalla final la puntuación
       // los datos que se pasen de una escena a otra hay que pasarlos como los parámetros de un objeto, aunque solo sea uno
       // la puntuación es el número de estatuas que se han revisado menos el número de fallos
-      this.scene.launch('end', {score: this.statueAct - this.score.getScore() - 1});
+      this.scene.launch('end', {score: this.statueAct - this.fails.getFails()});
     }
   }
 

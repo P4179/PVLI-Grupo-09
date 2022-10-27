@@ -27,8 +27,6 @@ export default class Title extends Phaser.Scene {
 		// cambiar el centro de la textura, por defecto está situado en el medio
 		back.setOrigin(0, 0);
 		// this.sys.canvas. para acceder al canvas sin tener una variable que guarda su configuración
-		// setDisplaySize y setScale tienen la misma función, que es cambiar el tamaño de un objeto
-		// La diferencia es que en el primero se dan los valores en píxeles y en el segundo, es la propia escala
 		back.setDisplaySize(this.sys.canvas.width, this.sys.canvas.height);
 
 		// Se crea el texto start
@@ -38,7 +36,7 @@ export default class Title extends Phaser.Scene {
 		var note = this.add.text(this.sys.canvas.width - 5, 
 			this.sys.canvas.height - 5, 
 			"Made with love, care and caffeine by Dog Lovers", 
-			{fontFamily: 'Calibri'});
+			{fontFamily: 'Cambria'});
 		note.setOrigin(1, 1);
 		note.setStyle({
 			fontSize: '15px',

@@ -152,11 +152,6 @@ body {
 
 /* Cargar fuentes externas */
 @font-face {
-    font-family: ink_free;
-    src: url('../assets/fonts/InkFree.ttf');
-}
-
-@font-face {
     font-family: ds_digi;
     src: url('../assets/fonts/ds-digi.ttf');
 }

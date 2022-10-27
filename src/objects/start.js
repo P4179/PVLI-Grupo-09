@@ -9,7 +9,7 @@ export default class Start extends Phaser.GameObjects.Text {
 	* @param {string} Texto
 	*/
 	constructor(scene, x, y) {
-		super(scene, x, y, "Press any key to start", {fontFamily: 'ink_free'});
+		super(scene, x, y, "Press any key to start", {fontFamily: 'Ink Free'});
 		// añadir el objeto a la escena actual
 		this.scene.add.existing(this);
 		// cambiar el estilo de la fuente
