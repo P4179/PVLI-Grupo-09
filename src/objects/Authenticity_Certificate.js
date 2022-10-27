@@ -1,5 +1,5 @@
 import Documents from './Documents.js'
-import Date from "../classes/Date.js";
+import Date from "../auxs/Date.js";
 
 	/**
 	 * Documents constructor
@@ -77,6 +77,8 @@ export default class Authenticity_Certificate extends Documents{
 		_sSculptortext.setFill('#896789');
 		_sSculptortext.setFontSize(22);
 		this.add(_sSculptortext);
+
+		this.setScale(0.8);
     }
 
 }

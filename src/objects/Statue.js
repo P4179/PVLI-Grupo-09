@@ -9,11 +9,13 @@ export default class Estatua extends Phaser.GameObjects.Sprite {
 	 * @param {boolean} continue - booleano que define si la estatua pasa o no
 	 * @param {string} filename - nombre del archivo con el sprite
 	 */
-	constructor(scene, x, y, sprite, cont, xD, yD, sName, sCreationD, sSerialNumber, sExpirationD, sPhoto, sWear, sSculptor) {
+	constructor(scene, x, y, sprite, pass, xD, yD, sName, sCreationD, sSerialNumber, sExpirationD, sPhoto, sWear, sSculptor) {
 		super(scene, x, y, sprite);
 		this.scene.add.existing(this);
 
-		this.pasar = cont;
+		this.setOrigin(0.5, 1);
+
+		this.pass = pass;
 		/*
 		// Creamos las animaciones de nuestra estatua
 		this.scene.anims.create({
@@ -38,13 +40,13 @@ export default class Estatua extends Phaser.GameObjects.Sprite {
 		
 	}
 
-	canpass(){
-		return this.pasar;
+	canPass(){
+		return this.pass;
 	}
 
 	destroyMe(){
 		this.destroy();
-		this.ACDocument.destroy();
+		// cuando la estatua se destruye también se destruyen los documentos que tiene asociados
+		this.ACDocument.destroyMe();
 	}
-
 }

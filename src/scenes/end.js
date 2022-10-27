@@ -18,7 +18,7 @@ export default class End extends Phaser.Scene {
 		var end = this.add.text(this.sys.game.canvas.width/2, 
 			this.sys.game.canvas.height/2, 
 			"End!", 
-			{fontFamily: 'ink_free'});
+			{fontFamily: 'Ink Free'});
 		end.setOrigin(0.5, 0.5);
 		end.setStyle({
 			fontSize: '100px',
