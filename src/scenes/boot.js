@@ -15,17 +15,17 @@ export default class Boot extends Phaser.Scene {
     this.load.image('man1_Fake', 'retrato_hombre_1_FAKE_peque.png');
     this.load.image('man2', 'retrato_hombre_2_peque.png');
     this.load.image('man2_Fake', 'retrato_hombre_2_FAKE_peque.png');
-    this.load.image('man3', 'Hombre_3.png');
-    this.load.image('man3_Fake', 'Hombre_3_FAKE.png');
-    this.load.image('man4', 'Hombre_4.png');
-    this.load.image('man4_Fake', 'Hombre_4_FAKE.png');
+    this.load.image('man3', 'Hombre_3.PNG');
+    this.load.image('man3_Fake', 'Hombre_3_FAKE.PNG');
+    this.load.image('man4', 'Hombre_4.PNG');
+    this.load.image('man4_Fake', 'Hombre_4_FAKE.PNG');
     // Reloj
     this.load.image('clock', 'digital-clock.png');
     this.load.image('auth_cert', 'AccessPermitInner.png');
     // Fondo de los niveles
     this.load.image('background', 'fondo_beta.png');
     // Botones
-    this.load.spritesheet('button_yes', 'Boton_verde_SpriteSheet.png', {frameWidth: 150, frameHeight: 147});
+    this.load.spritesheet('button_yes', 'Boton_verde_Spritesheet.png', {frameWidth: 150, frameHeight: 147});
     this.load.spritesheet('button_no', 'Boton_rojo_SpriteSheet.png', {frameWidth: 150, frameHeight: 147});
   }
 
