@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Codificación de caracteres -->
+    <meta charset="utf-8">
+    <!-- Visualización de la página web en diferentes dispositivos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título  -->
+    <title>BMY</title>
+    <!-- Icono de la web -->
+    <link rel="icon" href="./assets/images/favicon.png" type="image/png"/>
+
+    <link rel="stylesheet" href="./css/styles.css">
+    <!-- Biblioteca para añadir animaciones -->
+    <script src="./lib/jquery.min.js"></script>
+    <!-- Círculo de carga -->
+    <script src="./lib/custom.js"></script>
+    <!-- Animación del menú -->
+    <script src="./lib/menu.js"></script>
+    <!-- Barra de navegacion -->
+    <script src="./lib/navbar.js"></script>
+    <!-- Precargar fuentes externas -->
+    <span style="font-family:ds_digi"></span>
+
+</head>
+
+<body>
+    <!-- Círculo de carga  -->
+    <div class="loader_bg">
+        <div class="loader">
+            <img src="./assets/images/loading.gif" alt="#"/>
+        </div>
+    </div>
+
+    <!-- Navegador  -->
+    <div class="topnav" id="myTopnav" hidden="false">  
+        <a href="index.html">Home</a>
+        <a href="howtoplay.html">How to play</a>
+        <a href="socials.html" class="active">Socials</a>
+        <a href="javascript:void(0);" class="icon" onclick="navB(this)">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+
+    <!-- Boton menu tres barras  -->
+    <div class="container" onclick="hideMenu(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </div> 
+
+    <main>
+        <span class="howtotitle">About us</span>
+        <span class="description">
+            <p>
+                Somos estudiantes de segundo de la carrera de desarrollo de videojuegos en la UCM <br>
+                Este es un juego desarrollado por el grupo 09 de la asignatura PVLI<br>
+                Miembros:<br>
+            </p>
+            <ul id = "credits" class = "text3">
+                <li >Pedro León Miranda</li>
+                <li >Maria Sachez Carrrasco</li>
+                <li >Patricia Beatriz Rubia Luque</li>
+                <li >Francisco Molla Astrar</li>
+                <li >Jianuo Wen Hu</li>
+              </ul>
+        </span>
+    </main>
+    
+    <a href="https://mobile.twitter.com/DogloversP">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Twitter-logo.svg"
+        width=150" height="110" style="margin-bottom: 20px;">
+    </a>
+    <a href="https://github.com/P4179/PVLI-Grupo-09">
+        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+        width=160" height="160">
+    </a>
+
+    <!-- Pie de página -->
+    <footer class="footer">
+        <div class="footercontent">
+            <h3>BMY (兵马俑)</h3>
+            <span>PVLI grupo 09 - Dog lovers<br></span>
+            <br>
+            <br>
+            <a class="footercontent" href="https://mobile.twitter.com/DogloversP">Twitter<br></a>
+            <br>
+            <br>
+            <a class="footercontent" href="https://github.com/P4179/PVLI-Grupo-09">GitHub<br></a>
+        </div>
+        <div class="copyright">
+            <p>© 2022 All Rights Reserved. Dog lovers games</p>
+        </div>
+    </footer>
+</body>
+
+</html>
