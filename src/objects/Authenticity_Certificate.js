@@ -25,43 +25,45 @@ export default class Authenticity_Certificate extends Documents{
         this._sPhoto = sPhoto;
         this._sWear = sWear;
         this._sSculptor = sSculptor;
+		// this.initialScale = 0.4;
+		// this.setScale(this.initialScale)
 		
 		//centro: 73, 86
 		//color texto: #896789
 		//texto del nombre
-		let _sNametext = this.scene.add.text(0, -96, this._sName);
+		let _sNametext = this.scene.add.text(0, -48, this._sName);
 		_sNametext.setOrigin(0.5,0.5);
 		_sNametext.setAlign('center');
 		_sNametext.setFill('#896789');
-		_sNametext.setFontSize(22);
+		_sNametext.setFontSize(11);
 		this.add(_sNametext);
 
 		//texto del día de creacion
-		let fechaCrea = new Date(scene, -66, -51, this._sCreationD.d, this._sCreationD.m, this._sCreationD.y);
+		let fechaCrea = new Date(scene, -33, -25, this._sCreationD.d, this._sCreationD.m, this._sCreationD.y);
 		fechaCrea.setFill('#896789');
-		fechaCrea.setFontSize(22);
+		fechaCrea.setFontSize(11);
 		this.add(fechaCrea);
 
 		//texto numero de serie
-		let _sSerialNumbertext = this.scene.add.text(-84, -6, this._sSerialNumber);
+		let _sSerialNumbertext = this.scene.add.text(-42, -3, this._sSerialNumber);
 		_sSerialNumbertext.setOrigin(0.5,0.5);
 		_sSerialNumbertext.setAlign('center');
 		_sSerialNumbertext.setFill('#896789');
-		_sSerialNumbertext.setFontSize(22);
+		_sSerialNumbertext.setFontSize(11);
 		this.add(_sSerialNumbertext);
 
 		//texto estado de deterioro
-		let _sWeartext = this.scene.add.text(27, -6, this._sWear);
+		let _sWeartext = this.scene.add.text(13, -3, this._sWear);
 		_sWeartext.setOrigin(0.5,0.5);
 		_sWeartext.setAlign('center');
 		_sWeartext.setFill('#896789');
-		_sWeartext.setFontSize(22);
+		_sWeartext.setFontSize(11);
 		this.add(_sWeartext);
 
 		//texto dia de expiracion
-		let fechaExpi = new Date(scene, -66, 36, this._sExpirationD.d, this._sExpirationD.m, this._sExpirationD.y);
+		let fechaExpi = new Date(scene, -33, 18, this._sExpirationD.d, this._sExpirationD.m, this._sExpirationD.y);
 		fechaExpi.setFill('#896789');
-		fechaExpi.setFontSize(22);
+		fechaExpi.setFontSize(11);
 		this.add(fechaExpi);
 
 		//foto de la estatua
@@ -70,15 +72,18 @@ export default class Authenticity_Certificate extends Documents{
 		this.add(photo);
 
 		//firma
-		let _sSculptortext = this.scene.add.text(50, 135, this._sSculptor);
+		let _sSculptortext = this.scene.add.text(25, 67, this._sSculptor);
 		_sSculptortext.setOrigin(0.5,0.5);
 		_sSculptortext.setFont('Freestyle Script');
 		_sSculptortext.setAlign('center');
 		_sSculptortext.setFill('#896789');
-		_sSculptortext.setFontSize(22);
+		_sSculptortext.setFontSize(11);
 		this.add(_sSculptortext);
 
-		this.setScale(0.8);
     }
+
+	getInitialScale(){
+		return this.initialScale;
+	}
 
 }
