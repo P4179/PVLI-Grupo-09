@@ -54,5 +54,10 @@ export default class Title extends Phaser.Scene {
 			// finaliza la escena actual y da paso a la siguiente
 			this.scene.start('boot');
 		});
+
+		this.input.on('pointerdown', () =>
+		{
+			this.scene.start('boot');
+		});
 	}
 }
