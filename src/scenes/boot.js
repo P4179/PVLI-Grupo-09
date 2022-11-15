@@ -33,11 +33,16 @@ export default class Boot extends Phaser.Scene {
     // Botones
     this.load.spritesheet('button_yes', 'Boton_verde_Spritesheet.png', {frameWidth: 150, frameHeight: 147});
     this.load.spritesheet('button_no', 'Boton_rojo_SpriteSheet.png', {frameWidth: 150, frameHeight: 147});
+
 	  // Spritesheets de estatuas
     this.load.spritesheet('idle_man_1', 'animacion_retrato_hombre_1_spritesheet.png', {frameWidth: 420, frameHeight: 420});
     this.load.spritesheet('idle_man_2', 'animacion_retrato_hombre_2_spritesheet.png', {frameWidth: 420, frameHeight: 420});
     this.load.spritesheet('idle_woman_1', 'animacion_retrato_mujer_1_spritesheet.png', {frameWidth: 420, frameHeight: 420});
     this.load.spritesheet('idle_man_2', 'animacion_retrato_hombre_5_spritesheet.png', {frameWidth: 420, frameHeight: 420});
+
+    
+  }
+
 
     //Manual
     this.load.image('close_manual', 'close_manual.png');
@@ -48,6 +53,6 @@ export default class Boot extends Phaser.Scene {
   // Creación de la escena
   // En este caso, solo se pasa a la escena del primer nivel
   create() {
-    this.scene.start('level1');
+    this.scene.start('initialScene');
   }
 }

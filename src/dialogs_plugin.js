@@ -1,43 +1,10 @@
 //Código extraído de https://gamedevacademy.org/create-a-dialog-modal-plugin-in-phaser-3-part-1/
-
-var DialogModalPlugin = function (scene) {
-    // referencia a la escena que contiene el plugin
+export default class DialogText extends Phaser.GameObjects{
+  constructor(scene){
     this.scene = scene;
-    this.systems = scene.sys;
-    //si dicha escena no se ha cargado, se carga el plugin
-    if (!scene.sys.settings.isBooted) {
-      scene.sys.events.once('boot', this.boot, this);
-    }
-  };
+  }
 
-  // Registra el plugin con PluginManager
-DialogModalPlugin.register = function (PluginManager) {
-    PluginManager.register('LoreInitText', DialogModalPlugin, 'dialogModal');
-  };
-
-  DialogModalPlugin.prototype = {
-    // se llama cuando el plugin se carga por el PluginManager
-    boot: function () {
-      var eventEmitter = this.systems.events;
-      eventEmitter.on('shutdown', this.shutdown, this);
-      eventEmitter.on('destroy', this.destroy, this);
-    },
-
-    //Se llama cuando se termina la escena
-    shutdown: function () {
-        //Elimina el timeEvent por si sigue activo y destruye el game object con el texto
-        if (this.timedEvent) this.timedEvent.remove();
-        if (this.text) this.text.destroy();
-    },
-
-    //Se llama para destruir la escena 
-    destroy: function () {
-      this.shutdown();
-      this.scene = undefined;
-    },
-
-    // Propiedades del plugin
-init: function (opts) {
+  init(opts) {
     // Mira si hay parámetros que se pasan, en caso de que no, se usan los por defecto
     if (!opts) opts = {};
     // set properties from opts object or use defaults
@@ -62,20 +29,20 @@ init: function (opts) {
     this.closeBtn;
     //Crea la ventana de dialogo
     this._createWindow();
-  },
+  }
 
   // Consigue el ancho del juego (en funcion del tamaño en la escena) 
-_getGameWidth: function () {
+_getGameWidth() {
     return this.scene.sys.game.config.width;
-  },
+  }
 
   // Consigue el alto del juego (en funcion del tamaño de la escena) 
-  _getGameHeight: function () {
+  _getGameHeight() {
     return this.scene.sys.game.config.height;
-  },
+  }
 
   // Calcula las dimensiones y pos de la ventana en funcion del tamaño de la pantalla de juego
-  _calculateWindowDimensions: function (width, height) {
+  _calculateWindowDimensions(width, height) {
     var x = this.padding;
     var y = height - this.windowHeight - this.padding;
     var rectWidth = width - (this.padding * 2);
@@ -86,26 +53,26 @@ _getGameWidth: function () {
       rectWidth,
       rectHeight
     };
-  },
+  }
 
   // Crea la ventana interior, donde se muestra el texto 
-_createInnerWindow: function (x, y, rectWidth, rectHeight) {
+_createInnerWindow(x, y, rectWidth, rectHeight) {
     //rellena con el color y alpha especificados en las propiedades
     this.graphics.fillStyle(this.windowColor, this.windowAlpha);
     //Se crea el rectangulo pasandole las propiedades de posicion y dimensiones
     this.graphics.fillRect(x + 1, y + 1, rectWidth - 1, rectHeight - 1);
-  },
+  }
 
   // Creates the border rectangle of the dialog window
-  _createOuterWindow: function (x, y, rectWidth, rectHeight) {
+  _createOuterWindow(x, y, rectWidth, rectHeight) {
     //Se usa para especificar el estilo de la linea exterior: grosor, color...
     this.graphics.lineStyle(this.borderThickness, this.borderColor, this.borderAlpha);
     //permite dibujar un rectangulo sin darle relleno
     this.graphics.strokeRect(x, y, rectWidth, rectHeight);
-  },
+  }
 
   // Método que crea la ventana de diálogo
-_createWindow: function () {
+_createWindow() {
     //Obtenemos las dimensiones del juego
     var gameHeight = this._getGameHeight();
     var gameWidth = this._getGameWidth();
@@ -119,12 +86,12 @@ _createWindow: function () {
     
     this._createCloseModalButton(); //se muestra el boton de cerrar en la ventana
     this._createCloseModalButtonBorder(); // se muestra el borde del boton de cerrar
-  },
+  }
 
 //Código extraído de https://gamedevacademy.org/create-a-dialog-modal-plugin-in-phaser-3-part-2/ 
 
   // Con el siguiente código se crea el boton de cerrar la ventana de diálogo
-_createCloseModalButton: function () {
+_createCloseModalButton() {
     var self = this;
     this.closeBtn = this.scene.make.text({
         //se crea el boton con las posiciones x e y siguientes
@@ -151,27 +118,27 @@ _createCloseModalButton: function () {
       if (self.timedEvent) self.timedEvent.remove();
       if (self.text) self.text.destroy();
     });
-  },
+  }
 
 // Se crea el borde del botón
-_createCloseModalButtonBorder: function () {
+_createCloseModalButtonBorder() {
     var x = this._getGameWidth() - this.padding - 20;
     var y = this._getGameHeight() - this.windowHeight - this.padding;
     //Se crea el borde del botón sin relleno
     this.graphics.strokeRect(x, y, 20, 20);
-  },
+  }
 
   // Método que cierra y abre la ventana de diálogo
-toggleWindow: function () {
+toggleWindow() {
     this.visible = !this.visible;
     if (this.text) this.text.visible = this.visible;
     if (this.graphics) this.graphics.visible = this.visible;
     if (this.closeBtn) this.closeBtn.visible = this.visible;
-  },
+  }
 
   // con esta función se nos permite añadir texto a la ventana
   // Este método se llamara desde la escena que corresponda
-setText: function (text, animate) {
+setText(text, animate) {
     //el parametro animate nos permite saber si el texto sera animado o no
     this.eventCounter = 0;
     //se crea un array con cada caracter en la cadena de texto y se 
@@ -201,10 +168,10 @@ setText: function (text, animate) {
         });
     }
      
-  },
+  }
 
   // Hace aparecer al texto lentamente en pantalla
-_animateText: function () {
+_animateText() {
     this.eventCounter++;
     //se va actualizando el texto de nuestro game object llamando a setText
     this.text.setText(this.text.text + this.dialog[this.eventCounter - 1]);
@@ -212,10 +179,10 @@ _animateText: function () {
     if (this.eventCounter === this.dialog.length) {
       this.timedEvent.remove();
     }
-  },
+  }
 
   // Calcula la pos del texto en la ventana
-  _setText: function (text) {
+  _setText(text) {
     // Resetea el game object del texto si ya estaba seteada la propiedad del texto del plugin
     if (this.text) this.text.destroy();
 
@@ -232,6 +199,7 @@ _animateText: function () {
         wordWrap: { width: this._getGameWidth() - (this.padding * 2) - 25 }
       }
     });
-  },
+  }
 
-  };
+};
+
