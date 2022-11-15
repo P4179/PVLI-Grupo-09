@@ -2,6 +2,7 @@ import Title from './scenes/title.js';
 import Boot from './scenes/boot.js';
 import Level1 from './scenes/level1.js'
 import End from './scenes/end.js'
+import InitialScene from './scenes/initialScene.js'
 
 // Configuración de Phaser
 // Se crea la clase game que se encarga de crear e iniciar el juego
@@ -34,7 +35,7 @@ let config = {
         zoom: 1
     },
     // nombre de la clase de la escena
-    scene: [Title, Level1, Boot, End],
+    scene: [Title, InitialScene, Level1, Boot, End],
     // fisicas
     physics: { 
         default: 'arcade', 

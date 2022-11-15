@@ -1,5 +1,5 @@
 //Código extraído de https://gamedevacademy.org/create-a-dialog-modal-plugin-in-phaser-3-part-1/
-export default class DialogText extends Phaser.GameObjects{
+export default class DialogText{
   constructor(scene){
     this.scene = scene;
   }

@@ -3,14 +3,13 @@ import DialogText from '../dialogs_plugin.js';
 export default class initialScene extends Phaser.Scene{
 
 constructor(){
-    super({key: 'InitialScene', active: true, visible: true});
+    super({key: 'initialScene', active: true, visible: true});
+
+        // atributos
         this.dialogText = new DialogText(this);
         this.hasCreatedWindow = false;
         this.isToggled = true;
-}
-
-    preload(){
-        const TEXT = 'Testing this. Lorem ipsum, lorem ipsum. Elapsam semel occassionem non ipse potest Iuppiter reprehendere.';
+        this.testText = "Testing this. Lorem ipsum, lorem ipsum. Elapsam semel occassionem non ipse potest Iuppiter reprehendere.";
     }
 
    create ()
@@ -18,13 +17,12 @@ constructor(){
         
         this.createWindow();
         this.setText();
-        this.togglwWindow();
+        this.toggleWindow();
     
         //this.scene.start('level1');
     }
 
-    update(){}
-        
+    update(){}   
 
     createWindow() {
         this.dialogText.init();
@@ -32,7 +30,7 @@ constructor(){
     }
 
     setText() {
-        this.dialogText.setText(TEXT, true);
+        this.dialogText.setText(this.testText, true);
     }
 
     toggleWindow() {
