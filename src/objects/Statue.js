@@ -15,26 +15,29 @@ export default class Estatua extends Phaser.GameObjects.Sprite {
 
 		this.setOrigin(0.5, 1);
 
+		this.setScale(0.5);
+
 		this.pass = pass;
-		/*
 		// Creamos las animaciones de nuestra estatua
 		this.scene.anims.create({
-			key: 'idle',
-			frames: scene.anims.generateFrameNumbers('estatua', {start:0, end:0}),
-			frameRate: 5,
+			key: 'idle' + sprite,
+			frames: this.anims.generateFrameNumbers(sprite, {start:0, end:10}),
+			frameRate: 6,
 			repeat: -1
 		});
 
+		/*
 		// Si la animación de entrada se completa pasamos a ejecutar la animación 'idle'
 		this.on('animationcomplete', end => {
 			if (this.anims.currentAnim.key === 'entrada'){
 				this.stopEntrada()
 			}
 		})
+		*/
 
 		// La animación a ejecutar según se genere el personaje será 'idle'
-		this.play('idle');
-		*/
+		this.play('idle' + sprite);
+		
 		
 		this.ACDocument = new Authenticity_Certificate(scene, xD, yD, sName, sCreationD, sSerialNumber, sExpirationD, sPhoto, sWear, sSculptor);
 		
