@@ -12,9 +12,9 @@ export default class Boot extends Phaser.Scene {
     this.load.setPath('assets/sprites/');
     // Estatuas
     this.load.image('man1', 'retrato_hombre_1_peque.png');
-    this.load.image('man1_Fake', 'retrato_hombre_1_FAKE_peque.png');
+    this.load.image('man1_Fake', 'retrato_hombre_1_FAKE.png');
     this.load.image('man2', 'retrato_hombre_2_peque.png');
-    this.load.image('man2_Fake', 'retrato_hombre_2_FAKE_peque.png');
+    this.load.image('man2_Fake', 'retrato_hombre_2_FAKE.png');
     this.load.image('man3', 'Hombre_3.PNG');
     this.load.image('man3_Fake', 'Hombre_3_FAKE.PNG');
     this.load.image('man4', 'Hombre_4.PNG');
