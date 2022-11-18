@@ -2,6 +2,7 @@ import Clock from '../objects/clock.js';
 import Fails from '../objects/fails.js';
 import Estatua from '../objects/Statue.js';
 import Buttons_Yes_No from '../objects/button_yes_no.js';
+import Manual from '../objects/manual.js';
 
 // Escena que se trata del nivel 1 del juego
 
@@ -43,6 +44,7 @@ export default class Level1 extends Phaser.Scene {
     this.statueInst = null;
     // se crea la primera estatua
     this.newStatue();
+    new Manual(this, 650, CANVAS_WIDTH/4, false);
   }
 
   infoStatues(canvasWidth, canvasHeight){
