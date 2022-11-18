@@ -1,19 +1,22 @@
-Tamaño de los retratos: 140x140 píxeles (el hombre 3 es 140x120)
+Tamaño de los retratos: 420x420 píxeles
+
 Lista de sprites:
-- retrato_hombre_1.png -- (420x420)
-- retrato_hombre_1_FAKE.png -- (420x420)
-- retrato_hombre_1_FAKE_peque.png -- (140x140)
-- retrato_hombre_1_peque.png -- (140x140)
-- retrato_hombre_2_peque.png -- (140x140)
-- retrato_hombre_2.png -- (420x420)
-- retrato_hombre_2_FAKE_peque.png -- (140x140)
-- retrato_hombre_2_FAKE.png -- (420x420)
-- hombre_3.png
-- hombre_3_FAKE.png
-- hombre_4.png
-- hombre_4_FAKE.PNG
+- retrato_hombre_1.png (420x420)
+- retrato_hombre_1_FAKE.png (420x420)
+- retrato_hombre_1_FAKE_peque.png (140x140)
+- retrato_hombre_1_peque.png (140x140)
+- retrato_hombre_2_peque.png (140x140)
+- retrato_hombre_2.png (420x420)
+- retrato_hombre_2_FAKE_peque.png (140x140)
+- retrato_hombre_2_FAKE.png (420x420)
+- hombre_3.png (140x120)
+- hombre_3_FAKE.png (140x120)
+- hombre_4.png (140x140)
+- hombre_4_FAKE.PNG (140x140)
 - fondo_beta.png (1600x1200)
 - animacion_retrato_hombre_1_spritesheet.png (10080x13440)
 - animacion_retrato_hombre_2_spritesheet.png (10080x13440)
 - animacion_retrato_hombre_5_spritesheet.png (10080x13440)
 - animacion_retrato_mujer_1_spritesheet.png (10080x13440)
+- Boton_rojo_SpriteSheet.png (150x147)
+- Boton_verde_SpriteSheet.png (150x147)
