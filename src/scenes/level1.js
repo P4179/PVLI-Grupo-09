@@ -49,7 +49,7 @@ export default class Level1 extends Phaser.Scene {
 
   infoStatues(canvasWidth, canvasHeight){
     const POS_X = canvasWidth/2;
-    const POS_Y = 210;
+    const POS_Y = 220;
     const POS_X_CERT = canvasWidth/2;
     const POS_Y_CERT = canvasHeight/2 + 140;
 
@@ -58,7 +58,7 @@ export default class Level1 extends Phaser.Scene {
       escena: this,
       posX: POS_X,
       posY: POS_Y,
-      sprite: "man1",
+      sprite: "idle_man_1",
       pass: false,
       posXCert: POS_X_CERT,
       posYCert: POS_Y_CERT,
@@ -75,7 +75,7 @@ export default class Level1 extends Phaser.Scene {
       escena: this,
       posX: POS_X,
       posY: POS_Y,
-      sprite: "man2",
+      sprite: "idle_man_2",
       pass: false,
       posXCert: POS_X_CERT,
       posYCert: POS_Y_CERT,
@@ -83,7 +83,7 @@ export default class Level1 extends Phaser.Scene {
       creation: {d: 25, m: 2, y: -232},
       number: "0011",
       expiration: {d: 1, m: 12, y: 2000},
-      photo: 'man2',
+      photo: 'idle_man_2',
       wear: 500,  // hay que quitarlo
       sculptor: "juan" // hay que quitarlo
     }
