@@ -27,6 +27,8 @@ export default class Boot extends Phaser.Scene {
     // Botones
     this.load.spritesheet('button_yes', 'Boton_verde_Spritesheet.png', {frameWidth: 150, frameHeight: 147});
     this.load.spritesheet('button_no', 'Boton_rojo_SpriteSheet.png', {frameWidth: 150, frameHeight: 147});
+    this.load.spritesheet('idle_man_1', 'animacion_retrato_hombre_1_spritesheet', {frameWidth: 420, frameHeight: 420});
+    this.load.spritesheet('idle_man_2', 'animacion_retrato_hombre_2_spritesheet', {frameWidth: 420, frameHeight: 420});
   }
 
   // Creación de la escena
