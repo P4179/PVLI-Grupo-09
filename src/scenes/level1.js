@@ -49,9 +49,9 @@ export default class Level1 extends Phaser.Scene {
 
   infoStatues(canvasWidth, canvasHeight){
     const POS_X = canvasWidth/2;
-    const POS_Y = 217;
-    const POS_X_CERT = canvasWidth/2;
-    const POS_Y_CERT = canvasHeight/2 - 140;
+    const POS_Y = 220;
+    const POS_X_CERT = canvasWidth/2 - 170;
+    const POS_Y_CERT = canvasHeight/2 - 70;
 
     // datos de las estatuas y los certificados
     let statue1 = {
