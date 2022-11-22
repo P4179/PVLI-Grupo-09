@@ -23,7 +23,7 @@ export default class Boot extends Phaser.Scene {
     this.load.image('clock', 'digital-clock.png');
     this.load.image('auth_cert', 'AccessPermitInner.png');
     // Fondo de los niveles
-    this.load.image('background', 'fondo_beta.png');
+    this.load.image('background', 'fondo_2.png');
     // Botones
     this.load.spritesheet('button_yes', 'Boton_verde_Spritesheet.png', {frameWidth: 150, frameHeight: 147});
     this.load.spritesheet('button_no', 'Boton_rojo_SpriteSheet.png', {frameWidth: 150, frameHeight: 147});
