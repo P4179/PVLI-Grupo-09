@@ -9,7 +9,7 @@ export default class Documents extends Phaser.GameObjects.Container {
 		super(scene, x, y);
 		this.scene.add.existing(this);
 		let h = 300;
-		this.setScale((this.y / h) ** 4)
+		this.setScale((this.y / h) ** 2)
 
 		// se crean los hijos y se añaden al propio container, es decir, al this
 		this.aspecto = scene.add.sprite(0, 0, sprite);
@@ -19,14 +19,13 @@ export default class Documents extends Phaser.GameObjects.Container {
 		this.setInteractive();
 		this.scene.input.setDraggable(this);
 -		this.scene.input.on('drag', function (pointer, gameObject, dragX, dragY) {
-			gameObject.setScale((gameObject.y / h) ** 4);
+			gameObject.setScale((gameObject.y / h) ** 2);
 			
 			if((dragX + ((gameObject.width * gameObject.scale) / 2)) < this.scene.sys.canvas.width &&
 			(dragX - ((gameObject.width * gameObject.scale) / 2)) > 0)
 				gameObject.x = dragX;
 			if((dragY + ((gameObject.height * gameObject.scale) / 2)) < this.scene.sys.canvas.height)
 				gameObject.y = dragY;
-	
 		});
 	}
 

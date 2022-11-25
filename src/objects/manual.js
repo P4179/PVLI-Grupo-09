@@ -1,4 +1,4 @@
-import Documents from './Documents.js'
+import Documents from './documents.js'
 
 export default class Manual extends Documents{	
 	/**

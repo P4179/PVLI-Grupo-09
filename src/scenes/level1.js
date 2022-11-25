@@ -1,6 +1,6 @@
 import Clock from '../objects/clock.js';
 import Fails from '../objects/fails.js';
-import Estatua from '../objects/Statue.js';
+import Estatua from '../objects/statue.js';
 import Buttons_Yes_No from '../objects/button_yes_no.js';
 import Manual from '../objects/manual.js';
 

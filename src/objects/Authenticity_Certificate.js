@@ -1,4 +1,4 @@
-import Documents from './Documents.js'
+import Documents from './documents.js'
 import Date from "../auxs/Date.js";
 
 	/**
