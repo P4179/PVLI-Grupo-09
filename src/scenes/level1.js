@@ -126,7 +126,7 @@ export default class Level1 extends Phaser.Scene {
       escena: this,
       posX: POS_X,
       posY: POS_Y,
-      sprite: "woman1",
+      sprite: "idle_woman_1",
       pass: true,
       posXCert: POS_X_CERT,
       posYCert: POS_Y_CERT,
@@ -140,8 +140,7 @@ export default class Level1 extends Phaser.Scene {
     }
 
     // array con los datos de las estatuas y los certificados
-    //this.statues = [statue1, statue2, statue3, statue4, statue5];
-    this.statues = [statue1, statue2, statue3, statue4];
+    this.statues = [statue1, statue2, statue3, statue4, statue5];
   }
 
   newStatue(){ 
