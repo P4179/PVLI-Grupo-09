@@ -22,6 +22,7 @@ export default class Boot extends Phaser.Scene {
     this.load.image('woman1', 'retrato_mujer_1.png');
     // Reloj
     this.load.image('clock', 'digital-clock.png');
+    //Certificado de autenticidad
     this.load.image('auth_cert', 'AccessPermitInner.png');
     // Fondo de los niveles
     this.load.image('background', 'fondo_2.png');
