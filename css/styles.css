@@ -20,34 +20,14 @@ body {
 }
 
 .footer {
+    margin-top: 20px;
     background: #eec668;
-    padding-top: 90px;
-}
-
-.footercontent h3 {
-    font-size: 30px;
-    line-height: 40px;
-    color: #fff;
-    padding-bottom: 33px;
-}
-
-.footercontent span {
-    font-size: 31px;
-    line-height: 30px;
-    font-weight: bold;
-    color: #000;
-}
-
-.footercontent a {
-    font-size: 31px;
-    line-height: 30px;
-    font-weight: bold;
-    color: #000;
+    padding-top: 5px;
 }
 
 .copyright {
-    padding: 25px 0px;
-    margin-top: 55px;
+    padding: 5px 0px;
+    margin-top: 5px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -56,8 +36,8 @@ body {
 .copyright p {
     color: #000;
     font-size: 18px;
-    line-height: 22px;
-    text-align: center;
+    line-height: 5px;
+    text-align: right;
 }
 
 .loader_bg {
