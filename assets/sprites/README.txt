@@ -15,3 +15,5 @@ Lista de sprites:
 - fondo_beta.png (1600x1200)
 - animacion_retrato_hombre_1_spritesheet.png (10080x13440)
 - animacion_retrato_hombre_2_spritesheet.png (10080x13440)
+- animacion_retrato_hombre_5_spritesheet.png (10080x13440)
+- animacion_retrato_mujer_1_spritesheet.png (10080x13440)
