@@ -1,4 +1,4 @@
-import Authenticity_Certificate from '../objects/Authenticity_Certificate.js'
+import Authenticity_Certificate from './Authenticity_Certificate.js'
 
 export default class Estatua extends Phaser.GameObjects.Sprite {
 	/**
@@ -9,7 +9,7 @@ export default class Estatua extends Phaser.GameObjects.Sprite {
 	 * @param {boolean} continue - booleano que define si la estatua pasa o no
 	 * @param {string} filename - nombre del archivo con el sprite
 	 */
-	constructor(scene, x, y, sprite, pass, xD, yD, sName, sCreationD, sSerialNumber, sExpirationD, sPhoto, sWear, sSculptor) {
+	constructor(scene, x, y, sprite, pass, xD, yD, sName, sCreationD, sSerialNumber, sExpirationD, sPhoto) {
 		super(scene, x, y, sprite);
 		this.scene.add.existing(this);
 
@@ -39,7 +39,7 @@ export default class Estatua extends Phaser.GameObjects.Sprite {
 		this.play('idle' + sprite);
 		
 		
-		this.ACDocument = new Authenticity_Certificate(scene, xD, yD, sName, sCreationD, sSerialNumber, sExpirationD, sPhoto, sWear, sSculptor);
+		this.ACDocument = new Authenticity_Certificate(scene, xD, yD, sName, sCreationD, sSerialNumber, sExpirationD, sPhoto);
 		
 	}
 

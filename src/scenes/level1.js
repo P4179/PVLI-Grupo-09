@@ -3,6 +3,7 @@ import Fails from '../objects/fails.js';
 import Estatua from '../objects/statue.js';
 import Buttons_Yes_No from '../objects/button_yes_no.js';
 import Manual from '../objects/manual.js';
+import Boundary from '../objects/space_boundary.js';
 
 // Escena que se trata del nivel 1 del juego
 
@@ -43,8 +44,15 @@ export default class Level1 extends Phaser.Scene {
     // si es null quiere decir que no hay ninguna estatua instanciada
     this.statueInst = null;
     // se crea la primera estatua
+    this.documents = this.physics.add.group();
     this.newStatue();
+    // se crea el manual
     new Manual(this, 650, CANVAS_WIDTH/4, false);
+
+    this.boundaries = this.physics.add.staticGroup();
+    let upper_boundary = new Boundary(this, -50, this.boundaries);
+
+    // this.physics.add.collider(floor, upper_boundary); // Colision de ocumentos con bondaries
   }
 
   infoStatues(canvasWidth, canvasHeight){
@@ -66,9 +74,7 @@ export default class Level1 extends Phaser.Scene {
       creation: {d: 23, m: 9, y: -218},
       number: "0010",
       expiration: {d: 28, m: 10, y: 2005},
-      photo: 'man1_Fake',
-      wear: 500,  // hay que quitarlo
-      sculptor: "juan" // hay que quitarlo
+      photo: 'man1_Fake'
     }
 
     let statue2 = {
@@ -83,9 +89,7 @@ export default class Level1 extends Phaser.Scene {
       creation: {d: 25, m: 2, y: -232},
       number: "0011",
       expiration: {d: 1, m: 12, y: 2000},
-      photo: 'idle_man_2',
-      wear: 500,  // hay que quitarlo
-      sculptor: "juan" // hay que quitarlo
+      photo: 'idle_man_2'
     }
 
     let statue3 = {
@@ -100,9 +104,7 @@ export default class Level1 extends Phaser.Scene {
       creation: {d: 8, m: 10, y: -222},
       number: "0100",
       expiration: {d: 16, m: 5, y: 2030},
-      photo: 'man3',
-      wear: 500,  // hay que quitarlo
-      sculptor: "juan" // hay que quitarlo
+      photo: 'man3'
     }
 
     let statue4 = {
@@ -117,9 +119,7 @@ export default class Level1 extends Phaser.Scene {
       creation: {d: 9, m: 11, y: -245},
       number: "0110",
       expiration: {d: 16, m: 4, y: 2032},
-      photo: 'man4',
-      wear: 500,  // hay que quitarlo
-      sculptor: "juan" // hay que quitarlo
+      photo: 'man4'
     }
 
     let statue5 = {
@@ -134,9 +134,7 @@ export default class Level1 extends Phaser.Scene {
       creation: {d: 9, m: 11, y: -245},
       number: "0111",
       expiration: {d: 16, m: 4, y: 2032},
-      photo: 'woman1',
-      wear: 500,  // hay que quitarlo
-      sculptor: "juan" // hay que quitarlo
+      photo: 'woman1'
     }
 
     // array con los datos de las estatuas y los certificados
@@ -167,9 +165,7 @@ export default class Level1 extends Phaser.Scene {
         this.statues[this.statueAct].creation, 
         this.statues[this.statueAct].number, 
         this.statues[this.statueAct].expiration,
-        this.statues[this.statueAct].photo, 
-        this.statues[this.statueAct].wear, 
-        this.statues[this.statueAct].sculptor);
+        this.statues[this.statueAct].photo);
     }
   }
 

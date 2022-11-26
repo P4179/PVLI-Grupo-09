@@ -35,6 +35,20 @@ let config = {
     },
     // nombre de la clase de la escena
     scene: [Title, Level1, Boot, End],
+    // fisicas
+    physics: { 
+        default: 'arcade', 
+        arcade: { 
+            gravity: { y: 200 }, 
+            debug: true 
+        },
+        checkCollision: {
+            up: true,
+            down: true,
+            left: true,
+            right: true
+        }
+    },
     title: "Demo"
 };
 

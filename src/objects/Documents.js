@@ -24,7 +24,7 @@ export default class Documents extends Phaser.GameObjects.Container {
 			if((dragX + ((gameObject.width * gameObject.scale) / 2)) < this.scene.sys.canvas.width &&
 			(dragX - ((gameObject.width * gameObject.scale) / 2)) > 0)
 				gameObject.x = dragX;
-			if((dragY + ((gameObject.height * gameObject.scale) / 2)) < this.scene.sys.canvas.height)
+			if((dragY + ((gameObject.height * gameObject.scale) / 2)) < this.scene.sys.canvas.height) 
 				gameObject.y = dragY;
 		});
 	}

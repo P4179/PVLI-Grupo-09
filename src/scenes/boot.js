@@ -8,6 +8,8 @@ export default class Boot extends Phaser.Scene {
 
   // Carga de los assets del juego
   preload() {
+    //carga del bitmap usado para los documentos
+    this.load.bitmapFont('documentFont', 'assets/fonts/BMYbitmap/BMYbitmap.png', 'assets/fonts/BMYbitmap/BMYbitmap.xml');
     // Con setPath podemos establecer el prefijo que se añadirá a todos los load que aparecen a continuación
     this.load.setPath('assets/sprites/');
     // Estatuas
