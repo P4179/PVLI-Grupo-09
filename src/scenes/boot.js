@@ -31,7 +31,8 @@ export default class Boot extends Phaser.Scene {
 	  // Spritesheets de estatuas
     this.load.spritesheet('idle_man_1', 'animacion_retrato_hombre_1_spritesheet.png', {frameWidth: 420, frameHeight: 420});
     this.load.spritesheet('idle_man_2', 'animacion_retrato_hombre_2_spritesheet.png', {frameWidth: 420, frameHeight: 420});
-    this.load.spritesheet('idle_woman_1', 'spritesheet_animacion_retrato_mujer_1.png', {frameWidth: 420, frameHeight: 420});
+    this.load.spritesheet('idle_woman_1', 'animacion_retrato_mujer_1_spritesheet.png', {frameWidth: 420, frameHeight: 420});
+    this.load.spritesheet('idle_man_2', 'animacion_retrato_hombre_5_spritesheet.png', {frameWidth: 420, frameHeight: 420});
 
     //Manual
     this.load.image('close_manual', 'close_manual.png');
