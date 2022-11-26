@@ -1,7 +1,7 @@
 // Clase reloj
 // Es un container que tiene como hijos un sprite del marco del reloj y un texto con la fecha actual
 
-import Date from "../auxs/Date.js";
+import Date from "../auxs/date.js";
 
 export default class Clock extends Phaser.GameObjects.Container {
 	/*

@@ -1,5 +1,5 @@
 import Documents from './documents.js'
-import Date from "../auxs/Date.js";
+import Date from "../auxs/date.js";
 
 	/**
 	 * Documents constructor
@@ -23,38 +23,33 @@ export default class Authenticity_Certificate extends Documents{
         this._sSerialNumber = sSerialNumber;
         this._sExpirationD = sExpirationD;
         this._sPhoto = sPhoto;
+		this.fontsize = 11;
 		
 		//centro: 73, 86
 		//color texto: #896789
 		//texto del nombre
-		let _sNametext = this.scene.add.text(-58, -37, this._sName);
-		_sNametext.setOrigin(0, 0);
-		_sNametext.setAlign('center');
-		_sNametext.setFill('#896789');
-		_sNametext.setFontSize(11);
-		this.add(_sNametext);
+		this._sNametext = this.scene.add.bitmapText(-58, -35, 'documentFont', this._sName, this.fontsize);
+		this._sNametext.setOrigin(0, 0);
+		this._sNametext.setFontSize(this.fontsize);
+		this.add(this._sNametext);
 
 		//texto del día de creacion
-		let fechaCrea = new Date(scene, -58, -16, this._sCreationD.d, this._sCreationD.m, this._sCreationD.y);
-		fechaCrea.setOrigin(0, 0);
-		fechaCrea.setFill('#896789');
-		fechaCrea.setFontSize(11);
-		this.add(fechaCrea);
+		this.fechaCrea = new Date(scene, -58, -14, this._sCreationD.d, this._sCreationD.m, this._sCreationD.y);
+		this.fechaCrea.setOrigin(0, 0);
+		this.fechaCrea.setFontSize(this.fontsize);
+		this.add(this.fechaCrea);
 
 		//texto numero de serie
-		let _sSerialNumbertext = this.scene.add.text(-58, 7, this._sSerialNumber);
-		_sSerialNumbertext.setOrigin(0, 0);
-		_sSerialNumbertext.setAlign('center');
-		_sSerialNumbertext.setFill('#896789');
-		_sSerialNumbertext.setFontSize(11);
-		this.add(_sSerialNumbertext);
+		this._sSerialNumbertext = this.scene.add.bitmapText(-58, 9, 'documentFont', this._sSerialNumber);
+		this._sSerialNumbertext.setOrigin(0, 0);
+		this._sSerialNumbertext.setFontSize(this.fontsize);
+		this.add(this._sSerialNumbertext);
 
 		//texto dia de expiracion
-		let fechaExpi = new Date(scene, -58, 28, this._sExpirationD.d, this._sExpirationD.m, this._sExpirationD.y);
-		fechaExpi.setOrigin(0, 0);
-		fechaExpi.setFill('#896789');
-		fechaExpi.setFontSize(11);
-		this.add(fechaExpi);
+		this.fechaExpi = new Date(scene, -58, 30	, this._sExpirationD.d, this._sExpirationD.m, this._sExpirationD.y);
+		this.fechaExpi.setOrigin(0, 0);
+		this.fechaExpi.setFontSize(this.fontsize);
+		this.add(this.fechaExpi);
 
 		//foto de la estatua
 		let photo = this.scene.add.sprite(36, 14.4, this._sPhoto);
@@ -63,9 +58,5 @@ export default class Authenticity_Certificate extends Documents{
 		this.add(photo);
 
     }
-
-	getInitialScale(){
-		return this.initialScale;
-	}
 
 }
