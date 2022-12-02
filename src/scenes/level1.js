@@ -1,9 +1,7 @@
-import Clock from '../objects/clock.js';
-import Fails from '../objects/fails.js';
 import Estatua from '../objects/statue.js';
-import Buttons_Yes_No from '../objects/button_yes_no.js';
 import Manual from '../objects/manual.js';
 import Boundary from '../objects/space_boundary.js';
+import HUD from '../auxs/HUD.js';
 
 // Escena que se trata del nivel 1 del juego
 
@@ -20,56 +18,33 @@ export default class Level1 extends Phaser.Scene {
     const CANVAS_WIDTH = this.sys.canvas.width;
     const CANVAS_HEIGHT = this.sys.canvas.height;
 
-    // se añade el fondo a la estatua
-    // todos los sprites se añaden después del fondo porque sino quedan debajo
-    this.add.image(0, 0, 'background').setOrigin(0, 0).setDisplaySize(CANVAS_WIDTH, CANVAS_HEIGHT);
+    this.infoStatues();
 
-    this.elapsed_Time = 0;
-    // tiempo que tiene que pasar para que se cambie de escena
-    this.timer = 1;
+    this.HUD = new HUD(this);
+    this.fails = this.HUD.getFailsObject();
 
-    new Buttons_Yes_No(this, CANVAS_WIDTH - 100, 380, true);
-    new Buttons_Yes_No(this, CANVAS_WIDTH - 100, 530, false);
-
-    // se instancia el reloj
-    // se pasa la fecha como un solo objeto con tres parámetros
-    new Clock(this, 90, CANVAS_HEIGHT - 70, {d: 15, m: 10, y: 2022});
-
-    // instancia de Fails
-    this.fails = new Fails(this, CANVAS_WIDTH - 10, 10);
-
-    this.infoStatues(CANVAS_WIDTH, CANVAS_HEIGHT);
+    // se crea el manual
+    new Manual(this, 650, CANVAS_WIDTH/4, false);
 
     // estatua instanciada
     // si es null quiere decir que no hay ninguna estatua instanciada
     this.statueInst = null;
     // se crea la primera estatua
-    this.documents = this.physics.add.group();
     this.newStatue();
-    // se crea el manual
-    new Manual(this, 650, CANVAS_WIDTH/4, false);
+    
+    this.documents = this.physics.add.group();
 
     this.boundaries = this.physics.add.staticGroup();
     let upper_boundary = new Boundary(this, -50, this.boundaries);
-
-    // this.physics.add.collider(floor, upper_boundary); // Colision de ocumentos con bondaries
+    // this.physics.add.collider(floor, upper_boundary); // Colision de documentos con bondaries
   }
 
-  infoStatues(canvasWidth, canvasHeight){
-    const POS_X = canvasWidth/2;
-    const POS_Y = 220;
-    const POS_X_CERT = canvasWidth/2 - 170;
-    const POS_Y_CERT = canvasHeight/2 - 70;
-
+  infoStatues(){
     // datos de las estatuas y los certificados
     let statue1 = {
-      escena: this,
-      posX: POS_X,
-      posY: POS_Y,
+      scene: this,
       sprite: "idle_man_1",
       pass: false,
-      posXCert: POS_X_CERT,
-      posYCert: POS_Y_CERT,
       name: "Huang",
       creation: {d: 23, m: 9, y: -218},
       number: "0010",
@@ -78,13 +53,9 @@ export default class Level1 extends Phaser.Scene {
     }
 
     let statue2 = {
-      escena: this,
-      posX: POS_X,
-      posY: POS_Y,
+      scene: this,
       sprite: "idle_man_2",
       pass: false,
-      posXCert: POS_X_CERT,
-      posYCert: POS_Y_CERT,
       name: "Chang",
       creation: {d: 25, m: 2, y: -232},
       number: "0011",
@@ -92,44 +63,10 @@ export default class Level1 extends Phaser.Scene {
       photo: 'idle_man_2'
     }
 
-    let statue3 = {
-      escena: this,
-      posX: POS_X,
-      posY: POS_Y,
-      sprite: "man3",
-      pass: true,
-      posXCert: POS_X_CERT,
-      posYCert: POS_Y_CERT,
-      name: "Jian",
-      creation: {d: 8, m: 10, y: -222},
-      number: "0100",
-      expiration: {d: 16, m: 5, y: 2030},
-      photo: 'man3'
-    }
-
-    let statue4 = {
-      escena: this,
-      posX: POS_X,
-      posY: POS_Y,
-      sprite: "man4",
-      pass: true,
-      posXCert: POS_X_CERT,
-      posYCert: POS_Y_CERT,
-      name: "Mao Mao",
-      creation: {d: 9, m: 11, y: -245},
-      number: "0110",
-      expiration: {d: 16, m: 4, y: 2032},
-      photo: 'man4'
-    }
-
     let statue5 = {
-      escena: this,
-      posX: POS_X,
-      posY: POS_Y,
+      scene: this,
       sprite: "idle_woman_1",
       pass: true,
-      posXCert: POS_X_CERT,
-      posYCert: POS_Y_CERT,
       name: "???",
       creation: {d: 9, m: 11, y: -245},
       number: "0111",
@@ -138,7 +75,7 @@ export default class Level1 extends Phaser.Scene {
     }
 
     // array con los datos de las estatuas y los certificados
-    this.statues = [statue1, statue2, statue3, statue4, statue5];
+    this.statues = [statue1, statue2, statue5];
   }
 
   newStatue(){ 
@@ -154,18 +91,7 @@ export default class Level1 extends Phaser.Scene {
     }
 
     if(this.statueAct != this.statues.length){
-      this.statueInst = new Estatua(this.statues[this.statueAct].escena, 
-        this.statues[this.statueAct].posX, 
-        this.statues[this.statueAct].posY, 
-        this.statues[this.statueAct].sprite, 
-        this.statues[this.statueAct].pass,
-        this.statues[this.statueAct].posXCert, 
-        this.statues[this.statueAct].posYCert, 
-        this.statues[this.statueAct].name, 
-        this.statues[this.statueAct].creation, 
-        this.statues[this.statueAct].number, 
-        this.statues[this.statueAct].expiration,
-        this.statues[this.statueAct].photo);
+      this.statueInst = new Estatua(this.statues[this.statueAct]);
     }
   }
 
