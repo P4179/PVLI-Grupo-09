@@ -10,19 +10,19 @@ export default class Estatua extends Phaser.GameObjects.Sprite {
 	 * @param {boolean} continue - booleano que define si la estatua pasa o no
 	 * @param {string} filename - nombre del archivo con el sprite
 	 */
-	constructor(scene, x, y, sprite, pass, xD, yD, sName, sCreationD, sSerialNumber, sExpirationD, sPhoto) {
-		super(scene, x, y, sprite);
+	constructor(statueInfo) {
+		super(statueInfo.scene, statueInfo.scene.sys.canvas.width/2, 218, statueInfo.sprite);
 		this.scene.add.existing(this);
 
 		this.setOrigin(0.5, 1);
-
 		this.setScale(0.5);
 
-		this.pass = pass;
+		this.pass = statueInfo.pass;
+
 		// Creamos las animaciones de nuestra estatua
 		this.scene.anims.create({
-			key: 'idle' + sprite,
-			frames: this.anims.generateFrameNumbers(sprite, {start:0, end:10}),
+			key: 'idle' + statueInfo.sprite,
+			frames: this.anims.generateFrameNumbers(statueInfo.sprite, {start:0, end:10}),
 			frameRate: 6,
 			repeat: -1
 		});
@@ -37,11 +37,12 @@ export default class Estatua extends Phaser.GameObjects.Sprite {
 		*/
 
 		// La animación a ejecutar según se genere el personaje será 'idle'
-		this.play('idle' + sprite);
+		this.play('idle' + statueInfo.sprite);
 		
-		
-		this.ACDocument = new Authenticity_Certificate(scene, xD, yD, sName, sCreationD, sSerialNumber, sExpirationD, sPhoto);
-		this.APDocument = new Author_Paper(scene, xD, yD, sName, sSerialNumber, sExpirationD);
+		this.ACDocument = new Authenticity_Certificate(statueInfo.scene, this.scene.sys.canvas.width/2 - 170, this.scene.sys.canvas.height/2 - 170,
+		 statueInfo.name, statueInfo.creation, statueInfo.number, statueInfo.expiration, statueInfo.photo);
+		this.APDocument = new Author_Paper(statueInfo.scene, this.scene.sys.canvas.width/2 - 120, this.scene.sys.canvas.height/2 - 170,
+		 statueInfo.name, statueInfo.number, statueInfo.expiration);
 		
 	}
 
