@@ -33,6 +33,7 @@ export default class Boot extends Phaser.Scene {
     // Botones
     this.load.spritesheet('button_yes', 'Boton_verde_Spritesheet.png', {frameWidth: 150, frameHeight: 147});
     this.load.spritesheet('button_no', 'Boton_rojo_SpriteSheet.png', {frameWidth: 150, frameHeight: 147});
+    this.load.spritesheet('button_xray', 'Boton_azul_SpriteSheet.png', {frameWidth: 150, frameHeight: 147});
 	  // Spritesheets de estatuas
     this.load.spritesheet('idle_man_1', 'animacion_retrato_hombre_1_spritesheet.png', {frameWidth: 420, frameHeight: 420});
     this.load.spritesheet('idle_man_2', 'animacion_retrato_hombre_2_spritesheet.png', {frameWidth: 420, frameHeight: 420});
@@ -41,7 +42,8 @@ export default class Boot extends Phaser.Scene {
 
     //Manual
     this.load.image('close_manual', 'close_manual.png');
-    this.load.image('open_manual', 'open_manual.png');
+    this.load.spritesheet('open_manualF', 'open_manualF.png', {frameWidth: 96, frameHeight: 48});
+    this.load.spritesheet('close_manualF', 'close_manualF.png', {frameWidth: 248, frameHeight: 248});
     this.load.spritesheet('close_manual(open)', 'close_manual(open).png', {frameWidth: 496, frameHeight: 248});
     this.load.spritesheet('open_manual(close)', 'open_manual(close).png', {frameWidth: 496, frameHeight: 248});
   }
