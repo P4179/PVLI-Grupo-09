@@ -1,4 +1,5 @@
 import Authenticity_Certificate from './Authenticity_Certificate.js'
+import Author_Paper from './author_paper.js';
 
 export default class Estatua extends Phaser.GameObjects.Sprite {
 	/**
@@ -40,6 +41,7 @@ export default class Estatua extends Phaser.GameObjects.Sprite {
 		
 		
 		this.ACDocument = new Authenticity_Certificate(scene, xD, yD, sName, sCreationD, sSerialNumber, sExpirationD, sPhoto);
+		this.APDocument = new Author_Paper(scene, xD, yD, sName, sSerialNumber, sExpirationD);
 		
 	}
 
