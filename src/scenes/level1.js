@@ -2,6 +2,7 @@ import Estatua from '../objects/statue.js';
 import Manual from '../objects/manual.js';
 import Boundary from '../objects/space_boundary.js';
 import HUD from '../auxs/HUD.js';
+import XRAY from '../objects/xray.js';
 
 // Escena que se trata del nivel 1 del juego
 
@@ -25,6 +26,8 @@ export default class Level1 extends Phaser.Scene {
 
     // se crea el manual
     new Manual(this, 650, CANVAS_WIDTH/4, false);
+    new XRAY(this, 100, 380);
+    this.infoStatues();
 
     // estatua instanciada
     // si es null quiere decir que no hay ninguna estatua instanciada

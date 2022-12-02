@@ -28,11 +28,11 @@ export default class Documents extends Phaser.GameObjects.Container {
 				gameObject.y = dragY;
 		});
 	}
-
+	/*
 	getAspecto() {
     	return this.aspecto;
   	}
-
+	*/
 	destroyMe(){
 		this.destroy();
 	}
