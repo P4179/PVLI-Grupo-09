@@ -13,13 +13,15 @@ export default class Manual extends Phaser.GameObjects.Sprite{
 	 */
 
 	constructor(scene, x, y, sello){
-		super(scene, x, y, "close_manual");
+		super(scene, x, y,"close_manual");
 		this.scene.add.existing(this);
 		this._sello = sello;
 		this._open = false;
 		this._cBegin = -246;
 		this._cEnd = -216;
 		this.setScale(0.59);
+
+		this._depth = 1;
 
         this.setInteractive();
 
@@ -35,6 +37,19 @@ export default class Manual extends Phaser.GameObjects.Sprite{
 		this.scene.anims.create({
 			key: 'm_open',
 			frames: scene.anims.generateFrameNumbers('close_manual(open)', {start:0, end:2}),
+			frameRate: 5,
+			repeat: 0
+		});
+
+		this.scene.anims.create({
+			key: 'open',
+			frames: scene.anims.generateFrameNumbers('open_manualF', {start:0, end:1}),
+			frameRate: 5,
+			repeat: 0
+		});
+		this.scene.anims.create({
+			key: 'close',
+			frames: scene.anims.generateFrameNumbers('close_manualF', {start:0, end:1}),
 			frameRate: 5,
 			repeat: 0
 		});
@@ -56,11 +71,16 @@ export default class Manual extends Phaser.GameObjects.Sprite{
 
     	this.on('animationcomplete', end => {
     		if(this.anims.currentAnim.key === 'm_open'){
+    			this.play('open');
+    			this.setScale(5);
 				textFecha = this.scene.add.text(this.x + 135, this.y - 75, 'Creation date interval:\n -246 --> -216', {fontFamily: 'Ink Free'}).setOrigin(0.5, 0.5);
 	            textFecha.setFontSize('25px');
 	            textFecha.setScale(0.7);
-	            this.setSizeToFrame('open_manual(close)');
+	            textFecha._depth = 1;
     		}	
+    		else if(this.anims.currentAnim.key === 'm_close'){
+    			this.play('close')
+    		}
 		})
 
 	}
