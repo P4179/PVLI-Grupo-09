@@ -14,15 +14,16 @@ constructor(){
 
    create ()
     {
-        
         this.createWindow();
         this.setText();
         this.toggleWindow();
-    
-        //this.scene.start('level1');
-    }
 
-    update(){}   
+        this.input.keyboard.addKey('Enter').on('down', () => {
+			// start es un método de un objeto scene
+			// finaliza la escena actual y da paso a la siguiente
+			this.scene.start('level1');
+		});
+    }
 
     createWindow() {
         this.dialogText.init();
@@ -37,7 +38,4 @@ constructor(){
         this.dialogText.toggleWindow();
         this.isToggled = !this.isToggled;
     }
-
-    
-
 }
