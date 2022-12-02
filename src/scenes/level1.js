@@ -20,7 +20,7 @@ export default class Level1 extends Phaser.Scene {
     const CANVAS_WIDTH = this.sys.canvas.width;
     const CANVAS_HEIGHT = this.sys.canvas.height;
 
-    // se añade el fondo a la estatua
+    // fondo
     // todos los sprites se añaden después del fondo porque sino quedan debajo
     this.add.image(0, 0, 'background').setOrigin(0, 0).setDisplaySize(CANVAS_WIDTH, CANVAS_HEIGHT);
 

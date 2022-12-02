@@ -1,31 +1,29 @@
-import Bg_Button from '../objects/bg_button.js'
+import Button from '../objects/button.js'
 
-export default class Button_Yes_No extends Phaser.GameObjects.Container {
+export default class Button_Yes_No extends Button {
 	/**
-	 * Constructor del documento
-	 * @param {Scene} scene - the GO's scene
-	 * @param {number} x - coordinate x
-	 * @param {number} y - coordinate y
+	 * Constructor del butón de sí y no, extiende de la clase botón
+	 * @param {Scene} scene - escena en la que aparece
+	 * @param {number} x - coordenada x
+	 * @param {number} y - coordenada y
 	 */
 	constructor(scene, x, y, type) {
-		super(scene, x, y);
-		this.scene.add.existing(this); 
-
-		// se crean los hijos y se añaden al propio container, es decir, al this
-		let aspecto = new Bg_Button(scene, 0, 0, type);
-		this.add(aspecto);
-
-		let text;
+		let sprite, text;
 		if(type){
-			text = "Yes"
+			sprite = 'button_yes';
+			text = 'yes';
 		}
 		else{
-			text = "No"
+			sprite = 'button_no';
+			text = 'no';
 		}
-		let textButton = this.scene.add.text(0, 0, text, {fontFamily: 'Ink Free'}).setOrigin(0.5, 0.5);
-		textButton.setFontSize('50px');
-		this.add(textButton);
+		super(scene, x, y, sprite, text);
 
-		this.setScale(0.8);
+		this.scene.add.existing(this);
+
+		// suscripción al evento, de modo que cuando se emita sucederá lo que hay en el arrow function
+		this.on(sprite, () => {
+			this.scene.nextStatue(type);
+		});
 	}
 }
