@@ -39,10 +39,12 @@ export default class Estatua extends Phaser.GameObjects.Sprite {
 		// La animación a ejecutar según se genere el personaje será 'idle'
 		this.play('idle' + statueInfo.sprite);
 		
-		this.ACDocument = new Authenticity_Certificate(statueInfo.scene, this.scene.sys.canvas.width/2 - 170, this.scene.sys.canvas.height/2 - 170,
+		this.ACDocument = new Authenticity_Certificate(statueInfo.scene, this.scene.sys.canvas.width/2 - 160, this.scene.sys.canvas.height/2 - 50,
 		 statueInfo.name, statueInfo.creation, statueInfo.number, statueInfo.expiration, statueInfo.photo);
-		this.APDocument = new Author_Paper(statueInfo.scene, this.scene.sys.canvas.width/2 - 120, this.scene.sys.canvas.height/2 - 170,
-		 statueInfo.name, statueInfo.number, statueInfo.expiration);
+
+		//Se pasa el numero del stamp que se quiere
+		this.APDocument = new Author_Paper(statueInfo.scene, this.scene.sys.canvas.width/2 - 110, this.scene.sys.canvas.height/2 - 50,
+		 statueInfo.name, statueInfo.number, statueInfo.expiration, 2);
 		
 	}
 
@@ -54,5 +56,6 @@ export default class Estatua extends Phaser.GameObjects.Sprite {
 		this.destroy();
 		// cuando la estatua se destruye también se destruyen los documentos que tiene asociados
 		this.ACDocument.destroyMe();
+		this.APDocument.destroyMe();
 	}
 }

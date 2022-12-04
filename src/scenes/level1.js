@@ -1,6 +1,5 @@
 import Estatua from '../objects/statue.js';
 import Manual from '../objects/manual.js';
-import Boundary from '../objects/space_boundary.js';
 import HUD from '../auxs/HUD.js';
 import XRAY from '../objects/xray.js';
 
@@ -34,12 +33,6 @@ export default class Level1 extends Phaser.Scene {
     this.statueInst = null;
     // se crea la primera estatua
     this.newStatue();
-    
-    this.documents = this.physics.add.group();
-
-    this.boundaries = this.physics.add.staticGroup();
-    let upper_boundary = new Boundary(this, -50, this.boundaries);
-    // this.physics.add.collider(floor, upper_boundary); // Colision de documentos con bondaries
   }
 
   infoStatues(){
@@ -121,6 +114,10 @@ export default class Level1 extends Phaser.Scene {
       // la puntuación es el número de estatuas que se han revisado menos el número de fallos
       this.scene.launch('end', {score: this.statueAct - this.fails.getFails()});
     }
+  }
+
+  getHUD(){
+    return this.HUD;
   }
 
 }
