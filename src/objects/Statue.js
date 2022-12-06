@@ -1,5 +1,6 @@
-import Authenticity_Certificate from './Authenticity_Certificate.js'
+import Authenticity_Certificate from './authenticity_certificate.js'
 import Author_Paper from './author_paper.js';
+import Material_Record from './material_record.js';
 
 export default class Estatua extends Phaser.GameObjects.Sprite {
 	/**
@@ -11,7 +12,7 @@ export default class Estatua extends Phaser.GameObjects.Sprite {
 	 * @param {string} filename - nombre del archivo con el sprite
 	 */
 	constructor(statueInfo) {
-		super(statueInfo.scene, statueInfo.scene.sys.canvas.width/2, 218, statueInfo.sprite);
+		super(statueInfo.scene, statueInfo.scene.sys.canvas.width / 2, 218, statueInfo.sprite);
 		this.scene.add.existing(this);
 
 		this.setOrigin(0.5, 1);
@@ -22,7 +23,10 @@ export default class Estatua extends Phaser.GameObjects.Sprite {
 		// Creamos las animaciones de nuestra estatua
 		this.scene.anims.create({
 			key: 'idle' + statueInfo.sprite,
-			frames: this.anims.generateFrameNumbers(statueInfo.sprite, {start:0, end:10}),
+			frames: this.anims.generateFrameNumbers(statueInfo.sprite, {
+				start: 0,
+				end: 10
+			}),
 			frameRate: 6,
 			repeat: -1
 		});
@@ -38,21 +42,28 @@ export default class Estatua extends Phaser.GameObjects.Sprite {
 
 		// La animación a ejecutar según se genere el personaje será 'idle'
 		this.play('idle' + statueInfo.sprite);
-		
-		this.ACDocument = new Authenticity_Certificate(statueInfo.scene, this.scene.sys.canvas.width/2 - 170, this.scene.sys.canvas.height/2 - 170,
-		 statueInfo.name, statueInfo.creation, statueInfo.number, statueInfo.expiration, statueInfo.photo);
-		this.APDocument = new Author_Paper(statueInfo.scene, this.scene.sys.canvas.width/2 - 120, this.scene.sys.canvas.height/2 - 170,
-		 statueInfo.name, statueInfo.number, statueInfo.expiration);
-		
+
+		this.ACDocument = new Authenticity_Certificate(statueInfo.scene, this.scene.sys.canvas.width / 2 - 160, this.scene.sys.canvas.height / 2 - 50,
+			statueInfo.name, statueInfo.creation, statueInfo.number, statueInfo.expiration, statueInfo.photo);
+
+		//Se pasa el numero del stamp que se quiere
+		this.APDocument = new Author_Paper(statueInfo.scene, this.scene.sys.canvas.width / 2 - 110, this.scene.sys.canvas.height / 2 - 50,
+			statueInfo.name, statueInfo.number, statueInfo.expiration, 2);
+
+		this.MRDocument = new Material_Record(statueInfo.scene, this.scene.sys.canvas.width / 2 - 110, this.scene.sys.canvas.height / 2 - 50,
+			statueInfo.name, statueInfo.creation)
+
 	}
 
-	canPass(){
+	canPass() {
 		return this.pass;
 	}
 
-	destroyMe(){
+	destroyMe() {
 		this.destroy();
 		// cuando la estatua se destruye también se destruyen los documentos que tiene asociados
 		this.ACDocument.destroyMe();
+		this.APDocument.destroyMe();
+		this.MRDocument.destroyMe();
 	}
 }

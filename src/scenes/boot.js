@@ -28,8 +28,12 @@ export default class Boot extends Phaser.Scene {
     this.load.image('auth_cert', 'AccessPermitInner.png');
     //Papel del autor
     this.load.image('auth_paper', 'IdSupplementInner.png');
+    //Registro de material
+    this.load.image('mat_reg', 'MaterialRecord.png')
     // Fondo de los niveles
     this.load.image('background', 'fondo_2.png');
+    //Sellos de museos
+    this.load.spritesheet('stamp_sprites', 'Stamps.png', {frameWidth: 42, frameHeight: 42})
     // Botones
     this.load.spritesheet('button_yes', 'Boton_verde_Spritesheet.png', {frameWidth: 150, frameHeight: 147});
     this.load.spritesheet('button_no', 'Boton_rojo_SpriteSheet.png', {frameWidth: 150, frameHeight: 147});
