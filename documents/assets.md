@@ -30,6 +30,7 @@ Lista de sprites:
 - Hombre_4.png
 - Hombre_4_FAKE.png
 - IdSupplementInner.png
+- MaterialRecord.png
 - open_manual(close).png
 - open_manual.png
 - open_manualF.png
