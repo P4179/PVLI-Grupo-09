@@ -18,5 +18,6 @@ Lista de sprites:
 - animacion_retrato_hombre_2_spritesheet.png (10080x13440)
 - animacion_retrato_hombre_5_spritesheet.png (10080x13440)
 - animacion_retrato_mujer_1_spritesheet.png (10080x13440)
+- animacion_retrato_mujer_2_spritesheet.png (10080x13440)
 - Boton_rojo_SpriteSheet.png (150x147)
 - Boton_verde_SpriteSheet.png (150x147)
