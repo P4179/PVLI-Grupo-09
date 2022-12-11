@@ -19,6 +19,7 @@ export default class Estatua extends Phaser.GameObjects.Sprite {
 		this.setScale(0.5);
 
 		this.pass = statueInfo.pass;
+		this.content = statueInfo.content;
 		this.comparatorActive = false;
 		this.compVar1 = null;
 		this.compVar2 = null;
@@ -80,6 +81,15 @@ export default class Estatua extends Phaser.GameObjects.Sprite {
 
 	canPass() {
 		return this.pass;
+	}
+
+	statueContent() { 
+		let Scontent = this.scene.add.image(this.x, this.y - 75, this.content);
+		Scontent.setScale(0.6);
+        setTimeout(() => {
+        	this.setTint(Phaser.Display.Color.GetColor(1000, 1000, 1000));
+	    	Scontent.destroy();
+    	}, 3000);
 	}
 
 	getDocuments() {

@@ -14,7 +14,14 @@ export default class XRAY extends Button {
         // suscripción al evento, de modo que cuando se emita sucederá lo que hay en el arrow function
         this.on('button_xray', () => {
             //animacin contenido estatua
-            this.scene.changeTint();      
+            this.scene.xray();      
         });
     }
+
+    /* Método para level 3
+    xray(){
+        this.statueInst.setTint(Phaser.Display.Color.GetColor(10, 10, 10));
+        this.statueInst.statueContent();
+    }
+    */
 }
