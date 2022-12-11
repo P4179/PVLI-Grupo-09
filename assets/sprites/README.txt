@@ -1,6 +1,7 @@
 Tamaño de los retratos: 420x420 píxeles
 
 Lista de sprites:
+- title_Screen.jpeg (1600x1200)
 - retrato_hombre_1.png (420x420)
 - retrato_hombre_1_FAKE.png (420x420)
 - retrato_hombre_1_FAKE_peque.png (140x140)
@@ -14,6 +15,7 @@ Lista de sprites:
 - hombre_4.png (140x140)
 - hombre_4_FAKE.PNG (140x140)
 - fondo_beta.png (1600x1200)
+- fondo_2.png (1600x1200)
 - animacion_retrato_hombre_1_spritesheet.png (10080x13440)
 - animacion_retrato_hombre_2_spritesheet.png (10080x13440)
 - animacion_retrato_hombre_5_spritesheet.png (10080x13440)
@@ -21,3 +23,17 @@ Lista de sprites:
 - animacion_retrato_mujer_2_spritesheet.png (10080x13440)
 - Boton_rojo_SpriteSheet.png (150x147)
 - Boton_verde_SpriteSheet.png (150x147)
+- Boton_azul_Spritesheet.png (150x147)
+- Boton_morado_Spritesheet.png (150x147)
+- close_manual(open).png (496x744)
+- close_manual.png (248x248)
+- close_manualF.png (248x496)
+- open_manual(close).png (496x744)
+- open_manual.png (96x48)
+- open_manualF.png (96x96)
+- digital-clock.png (2133x2133)
+- AccessPermitInner.png (147x134)
+- IdSupplementInner.png (90x109)
+- MaterialRecord.png (153x43)
+- Stamps.png (84x126)
+- Explosivo.png (128x128)

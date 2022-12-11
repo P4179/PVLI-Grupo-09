@@ -23,7 +23,7 @@ export default class Button_Yes_No extends Button {
 
 		// suscripción al evento, de modo que cuando se emita sucederá lo que hay en el arrow function
 		this.on(sprite, () => {
-			this.scene.nextStatue(type);
+			this.scene.nextStatue();
 		});
 	}
 }

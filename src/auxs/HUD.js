@@ -4,7 +4,6 @@ import Buttons_Yes_No from '../objects/button_yes_no.js';
 import Space_Boundary from '../objects/space_boundary.js';
 import Comparator from '../objects/comparator.js';
 
-
 // HUD
 
 export default class HUD extends Phaser.GameObjects.Container {

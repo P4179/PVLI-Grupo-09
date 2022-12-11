@@ -26,6 +26,7 @@ export default class Level1 extends Phaser.Scene {
     // se crea el manual
     new Manual(this, 650, CANVAS_WIDTH/4, false);
     new XRAY(this, 100, 380);
+
     this.infoStatues();
 
     // estatua instanciada
@@ -45,7 +46,8 @@ export default class Level1 extends Phaser.Scene {
       creation: {d: 23, m: 9, y: -218},
       number: "0010",
       expiration: {d: 28, m: 10, y: 2005},
-      photo: 'man1_Fake'
+      photo: 'man1_Fake',
+      content: 'explosive'
     }
 
     let statue2 = {
@@ -56,7 +58,8 @@ export default class Level1 extends Phaser.Scene {
       creation: {d: 25, m: 2, y: -232},
       number: "0011",
       expiration: {d: 1, m: 12, y: 2000},
-      photo: 'idle_man_2'
+      photo: 'idle_man_2',
+      content: 'empty'
     }
 
     let statue5 = {
@@ -67,7 +70,8 @@ export default class Level1 extends Phaser.Scene {
       creation: {d: 9, m: 11, y: -245},
       number: "0111",
       expiration: {d: 16, m: 4, y: 2032},
-      photo: 'woman1'
+      photo: 'woman1',
+      content: 'empty'
     }
 
     // array con los datos de las estatuas y los certificados
@@ -99,6 +103,11 @@ export default class Level1 extends Phaser.Scene {
 
     this.statueInst.destroyMe();
     this.newStatue();
+  }
+
+  xray(){
+    this.statueInst.setTint(Phaser.Display.Color.GetColor(10, 10, 10));
+    this.statueInst.statueContent();
   }
 
   update(t, dt){

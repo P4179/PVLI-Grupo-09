@@ -58,7 +58,7 @@ export default class Manual extends Phaser.GameObjects.Sprite{
 	        if(this._open){
 	            this.play('m_close');
 	            this._open = false;
-	            this.setScale(0.59);
+	            this.setScale(0.6);
 	            textFecha.destroy();
 	            this.setSizeToFrame('open_manual(close)');
 	        }

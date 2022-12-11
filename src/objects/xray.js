@@ -9,11 +9,19 @@ export default class XRAY extends Button {
     constructor(scene, x, y){
         super(scene, x, y, 'button_xray', "XRAY");
 
-        // suscripción al evento, de modo que cuando se emita sucederá lo que hay en el arrow function
-        this.on(this.sprite, () => {
-            // animacin contenido estatua
-        });
+        this.scene.add.existing(this);
 
-        this.setScale(0.8);
+        // suscripción al evento, de modo que cuando se emita sucederá lo que hay en el arrow function
+        this.on('button_xray', () => {
+            //animacin contenido estatua
+            this.scene.xray();      
+        });
     }
+
+    /* Método para level 3
+    xray(){
+        this.statueInst.setTint(Phaser.Display.Color.GetColor(10, 10, 10));
+        this.statueInst.statueContent();
+    }
+    */
 }
