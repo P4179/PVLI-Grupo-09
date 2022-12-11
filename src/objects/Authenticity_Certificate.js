@@ -31,24 +31,28 @@ export default class Authenticity_Certificate extends Documents{
 		this._sNametext = this.scene.add.bitmapText(-58, -35, 'documentFont', this._sName, this.fontsize);
 		this._sNametext.setOrigin(0, 0);
 		this._sNametext.setFontSize(this.fontsize);
+		this.interactiveGroup.add(this._sNametext);
 		this.add(this._sNametext);
 
 		//texto del día de creacion
 		this.fechaCrea = new Date(scene, -58, -14, this._sCreationD.d, this._sCreationD.m, this._sCreationD.y);
 		this.fechaCrea.setOrigin(0, 0);
 		this.fechaCrea.setFontSize(this.fontsize);
+		this.interactiveGroup.add(this.fechaCrea);
 		this.add(this.fechaCrea);
 
 		//texto numero de serie
 		this._sSerialNumbertext = this.scene.add.bitmapText(-58, 9, 'documentFont', this._sSerialNumber);
 		this._sSerialNumbertext.setOrigin(0, 0);
 		this._sSerialNumbertext.setFontSize(this.fontsize);
+		this.interactiveGroup.add(this._sSerialNumbertext);
 		this.add(this._sSerialNumbertext);
 
 		//texto dia de expiracion
 		this.fechaExpi = new Date(scene, -58, 30, this._sExpirationD.d, this._sExpirationD.m, this._sExpirationD.y);
 		this.fechaExpi.setOrigin(0, 0);
 		this.fechaExpi.setFontSize(this.fontsize);
+		this.interactiveGroup.add(this.fechaExpi);
 		this.add(this.fechaExpi);
 
 		//foto de la estatua
@@ -56,6 +60,8 @@ export default class Authenticity_Certificate extends Documents{
 		photo.setOrigin(0.5, 0.5)
 		photo.setScale(0.12);
 		this.add(photo);
+
+		this.makeChildsInteractive();
 
     }
 
