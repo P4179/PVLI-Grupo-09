@@ -25,18 +25,21 @@ export default class Author_Paper extends Documents{
 		this._sNametext = this.scene.add.bitmapText(-36, -17, 'documentFont', this._sName, this.fontsize);
 		this._sNametext.setOrigin(0, 0);
 		this._sNametext.setFontSize(this.fontsize);
+		this.interactiveGroup.add(this._sNametext);
 		this.add(this._sNametext);
 		
 		//texto numero de serie
 		this._sSerialNumbertext = this.scene.add.bitmapText(-36, 1, 'documentFont', this._sSerialNumber);
 		this._sSerialNumbertext.setOrigin(0, 0);
 		this._sSerialNumbertext.setFontSize(this.fontsize);
+		this.interactiveGroup.add(this._sSerialNumbertext);
 		this.add(this._sSerialNumbertext);
 		
 		//texto dia de expiracion
 		this.fechaExpi = new Date(scene, -36, 19, this._sExpirationD.d, this._sExpirationD.m, this._sExpirationD.y);
 		this.fechaExpi.setOrigin(0, 0);
 		this.fechaExpi.setFontSize(this.fontsize);
+		this.interactiveGroup.add(this.fechaExpi);
 		this.add(this.fechaExpi);
 		
 		//sprite del sello del museo
@@ -44,8 +47,8 @@ export default class Author_Paper extends Documents{
 		stamp.setScale(0.50);
 		stamp.alpha = 0.6;
 		this.add(stamp);
-		// stamp.frame = sStamp;
-		// this.stamp.alpha = 0.8;
+
+		this.makeChildsInteractive();
     }
 
 }

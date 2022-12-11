@@ -19,6 +19,9 @@ export default class Estatua extends Phaser.GameObjects.Sprite {
 		this.setScale(0.5);
 
 		this.pass = statueInfo.pass;
+		this.comparatorActive = false;
+		this.compVar1 = null;
+		this.compVar2 = null;
 
 		// Creamos las animaciones de nuestra estatua
 		this.scene.anims.create({
@@ -43,6 +46,8 @@ export default class Estatua extends Phaser.GameObjects.Sprite {
 		// La animación a ejecutar según se genere el personaje será 'idle'
 		this.play('idle' + statueInfo.sprite);
 
+		this.documents = this.scene.add.group();
+
 		this.ACDocument = new Authenticity_Certificate(statueInfo.scene, this.scene.sys.canvas.width / 2 - 160, this.scene.sys.canvas.height / 2 - 50,
 			statueInfo.name, statueInfo.creation, statueInfo.number, statueInfo.expiration, statueInfo.photo);
 
@@ -51,19 +56,61 @@ export default class Estatua extends Phaser.GameObjects.Sprite {
 			statueInfo.name, statueInfo.number, statueInfo.expiration, 2);
 
 		this.MRDocument = new Material_Record(statueInfo.scene, this.scene.sys.canvas.width / 2 - 110, this.scene.sys.canvas.height / 2 - 50,
-			statueInfo.name, statueInfo.creation)
+			statueInfo.name, statueInfo.creation);
 
+		//se anaden los documentos al grupo
+		this.documents.add(this.ACDocument);
+		this.documents.add(this.APDocument);
+		this.documents.add(this.MRDocument);
+	}
+
+	preUpdate(t, dt){
+		if(this.comparatorActive){
+			if(this.compVar1 !== null && this.compVar2 !== null){
+				if(this.compVar1 === this.compVar2) {
+					console.log('Correct');
+				}
+				else {
+					console.log('Inorrect');
+				}
+			}
+		}
 	}
 
 	canPass() {
 		return this.pass;
 	}
 
+	getDocuments() {
+		return this.documents;
+	}
+
+	comparator(state) {
+		this.comparatorActive = state;
+		this.documents.children.each(function (doc) {
+			doc.comparatorSwitch(state);
+		}, this);
+	}
+
+	setCompVar(v){
+		if(this.compVar1 === null){
+			this.compVar1 = v;
+		}
+		else if(this.compVar2 === null){
+			this.compVar2 = v;
+			this.varCounter++;
+		}
+		else {
+			this.compVar1 = v;
+			this.compVar2 = null;
+		}
+	}
+
 	destroyMe() {
 		this.destroy();
 		// cuando la estatua se destruye también se destruyen los documentos que tiene asociados
-		this.ACDocument.destroyMe();
-		this.APDocument.destroyMe();
-		this.MRDocument.destroyMe();
+		this.documents.children.each(function (doc) {
+			doc.destroyMe();
+		}, this);
 	}
 }

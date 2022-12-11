@@ -120,4 +120,8 @@ export default class Level1 extends Phaser.Scene {
     return this.HUD;
   }
 
+  getStatue() {
+    return this.statueInst;
+  }
+
 }
