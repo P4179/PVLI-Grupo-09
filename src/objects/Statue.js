@@ -65,6 +65,7 @@ export default class Estatua extends Phaser.GameObjects.Sprite {
 	}
 
 	preUpdate(t, dt){
+		super.preUpdate(t, dt);
 		if(this.comparatorActive){
 			if(this.compVar1 !== null && this.compVar2 !== null){
 				if(this.compVar1 === this.compVar2) {
