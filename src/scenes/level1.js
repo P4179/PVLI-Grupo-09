@@ -26,6 +26,7 @@ export default class Level1 extends Phaser.Scene {
     // se crea el manual
     new Manual(this, 650, CANVAS_WIDTH/4, false);
     new XRAY(this, 100, 380);
+
     this.infoStatues();
 
     // estatua instanciada
@@ -99,6 +100,14 @@ export default class Level1 extends Phaser.Scene {
 
     this.statueInst.destroyMe();
     this.newStatue();
+  }
+
+  changeTint(){
+    this.statueInst.setTint(Phaser.Display.Color.GetColor(10, 10, 10));
+  }
+
+  defaultTint(){
+    this.statueInst.setTint(Phaser.Display.Color.GetColor(0, 0, 0));
   }
 
   update(t, dt){
