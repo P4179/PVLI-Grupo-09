@@ -67,7 +67,13 @@ export default class Boot extends Phaser.Scene {
     this.load.spritesheet('open_manualF', 'open_manualF.png', {frameWidth: 96, frameHeight: 48});
     this.load.spritesheet('close_manualF', 'close_manualF.png', {frameWidth: 248, frameHeight: 248});
     this.load.spritesheet('close_manual(open)', 'close_manual(open).png', {frameWidth: 496, frameHeight: 248});
-    this.load.spritesheet('open_manual(close)', 'open_manual(close).png', {frameWidth: 496, frameHeight: 248})
+    this.load.spritesheet('open_manual(close)', 'open_manual(close).png', {frameWidth: 496, frameHeight: 248});
+
+    // Contenido
+    this.load.image('explosive', 'Explosivo.png');
+    this.load.image('empty', 'vacio.png');
+    this.load.image('book', 'book.png');
+    this.load.image('relic', 'relic.png');
   }
 
   // Creación de la escena
