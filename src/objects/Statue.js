@@ -55,6 +55,7 @@ export default class Statue extends Phaser.GameObjects.Sprite {
 
 	// comparar los parámetors de los documentos que traen las estatuas
 	preUpdate(t, dt){
+		super.preUpdate(t, dt);
 		if(this.comparatorActive){
 			if(this.compVar1 !== null && this.compVar2 !== null){
 				if(this.compVar1 === this.compVar2) {
