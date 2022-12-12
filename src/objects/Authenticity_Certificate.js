@@ -16,13 +16,13 @@ import Date from "../auxs/date.js";
 	 */
 export default class Authenticity_Certificate extends Documents{
     //Authenticity certificate's creator
-    constructor(scene, x, y, sName, sCreationD, sSerialNumber, sExpirationD, sPhoto){
+    constructor(scene, x, y, sName, sExpirationD, sPhoto, sCreationD, sSerialNumber){
         super(scene, x, y, 'auth_cert');
         this._sName = sName;
-        this._sCreationD = sCreationD;
-        this._sSerialNumber = sSerialNumber;
         this._sExpirationD = sExpirationD;
         this._sPhoto = sPhoto;
+        this._sCreationD = sCreationD;
+        this._sSerialNumber = sSerialNumber;
 		this.fontsize = 11;
 		
 		//centro: 73, 86
@@ -35,7 +35,7 @@ export default class Authenticity_Certificate extends Documents{
 		this.add(this._sNametext);
 
 		//texto del día de creacion
-		this.fechaCrea = new Date(scene, -58, -14, this._sCreationD.d, this._sCreationD.m, this._sCreationD.y);
+		this.fechaCrea = new Date(scene, -58, -14, this._sCreationD.day, this._sCreationD.month, this._sCreationD.year);
 		this.fechaCrea.setOrigin(0, 0);
 		this.fechaCrea.setFontSize(this.fontsize);
 		this.interactiveGroup.add(this.fechaCrea);
@@ -49,7 +49,7 @@ export default class Authenticity_Certificate extends Documents{
 		this.add(this._sSerialNumbertext);
 
 		//texto dia de expiracion
-		this.fechaExpi = new Date(scene, -58, 30, this._sExpirationD.d, this._sExpirationD.m, this._sExpirationD.y);
+		this.fechaExpi = new Date(scene, -58, 30, this._sExpirationD.day, this._sExpirationD.month, this._sExpirationD.year);
 		this.fechaExpi.setOrigin(0, 0);
 		this.fechaExpi.setFontSize(this.fontsize);
 		this.interactiveGroup.add(this.fechaExpi);

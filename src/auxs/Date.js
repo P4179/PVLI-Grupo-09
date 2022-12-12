@@ -1,7 +1,7 @@
 // Clase que se encarga de manejar las fechas
 // Por ejemplo, cuando haya que comparar dos fechas es más fácil
 
-export default class Date extends Phaser.GameObjects.BitmapText{
+export default class Date extends Phaser.GameObjects.BitmapText {
     /*
     * Constructor de Date
     * @param {Phaser.Scene} scene Escena a la que pertenece Start
@@ -12,7 +12,7 @@ export default class Date extends Phaser.GameObjects.BitmapText{
     * @param {number} year
     */
     constructor(scene, x, y, day, month, year){
-        super(scene, x, y, 'documentFont', "");
+        super(scene, x, y, 'documentFont');
 
         this._day = day;
         this._month = month;

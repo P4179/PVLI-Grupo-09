@@ -9,36 +9,34 @@ export default class End extends Phaser.Scene {
 
 	// se reciben los datos que se han pasado de la escena anterior y se guardan en un atributo de la clase
 	init(data){
-		this.score = data.score;
+		this.actDay = data.dayNumber;
 	}
 	
 	// Creación de la escena
 	create() {
+		const CANVAS_WIDTH = this.game.config.width;
+		const CANVAS_HEIGHT = this.game.config.height;
+
 		// se añade el texto a la escena actual
-		var end = this.add.text(this.sys.game.canvas.width/2, 
-			this.sys.game.canvas.height/2, 
-			"End!", 
-			{fontFamily: 'Ink Free'});
-		end.setOrigin(0.5, 0.5);
-		end.setStyle({
-			fontSize: '100px',
-			color: 'red'
-		});
+		var end = this.add.text(CANVAS_WIDTH/2, CANVAS_HEIGHT/2, "End", {fontFamily: 'Arial'})
+		.setOrigin(0.5, 0.5).setStyle({fontSize: 100, color: 'red'});
 
 		// se hace que el texto sea interactivo, de modo que al pulsarlo se produzca un evento
 		// si no se añaden argumentos a la función el área de toque es el de la textura
 		end.setInteractive();
 		// se produce este evento justo cuando se toca la imagen
 		end.on('pointerdown', () => {
-			this.scene.stop('level1');
-			this.scene.start('title');
+			++this.actDay;
+			let scene = 'day' + this.actDay;
+			if(this.actDay > 3) {
+				scene = 'title';
+			}
+			this.scene.start(scene);
 		});
 
 		// texto con la puntuación
-		var score = this.add.text(this.sys.game.canvas.width/2, 
-			this.sys.game.canvas.height/2 + 80, 
-			"Score: " + this.score, 
-			{fontFamily: 'Arial'}).setOrigin(0.5, 0.5);
-		score.setFontSize('25px');
+		// se convierte la puntuación a un entero porque todo lo que está guardado en localStorage es un string
+		var score = this.add.text(CANVAS_WIDTH/2, CANVAS_HEIGHT/2 + 80, "Score: " + parseInt(localStorage.getItem('score')), 
+			{fontFamily: 'Arial'}).setOrigin(0.5, 0.5).setFontSize(25);
 	}
 }

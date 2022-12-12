@@ -20,16 +20,17 @@ export default class Clock extends Phaser.GameObjects.Container {
 		// se crean los hijos y se añaden al propio container, es decir, al this
 		// se crea el sprite del reloj
 		let aspecto = this.scene.add.sprite(0, 0, 'clock');
-		// se cambia el tamaño del sprite
-		aspecto.setDisplaySize(130, 90);
+		aspecto.setScale(0.07);
 		// se añade como hijo al container
 		this.add(aspecto);
 
+
 		let fecha = new Date(scene, 0, 0, date.d, date.m, date.y);
+		fecha.setFontSize(20);
+        fecha.setTint(0xDC7633);
 		this.add(fecha);
 
 		// cambiar la escala del container, de modo que cambia el tamaño de todos sus hijos
 		// si no se pone el parámetro de la y se toma que es el mismo que el de la x
-		this.setScale(1.1);
 	}
 }

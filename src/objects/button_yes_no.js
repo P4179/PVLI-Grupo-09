@@ -11,11 +11,11 @@ export default class Button_Yes_No extends Button {
 		let sprite, text;
 		if(type){
 			sprite = 'button_yes';
-			text = 'yes';
+			text = 'YES';
 		}
 		else{
 			sprite = 'button_no';
-			text = 'no';
+			text = 'NO';
 		}
 		super(scene, x, y, sprite, text);
 
@@ -23,7 +23,9 @@ export default class Button_Yes_No extends Button {
 
 		// suscripción al evento, de modo que cuando se emita sucederá lo que hay en el arrow function
 		this.on(sprite, () => {
-			this.scene.nextStatue();
+			this.aspecto.play('click' + sprite);
+            this.moveText.play();
+			this.scene.statueManager.nextStatue(type);
 		});
 	}
 }

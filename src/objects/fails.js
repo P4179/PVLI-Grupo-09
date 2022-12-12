@@ -1,13 +1,12 @@
 // clase Fails: se ocupa de los fallos que comete el jugador en un nivel
 
-export default class Fails extends Phaser.GameObjects.Text { 
+export default class Fails extends Phaser.GameObjects.BitmapText { 
 	// constructor de la clase Fails
 	constructor(scene, x, y){ 
-		super(scene, x, y, "", {fontFamily:'Cambria'});
+		super(scene, x, y, 'documentFont');
 		this.scene.add.existing(this);
 
-		this.setOrigin(1, 0);
-		this.setFontSize(25);
+		this.setOrigin(1, 0).setFontSize(25).setTintFill(0xFFFFFF);
 
 		this.fails = 0; // fallos iniciales del jugador
 		this.actFails();

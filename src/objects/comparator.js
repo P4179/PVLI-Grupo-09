@@ -9,8 +9,7 @@ export default class Comparator extends Button {
      */
     constructor(scene, x, y) {
         let sprite, text, state;
-
-        text = 'Comparator';
+        text = 'COMPARE';
         sprite = 'button_xray';
         state = false;
 
@@ -18,12 +17,18 @@ export default class Comparator extends Button {
 
         this.scene.add.existing(this);
 
+        this.textButton.setFontSize(20);
+
         // suscripción al evento, de modo que cuando se emita sucederá lo que hay en el arrow function
         this.on(sprite, () => {
-            if (!state)
+            if (!state) {
+                this.aspecto.play('press' + sprite);
                 state = true;
-            else
+            }
+            else {
+                this.aspecto.play('unpress' + sprite);
                 state = false;
+            }
             this.scene.getStatue().comparator(state);
         });
     }

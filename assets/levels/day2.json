@@ -1,0 +1,51 @@
+[
+  {
+    "sprite": "man1",
+    "name": "Xiang",
+    "expiration_date": {
+      "day": 6,
+      "month": 11,
+      "year": 2080
+    },
+    "photo": "man1",
+    "creation_date": {
+      "day": 30,
+      "month": 8,
+      "year": -238
+    },
+    "serial_number": "XX-0000",
+    "color": "mostaza",
+    "creation_date2": {
+      "day": 13,
+      "month": 8,
+      "year": -18
+    },
+    "sound": "agudo",
+    "pass": false
+  },
+
+  {
+    "sprite": "man2",
+    "name": "Xiang",
+    "expiration_date": {
+      "day": 6,
+      "month": 11,
+      "year": 2080
+    },
+    "photo": "man2",
+    "creation_date": {
+      "day": 30,
+      "month": 8,
+      "year": -238
+    },
+    "serial_number": "XX-0000",
+    "color": "mostaza",
+    "creation_date2": {
+      "day": 13,
+      "month": 8,
+      "year": -18
+    },
+    "sound": "agudo",
+    "pass": false
+  }
+]

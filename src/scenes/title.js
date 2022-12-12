@@ -14,7 +14,7 @@ export default class Title extends Phaser.Scene {
 	// En la escena del título solo cargaremos el fondo y luego,
 	// el resto de assets se cargará en otra escena
 	preload(){
-		this.load.image('title_Screen', 'assets/sprites/title_Screen.jpeg');
+		this.load.image('title_Screen', 'assets/sprites/fondos/title_Screen.jpeg');
 	}
 
 	// Creación de la escena
