@@ -9,7 +9,7 @@ import Comparator from '../objects/comparator.js';
 export default class HUD extends Phaser.GameObjects.Container {
 	// Constructor de la escena
 	// Argumento fecha para el reloj
-	constructor(scene){
+	constructor(scene, date){
 		super(scene, 0, 0);
 
 		this.scene.add.existing(this);
@@ -26,7 +26,7 @@ export default class HUD extends Phaser.GameObjects.Container {
 
 		// se instancia el reloj
 		// se pasa la fecha como un solo objeto con tres parámetros
-		this.add(new Clock(this.scene, 90, CANVAS_HEIGHT - 70, {d: 15, m: 10, y: 2022}));
+		this.add(new Clock(this.scene, 90, CANVAS_HEIGHT - 70, date));
 
 		// instancia de Fails
 		this.fails = new Fails(this.scene, CANVAS_WIDTH - 10, 10);

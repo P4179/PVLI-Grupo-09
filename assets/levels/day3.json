@@ -1,0 +1,55 @@
+[
+  {
+    "sprite": "man1",
+    "name": "Jing",
+    "expiration_date": {
+      "day": 28,
+      "month": 10,
+      "year": 2025
+    },
+    "photo": "man1",
+    "creation_date": {
+      "day": 8,
+      "month": 2,
+      "year": -231
+    },
+    "serial_number": "XX-1001",
+    "name2": "Jing",
+    "serial_number2": "XX-1001",
+    "expiration_date2": {
+      "day": 23,
+      "month": 5,
+      "year": 2024
+    },
+    "stamp": 0,
+    "rx": "explosive",
+    "pass": false
+  },
+
+  {
+    "sprite": "man2",
+    "name": "Jing",
+    "expiration_date": {
+      "day": 28,
+      "month": 10,
+      "year": 2025
+    },
+    "photo": "man2",
+    "creation_date": {
+      "day": 8,
+      "month": 2,
+      "year": -231
+    },
+    "serial_number": "XX-1001",
+    "name2": "Jing",
+    "serial_number2": "XX-1001",
+    "expiration_date2": {
+      "day": 23,
+      "month": 5,
+      "year": 2024
+    },
+    "stamp": 1,
+    "rx": "empty",
+    "pass": true
+  }
+]

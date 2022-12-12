@@ -6,15 +6,18 @@ export default class StatueLv3 extends Statue {
 	constructor(scene, info) {
 		super(scene, info);
 
-		this.content = info[7];
+		this.content = info.rx;
 
 		const CANVAS_WIDTH = this.scene.game.config.width;
 		const CANVAS_HEIGHT = this.scene.game.config.height;
 
 		this.ACDocument = new Authenticity_Certificate(this.scene, CANVAS_WIDTH / 2 - 160, CANVAS_HEIGHT / 2 - 50,
-			info[2], info[3], info[4], info[5], info[6]);
+			info.name, info.expiration_date, info.photo, info.creation_date, info.serial_number);
 		this.IDDocument = new Identity_Suplement(this.scene, CANVAS_WIDTH / 2 - 110, CANVAS_HEIGHT / 2 - 50,
-			info[7], info[8], info[9], info[10]);
+			info.name2, info.serial_number2, info.expiration_date2, info.stamp);
+
+		this.documents.add(this.ACDocument);
+		this.documents.add(this.IDDocument);
 	}
 
 	showContent() {
@@ -28,12 +31,5 @@ export default class StatueLv3 extends Statue {
         	this.setTint(Phaser.Display.Color.GetColor(1000, 1000, 1000));
 	    	Scontent.destroy();
     	}, 3000);
-	}
-
-	destroyMe() {
-		super.destroyMe();
-		// cuando se destruye una estatua también se destruyen sus documentos
-		this.ACDocument.destroyMe();
-		this.IDDocument.destroyMe();
 	}
 }

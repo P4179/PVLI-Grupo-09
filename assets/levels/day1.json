@@ -1,0 +1,37 @@
+[
+  {
+    "sprite": "man1",
+    "name": "Huang",
+    "expiration_date": {
+      "day": 28,
+      "month": 10,
+      "year": 2025
+    },
+    "photo": "man1_Fake",
+    "creation_date": {
+      "day": 23,
+      "month": 9,
+      "year": -218
+    },
+    "serial_number": "XX-0010",
+    "pass": false
+  },
+
+  {
+    "sprite": "man2",
+    "name": "Chang",
+    "expiration_date": {
+      "day": 1,
+      "month": 12,
+      "year": 2000
+    },
+    "photo": "man2",
+    "creation_date": {
+      "day": 25,
+      "month": 2,
+      "year": -232
+    },
+    "serial_number": "XX-0010",
+    "pass": false
+  }
+]

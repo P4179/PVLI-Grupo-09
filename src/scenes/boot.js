@@ -8,6 +8,12 @@ export default class Boot extends Phaser.Scene {
 
   // Carga de los assets del juego
   preload() {
+    // NIVELES
+    this.load.setPath('assets/levels');
+    this.load.text('day1', 'day1.json');
+    this.load.text('day2', 'day2.json');
+    this.load.text('day3', 'day3.json');
+
     // TEXTO BITMAP
     this.load.setPath('assets/fonts');
     // Texto para los documentos

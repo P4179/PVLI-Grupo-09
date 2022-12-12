@@ -8,21 +8,21 @@ export default class Statue extends Phaser.GameObjects.Sprite {
 	 * @param {string} filename - nombre del archivo con el sprite
 	 */
 	constructor(scene, info) {
-		super(scene, scene.game.config.width / 2, 217.5, info[0]);
+		super(scene, scene.game.config.width / 2, 217.5, info.sprite);
 		this.scene.add.existing(this);
 
 		this.setOrigin(0.5, 1);
 		this.setScale(0.5);
 
-		this.sprite = info[0];
-		// convertir info[1] en un booleano
-		this.pass = info[1] === 'true';
+		this.sprite = info.sprite;
+		this.pass = info.pass;
 
+		// comparador
 		this.comparatorActive = false;
 		this.compVar1 = null;
 		this.compVar2 = null;
 
-		// se crea un grupo con los documentos
+		// se crea un grupo con los documentos, que se añadirán en los archivos de las clases hijas
 		this.documents = this.scene.add.group();
 
 		// Creamos las animaciones de nuestra estatua
@@ -90,12 +90,5 @@ export default class Statue extends Phaser.GameObjects.Sprite {
 			this.compVar1 = v;
 			this.compVar2 = null;
 		}
-	}
-
-	destroyMe() {
-		this.destroy();
-		this.documents.children.each(function (doc) {
-			doc.destroyMe();
-		}, this);
 	}
 }

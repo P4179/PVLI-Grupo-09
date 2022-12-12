@@ -1,6 +1,8 @@
 import Title from './scenes/title.js';
 import Boot from './scenes/boot.js';
 import Day1 from './scenes/day1.js'
+import Day2 from './scenes/day2.js'
+import Day3 from './scenes/day3.js'
 import End from './scenes/end.js'
 
 // Configuración de Phaser
@@ -46,7 +48,7 @@ let config = {
         }
     },
     // escenas que hay en el juego
-    scene: [Title, Boot, Day1, End],
+    scene: [Title, Boot, Day1, Day2, Day3, End],
     title: "Proyecto final"
 };
 

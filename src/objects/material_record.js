@@ -16,7 +16,7 @@ export default class Material_Record extends Documents{
     constructor(scene, x, y, sName, sCreationD, sColour){
         super(scene, x, y, 'mat_reg');
         this._sName = sName;
-        this._sCreationD = sCreationD.split(' ');
+        this._sCreationD = sCreationD;
 		this.fontsize = 9;
 		
 		//color texto: #837485
@@ -28,7 +28,7 @@ export default class Material_Record extends Documents{
 		this.add(this._sNametext);
 		
 		//texto dia de expiracion
-		this.fechaCrea = new Date(scene, -33, 8, this._sCreationD[0], this._sCreationD[1], this._sCreationD[2]);
+		this.fechaCrea = new Date(scene, -33, 8, this._sCreationD.day, this._sCreationD.month, this._sCreationD.year);
 		this.fechaCrea.setOrigin(0, 0);
 		this.fechaCrea.setFontSize(this.fontsize);
 		this.interactiveGroup.add(this.fechaCrea);

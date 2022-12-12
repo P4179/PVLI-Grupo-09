@@ -10,15 +10,11 @@ export default class StatueLv2 extends Statue {
 		const CANVAS_HEIGHT = this.scene.game.config.height;
 
 		this.ACDocument = new Authenticity_Certificate(this.scene, CANVAS_WIDTH / 2 - 160, CANVAS_HEIGHT / 2 - 50,
-			info[2], info[3], info[4], info[5], info[6]);
+			info.name, info.expiration_date, info.photo, info.creation_date, info.serial_number);
 		this.MRDocument = new Material_Record(this.scene, CANVAS_WIDTH / 2 - 110, CANVAS_HEIGHT / 2 - 50,
-			info[8], info[9]);
-	}
+			info.name, info.creation_date2, info.color);
 
-	destroyMe() {
-		super.destroyMe();
-		// cuando se destruye una estatua también se destruyen sus documentos
-		this.ACDocument.destroyMe();
-		this.MRDocument.destroyMe();
+		this.documents.add(this.ACDocument);
+		this.documents.add(this.MRDocument);
 	}
 }
