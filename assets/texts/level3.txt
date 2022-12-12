@@ -1,0 +1,30 @@
+2
+12
+
+Statue1
+man1
+false
+Jing
+22 08 2074
+man1
+14 9 -228
+XX-1001
+Jing
+XX-1001
+22 08 2074
+1
+false
+
+Statue2
+man2
+true
+Qiao
+10 8 2113
+man2
+8 11 -234
+XX-0000
+Qiao
+XX-0000
+10 8 2113
+2
+false

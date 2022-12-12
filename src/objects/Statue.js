@@ -1,8 +1,4 @@
-import Authenticity_Certificate from './authenticity_certificate.js'
-import Author_Paper from './author_paper.js';
-import Material_Record from './material_record.js';
-
-export default class Estatua extends Phaser.GameObjects.Sprite {
+export default class Statue extends Phaser.GameObjects.Sprite {
 	/**
 	 * Constructor de Estatua, estatua de terracota
 	 * @param {Scene} scene - escena en la que aparece
@@ -11,29 +7,37 @@ export default class Estatua extends Phaser.GameObjects.Sprite {
 	 * @param {boolean} continue - booleano que define si la estatua pasa o no
 	 * @param {string} filename - nombre del archivo con el sprite
 	 */
-	constructor(statueInfo) {
-		super(statueInfo.scene, statueInfo.scene.sys.canvas.width / 2, 218, statueInfo.sprite);
+	constructor(scene, info) {
+		super(scene, scene.game.config.width / 2, 217.5, info[0]);
 		this.scene.add.existing(this);
 
 		this.setOrigin(0.5, 1);
 		this.setScale(0.5);
 
-		this.pass = statueInfo.pass;
-		this.content = statueInfo.content;
+		this.sprite = info[0];
+		// convertir info[1] en un booleano
+		this.pass = info[1] === 'true';
+
 		this.comparatorActive = false;
 		this.compVar1 = null;
 		this.compVar2 = null;
 
+		// se crea un grupo con los documentos
+		this.documents = this.scene.add.group();
+
 		// Creamos las animaciones de nuestra estatua
 		this.scene.anims.create({
-			key: 'idle' + statueInfo.sprite,
-			frames: this.anims.generateFrameNumbers(statueInfo.sprite, {
+			key: 'idle' + this.sprite,
+			frames: this.anims.generateFrameNumbers(this.sprite, {
 				start: 0,
 				end: 10
 			}),
 			frameRate: 6,
 			repeat: -1
 		});
+
+		// La animación a ejecutar según se genere el personaje será 'idle'
+		this.play('idle' + this.sprite);
 
 		/*
 		// Si la animación de entrada se completa pasamos a ejecutar la animación 'idle'
@@ -43,30 +47,14 @@ export default class Estatua extends Phaser.GameObjects.Sprite {
 			}
 		})
 		*/
-
-		// La animación a ejecutar según se genere el personaje será 'idle'
-		this.play('idle' + statueInfo.sprite);
-
-		this.documents = this.scene.add.group();
-
-		this.ACDocument = new Authenticity_Certificate(statueInfo.scene, this.scene.sys.canvas.width / 2 - 160, this.scene.sys.canvas.height / 2 - 50,
-			statueInfo.name, statueInfo.creation, statueInfo.number, statueInfo.expiration, statueInfo.photo);
-
-		//Se pasa el numero del stamp que se quiere
-		this.APDocument = new Author_Paper(statueInfo.scene, this.scene.sys.canvas.width / 2 - 110, this.scene.sys.canvas.height / 2 - 50,
-			statueInfo.name, statueInfo.number, statueInfo.expiration, 2);
-
-		this.MRDocument = new Material_Record(statueInfo.scene, this.scene.sys.canvas.width / 2 - 110, this.scene.sys.canvas.height / 2 - 50,
-			statueInfo.name, statueInfo.creation);
-
-		//se anaden los documentos al grupo
-		this.documents.add(this.ACDocument);
-		this.documents.add(this.APDocument);
-		this.documents.add(this.MRDocument);
 	}
 
+	canPass(type) {
+		return this.pass !== type;
+	}
+
+	// comparar los parámetors de los documentos que traen las estatuas
 	preUpdate(t, dt){
-		super.preUpdate(t, dt);
 		if(this.comparatorActive){
 			if(this.compVar1 !== null && this.compVar2 !== null){
 				if(this.compVar1 === this.compVar2) {
@@ -77,19 +65,6 @@ export default class Estatua extends Phaser.GameObjects.Sprite {
 				}
 			}
 		}
-	}
-
-	canPass() {
-		return this.pass;
-	}
-
-	statueContent() { 
-		let Scontent = this.scene.add.image(this.x, this.y - 75, this.content);
-		Scontent.setScale(0.6);
-        setTimeout(() => {
-        	this.setTint(Phaser.Display.Color.GetColor(1000, 1000, 1000));
-	    	Scontent.destroy();
-    	}, 3000);
 	}
 
 	getDocuments() {
@@ -119,7 +94,6 @@ export default class Estatua extends Phaser.GameObjects.Sprite {
 
 	destroyMe() {
 		this.destroy();
-		// cuando la estatua se destruye también se destruyen los documentos que tiene asociados
 		this.documents.children.each(function (doc) {
 			doc.destroyMe();
 		}, this);

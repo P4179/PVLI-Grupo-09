@@ -36,14 +36,15 @@ export default class HUD extends Phaser.GameObjects.Container {
 
 		// instancia de bounadries
 		this.boundaries = this.scene.physics.add.staticGroup();
+		// límite superior
 		this.upper_boundary = new Phaser.GameObjects.Rectangle(this.scene, this.scene.sys.canvas.width / 2, this.scene.sys.canvas.height/2 - 170, 550);
-		// this.left_boundary = new Phaser.GameObjects.Rectangle(this.scene,  this.scene.sys.canvas.width / 2, this.scene.sys.canvas.height/2 + 65, 500);
-		// this.right_boundary = new Phaser.GameObjects.Rectangle(this.scene, 50, -25, 500);
 		this.scene.add.existing(this.upper_boundary);
-		// this.scene.add.existing(this.left_boundary);
-		// this.scene.add.existing(this.right_boundary);
 		this.boundaries.add(this.upper_boundary);
+		// this.left_boundary = new Phaser.GameObjects.Rectangle(this.scene,  this.scene.sys.canvas.width / 2, this.scene.sys.canvas.height/2 + 65, 500);
+		// this.scene.add.existing(this.left_boundary);
 		// this.boundaries.add(this.left_boundary);
+		// this.right_boundary = new Phaser.GameObjects.Rectangle(this.scene, 50, -25, 500);
+		// this.scene.add.existing(this.right_boundary);
 		// this.boundaries.add(this.right_boundary);
 	}
 

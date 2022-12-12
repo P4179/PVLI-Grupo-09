@@ -1,11 +1,10 @@
 import Title from './scenes/title.js';
 import Boot from './scenes/boot.js';
-import Level1 from './scenes/level1.js'
+import Day1 from './scenes/day1.js'
 import End from './scenes/end.js'
 
 // Configuración de Phaser
 // Se crea la clase game que se encarga de crear e iniciar el juego
-
 let config = {
     type: Phaser.AUTO,
     // elemento donde se coloca el canvas
@@ -21,8 +20,8 @@ let config = {
         mode: Phaser.Scale.FIT,
         // tamaño mínimo del canvas
         min: {
-            width: 328,
-            height: 188
+            width: 300,
+            height: 200
         },
         // tamaño máximo del canvas
         max: {
@@ -33,8 +32,6 @@ let config = {
         // 1 significa que no se modifica el tamaño
         zoom: 1
     },
-    // nombre de la clase de la escena
-    scene: [Title, Level1, Boot, End],
     // fisicas
     physics: { 
         default: 'arcade', 
@@ -48,7 +45,9 @@ let config = {
             right: true
         }
     },
-    title: "Demo"
+    // escenas que hay en el juego
+    scene: [Title, Boot, Day1, End],
+    title: "Proyecto final"
 };
 
 new Phaser.Game(config);

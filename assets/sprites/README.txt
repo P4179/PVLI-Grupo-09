@@ -1,5 +1,3 @@
-Tamaño de los retratos: 420x420 píxeles
-
 Lista de sprites:
 - title_Screen.jpeg (1600x1200)
 - retrato_hombre_1.png (420x420)
@@ -37,3 +35,8 @@ Lista de sprites:
 - MaterialRecord.png (153x43)
 - Stamps.png (84x126)
 - Explosivo.png (128x128)
+
+Lista de spritesheets
+- Botón spritesheet (150x147 cada frame)
+- Estatuas (420x420 cada frame)
+- Sellos (42x42 cada frame)

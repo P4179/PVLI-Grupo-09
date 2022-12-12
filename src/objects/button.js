@@ -25,13 +25,24 @@ export default class Button extends Phaser.GameObjects.Container {
         this.add(aspecto);
 
         // se asigna el texto dependiendo del botón
-        let textButton = this.scene.add.text(0, 0, text, {fontFamily: 'Ink Free'}).setOrigin(0.5, 0.5).setFontSize('50px');
+        let textButton = this.scene.add.bitmapText(0, 0, 'documentFont', text, 30)
+        .setOrigin(0.5, 0.5).setTintFill(0xFFFFFF).setDropShadow(5);
+        // tween para que el texto se mueva un poco para abajo cuando se pulsa el botón
+        let tween = this.scene.tweens.add({
+            targets: textButton,
+            y: 8,
+            duration: 60,
+            yoyo: true,
+            repeat: 0,
+            paused: true,
+        });
         this.add(textButton);
 
         aspecto.setInteractive();
 
         aspecto.on('pointerdown', () => {
             aspecto.play('click' + sprite);
+            tween.play();
             // cuando se pulsa el botón se emite el evento propio
             this.emit(sprite);
         });

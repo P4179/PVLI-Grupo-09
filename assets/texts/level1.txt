@@ -1,0 +1,20 @@
+2
+7
+
+Statue1
+man1
+false
+Huang
+28 10 2025
+man1_Fake
+23 9 -218
+XX-0010
+
+Statue2
+man2
+false
+Chang
+1 12 2000
+man2
+25 2 -232
+XX-0011
