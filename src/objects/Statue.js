@@ -60,29 +60,7 @@ export default class Statue extends Phaser.GameObjects.Sprite {
 		})
 		*/
 
-		// ini conf
-
-		// La animación a ejecutar según se genere el personaje será 'idle'
-		this.play('idle' + statueInfo.sprite);
-
-		this.documents = this.scene.add.group();
-
-		this.ACDocument = new Authenticity_Certificate(statueInfo.scene, this.scene.sys.canvas.width / 2 - 160, this.scene.sys.canvas.height / 2 - 50,
-			statueInfo.name, statueInfo.creation, statueInfo.number, statueInfo.expiration, statueInfo.photo);
-
-		//Se pasa el numero del stamp que se quiere
-		this.APDocument = new Author_Paper(statueInfo.scene, this.scene.sys.canvas.width / 2 - 110, this.scene.sys.canvas.height / 2 - 50,
-			statueInfo.name, statueInfo.number, statueInfo.expiration, 2);
-
-		this.MRDocument = new Material_Record(statueInfo.scene, this.scene.sys.canvas.width / 2 - 110, this.scene.sys.canvas.height / 2 - 50,
-			statueInfo.name, statueInfo.creation);
-
-		//se anaden los documentos al grupo
-		this.documents.add(this.ACDocument);
-		this.documents.add(this.APDocument);
-		this.documents.add(this.MRDocument);
-
-		let tween = statueInfo.scene.tweens.add({
+		let tween = this.scene.tweens.add({
 		    targets: [ this ],
 		    x: this.scene.sys.canvas.width / 2,
 		    y: 112,
@@ -102,8 +80,6 @@ export default class Statue extends Phaser.GameObjects.Sprite {
 		function listener() {
 		    // hacemos algo cuando termina el tween
 		}
-
-		// fin conf
 	}
 
 	canPass(type) {
