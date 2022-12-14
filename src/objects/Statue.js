@@ -11,9 +11,12 @@ export default class Statue extends Phaser.GameObjects.Sprite {
 		super(scene, scene.game.config.width / 2, 217.5, info.sprite);
 		this.scene.add.existing(this);
 
-		this.setOrigin(0.5, 1);
-		this.setScale(0.5);
-		
+		//this.setOrigin(0.5, 1);
+		//this.setOrigin(0.5, 1);
+		//this.setScale(0.5);
+		this.setPosition(this.scene.sys.canvas.width / 2, 195);
+		this.setScale(0);
+
 		this.sprite = info.sprite;
 		this.pass = info.pass;
 		this.setInteractive();
@@ -56,6 +59,27 @@ export default class Statue extends Phaser.GameObjects.Sprite {
 			}
 		})
 		*/
+
+		this.tween = this.scene.tweens.add({
+		    targets: [ this ],
+		    x: this.scene.game.config.width / 2,
+		    y: 112,
+		    scaleX: 0.5,
+		    scaleY: 0.5,
+		    duration: 1000,
+		    ease: 'Sine.easeInOut',
+		    //ease: 'Linear',
+		    paused: true,
+		    flipX: false,
+		    yoyo: false,
+		    repeat: 0,
+		    delay: 1
+		});
+
+		this.tween.on('complete', () => {
+			this.emit('arrive');
+		})
+
 	}
 
 	canPass(type) {
