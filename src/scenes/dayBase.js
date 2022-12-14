@@ -9,12 +9,17 @@ export default class DayBase extends Phaser.Scene {
 
 	create() {
 		// temporizador, se pone en minutos
-    	this.timer = 0.1;
+    	this.timer = 1;
     	// tiempo transcurrido desde el comienzo del día
     	this.elapsed_Time = 0;
 
     	let objectHUD = new HUD(this, this.date);
     	this.fails = objectHUD.getFailsObject();
+
+      this.grayscreen = this.add.rectangle(0, 0, this.game.config.width, this.game.config.height, 0x000000, 0.5);
+      this.grayscreen.setOrigin(0);
+      this.grayscreen.setVisible(false);
+
 	}
 
 	update(t, dt){
@@ -39,5 +44,9 @@ export default class DayBase extends Phaser.Scene {
   
   getStatue() {
     return this.statueManager.statueInst;
+  }
+
+  darkenScreen(b) {
+    this.grayscreen.setVisible(b);
   }
 }

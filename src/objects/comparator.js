@@ -10,7 +10,7 @@ export default class Comparator extends Button {
     constructor(scene, x, y) {
         let sprite, text, state;
         text = 'COMPARE';
-        sprite = 'button_xray';
+        sprite = 'button_comp';
         state = false;
 
         super(scene, x, y, sprite, text);
@@ -30,6 +30,7 @@ export default class Comparator extends Button {
                 state = false;
             }
             this.scene.getStatue().comparator(state);
+            this.scene.darkenScreen(state);
         });
     }
 }
