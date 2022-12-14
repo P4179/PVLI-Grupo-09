@@ -19,6 +19,7 @@ export default class Pool {
 		if (entity) {
 			entity.setActive(true);
 			entity.setVisible(true);
+			entity.tween.play();
 			entity.getDocuments().children.iterate((document) => {
 				document.setActive(true);
 				document.setVisible(true);

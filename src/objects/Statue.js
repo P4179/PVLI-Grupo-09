@@ -60,26 +60,26 @@ export default class Statue extends Phaser.GameObjects.Sprite {
 		})
 		*/
 
-		let tween = this.scene.tweens.add({
+		this.tween = this.scene.tweens.add({
 		    targets: [ this ],
-		    x: this.scene.sys.canvas.width / 2,
+		    x: this.scene.game.config.width / 2,
 		    y: 112,
 		    scaleX: 0.5,
 		    scaleY: 0.5,
 		    duration: 1000,
 		    ease: 'Sine.easeInOut',
 		    //ease: 'Linear',
+		    paused: true,
 		    flipX: false,
 		    yoyo: false,
 		    repeat: 0,
 		    delay: 1
 		});
 
-		tween.on('stop', listener);
+		this.tween.on('complete', () => {
+			this.emit('arrive');
+		})
 
-		function listener() {
-		    // hacemos algo cuando termina el tween
-		}
 	}
 
 	canPass(type) {
