@@ -57,9 +57,9 @@ export default class Documents extends Phaser.GameObjects.Container {
 		this.comparatorMode = state;
 		this.interactiveGroup.children.each(function (t) {
 			// console.log(t);
-			if(state)
+			if (state)
 				t.setInteractive();
-			else 
+			else
 				t.disableInteractive();
 		}, this);
 
@@ -69,16 +69,14 @@ export default class Documents extends Phaser.GameObjects.Container {
 		this.destroy();
 	}
 
-	makeChildsInteractive(){
+	makeChildsInteractive() {
 		this.interactiveGroup.children.each(function (t) {
 			t.on('pointerdown', () => {
-				this.scene.getStatue().setCompVar(t.text);
-				
+				console.log(t);
+				this.scene.getStatue().setCompVar(t);
+
 				// this.scene.getStatue().setCompVar(this);
 			});
 		}, this);
 	}
-	// preUpdate(t, dt){
-	// 	console.log(this.interactiveGroup);
-	// }
 }

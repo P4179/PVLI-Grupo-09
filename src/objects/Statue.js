@@ -13,9 +13,10 @@ export default class Statue extends Phaser.GameObjects.Sprite {
 
 		this.setOrigin(0.5, 1);
 		this.setScale(0.5);
-
+		
 		this.sprite = info.sprite;
 		this.pass = info.pass;
+		this.setInteractive();
 
 		// comparador
 		this.comparatorActive = false;
@@ -39,6 +40,14 @@ export default class Statue extends Phaser.GameObjects.Sprite {
 		// La animación a ejecutar según se genere el personaje será 'idle'
 		this.play('idle' + this.sprite);
 
+		this.on('pointerdown', () => {
+			if(this.comparatorActive){
+				console.log(this.sprite);
+				this.setCompVar(this.sprite);
+			}
+			// this.scene.getStatue().setCompVar(this);
+		});
+
 		/*
 		// Si la animación de entrada se completa pasamos a ejecutar la animación 'idle'
 		this.on('animationcomplete', end => {
@@ -58,12 +67,21 @@ export default class Statue extends Phaser.GameObjects.Sprite {
 		super.preUpdate(t, dt);
 		if(this.comparatorActive){
 			if(this.compVar1 !== null && this.compVar2 !== null){
-				if(this.compVar1 === this.compVar2) {
+				if(this.compVar1 === this.sprite || this.compVar2 === this.sprite) {
+					let l = this.sprite.split('_');
+					// console.log(l[l.length]);
+					if(l[l.length] !== 'FAKE')
+						console.log('Correct');
+					else 
+						console.log('Incorrect');
+				}
+				else if(this.compVar1.text === this.compVar2.text) {
 					console.log('Correct');
 				}
 				else {
 					console.log('Inorrect');
 				}
+				this.resetVars();
 			}
 		}
 	}
@@ -83,13 +101,17 @@ export default class Statue extends Phaser.GameObjects.Sprite {
 		if(this.compVar1 === null){
 			this.compVar1 = v;
 		}
-		else if(this.compVar2 === null){
+		else if(this.compVar2 == null && v != this.compVar1){
 			this.compVar2 = v;
-			this.varCounter++;
 		}
 		else {
 			this.compVar1 = v;
 			this.compVar2 = null;
 		}
+	}
+
+	resetVars(){
+		this.compVar1 = null;
+		this.compVar2 = null;
 	}
 }

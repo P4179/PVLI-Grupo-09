@@ -56,10 +56,11 @@ export default class Authenticity_Certificate extends Documents{
 		this.add(this.fechaExpi);
 
 		//foto de la estatua
-		let photo = this.scene.add.sprite(36, 14.4, this._sPhoto);
-		photo.setOrigin(0.5, 0.5)
-		photo.setScale(0.12);
-		this.add(photo);
+		this.photo = this.scene.add.sprite(36, 14.4, this._sPhoto);
+		this.photo.setOrigin(0.5, 0.5)
+		this.photo.setScale(0.12);
+		this.interactiveGroup.add(this.photo);
+		this.add(this.photo);
 
 		this.makeChildsInteractive();
 
