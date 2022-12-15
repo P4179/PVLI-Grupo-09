@@ -13,11 +13,13 @@ export default class Boot extends Phaser.Scene {
     this.load.text('day1', 'day1.json');
     this.load.text('day2', 'day2.json');
     this.load.text('day3', 'day3.json');
-
+    this.load.tilemapTiledJSON('tilemap_nivel_2', 'mapa_tiles_nivel_2/box_map_2.json');
+    this.load.image('patrones_tilemap_nivel_2', 'mapa_tiles_nivel_2/prueba.png');
+    
     // TEXTO BITMAP
     this.load.setPath('assets/fonts');
     // Texto para los documentos
-    this.load.bitmapFont('documentFont', 'BMYbitmap/BMYbitmap.png', 'BMYbitmap/BMYbitmap.xml');
+    this.load.bitmapFont('documentFont', 'BMYbitmap/BMYbitmap.png', 'BMYbitmap/BMYbitmap.xml', {frameWidth: 24, frameHeight: 33});
     
     // SPRITES
     // Fondo de los niveles
@@ -28,7 +30,7 @@ export default class Boot extends Phaser.Scene {
     this.load.image('trees', '4.png');
     this.load.image('mountains1', '1.png');
     this.load.image('mountains2', '2.png');
-
+    
     // Estatuas
     this.load.setPath('assets/sprites/estatuas');
     // Spritesheets de las estatuas
@@ -41,15 +43,18 @@ export default class Boot extends Phaser.Scene {
     this.load.image('man2_Fake', 'retrato_hombre_2_FAKE.png');
     this.load.image('man3_Fake', 'Hombre_3_FAKE.PNG');
     this.load.image('man4_Fake', 'Hombre_4_FAKE.PNG');
-
+    
     // Documentos
     this.load.setPath('assets/sprites/documentos');
     this.load.image('auth_cert', 'AccessPermitInner.png');  // certificado de autenticidad
     this.load.image('auth_paper', 'IdSupplementInner.png'); // tarjeta de identidad
     this.load.image('mat_reg', 'MaterialRecord.png'); // carnet de materiales
-
+    
     // Otros
     this.load.setPath('assets/sprites/otros');
+    // Cajas
+    this.load.image('m_box', 'm_box.png');
+    this.load.image('n_box', 'n_box.png');
     // Sellos de museos
     this.load.spritesheet('stamp_sprites', 'Stamps.png', {frameWidth: 42, frameHeight: 42});
     // Explosivo

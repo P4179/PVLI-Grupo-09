@@ -1,7 +1,6 @@
 import Calendar from '../objects/calendar.js';
 import Fails from '../objects/fails.js';
 import Buttons_Yes_No from '../objects/button_yes_no.js';
-import Space_Boundary from '../objects/space_boundary.js';
 import Comparator from '../objects/comparator.js';
 import Background from '../objects/background.js';
 import Clock from '../objects/clock.js';
@@ -39,18 +38,26 @@ export default class HUD extends Phaser.GameObjects.Container {
 		// instancia de Fails
 		this.fails = new Fails(this.scene, CANVAS_WIDTH - 10, 10);
 
-		// instancia de bounadries
-		// this.boundaries = this.scene.physics.add.staticGroup();
-		// límite superior
-		// this.upper_boundary = new Phaser.GameObjects.Rectangle(this.scene, this.scene.sys.canvas.width / 2, this.scene.sys.canvas.height/2 - 170, 550);
-		// this.scene.add.existing(this.upper_boundary);
-		// this.boundaries.add(this.upper_boundary);
-		// this.left_boundary = new Phaser.GameObjects.Rectangle(this.scene,  this.scene.sys.canvas.width / 2, this.scene.sys.canvas.height/2 + 65, 500);
-		// this.scene.add.existing(this.left_boundary);
-		// this.boundaries.add(this.left_boundary);
-		// this.right_boundary = new Phaser.GameObjects.Rectangle(this.scene, 50, -25, 500);
-		// this.scene.add.existing(this.right_boundary);
-		// this.boundaries.add(this.right_boundary);
+		this.comparator_text = this.scene.add.bitmapText(0 + 15, 0 + 15, 'documentFont', 'hello', 31);
+		this.comparator_text.setDepth(99);
+		this.comparator_text.setTintFill(0xFFFFFF);
+		this.comparator_text.setOrigin(0);
+		this.comparator_text.setVisible(false);
+
+		this.tween = this.scene.tweens.add({
+            targets: this.comparator_text,
+            scale: 1.5,
+            duration: 250,
+            ease: 'Sine.easeOut',
+            yoyo: true,
+            repeat: 4,
+            paused: true
+        });
+
+		this.tween.on('complete', () => {
+        	this.scene.getStatue().resetVars();
+			this.comparator_text.setVisible(false);
+        })
 	}
 
 	activateComparator(){
@@ -58,6 +65,16 @@ export default class HUD extends Phaser.GameObjects.Container {
 		documents.children.each(function(doc) {
 			doc.destroyMe();
 		  }, this);
+	}
+
+	showComparatorText(text){
+		if(text === 'Correct')
+			this.comparator_text.setTintFill(0x21E521);
+		if(text === 'Inorrect')
+			this.comparator_text.setTintFill(0xE52121);
+		this.tween.play();
+		this.comparator_text.text = text;
+		this.comparator_text.setVisible(true);
 	}
 
 	getFailsObject(){

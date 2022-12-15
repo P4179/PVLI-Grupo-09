@@ -67,21 +67,22 @@ export default class Statue extends Phaser.GameObjects.Sprite {
 		super.preUpdate(t, dt);
 		if(this.comparatorActive){
 			if(this.compVar1 !== null && this.compVar2 !== null){
-				if(this.compVar1 === this.sprite || this.compVar2 === this.sprite) {
+				// si se está comprobando la imagen con la estatua
+				if((this.compVar1.type !== 'BitmapText' && this.compVar1.type !== 'BitmapText') &&
+				this.notStatue(this.compVar1) || this.notStatue(this.compVar2)) {
 					let l = this.sprite.split('_');
-					// console.log(l[l.length]);
 					if(l[l.length] !== 'FAKE')
-						console.log('Correct');
+						this.scene.HUD.showComparatorText('Correct');
 					else 
-						console.log('Incorrect');
+						this.scene.HUD.showComparatorText('Inorrect');
 				}
 				else if(this.compVar1.text === this.compVar2.text) {
-					console.log('Correct');
+					this.scene.HUD.showComparatorText('Correct');
 				}
 				else {
-					console.log('Inorrect');
+					this.scene.HUD.showComparatorText('Inorrect');
 				}
-				this.resetVars();
+				// this.resetVars();
 			}
 		}
 	}
@@ -111,18 +112,33 @@ export default class Statue extends Phaser.GameObjects.Sprite {
 	setCompVar(v){
 		if(this.compVar1 === null){
 			this.compVar1 = v;
+			if(this.compVar1 !== this.sprite)
+				this.compVar1.setTintFill(0xFF21FF);
 		}
 		else if(this.compVar2 == null && v != this.compVar1){
 			this.compVar2 = v;
+			if(this.compVar2 !== this.sprite)
+				this.compVar2.setTintFill(0xFF21FF);
 		}
 		else {
+			this.compVar1.clearTint();
+			this.compVar2.clearTint();
 			this.compVar1 = v;
+			this.compVar1.setTintFill(0xFF21FF);
 			this.compVar2 = null;
 		}
 	}
 
 	resetVars(){
+		if(this.notStatue(this.compVar1))
+			this.compVar1.clearTint();
+		if(this.notStatue(this.compVar2))
+			this.compVar2.clearTint();
 		this.compVar1 = null;
 		this.compVar2 = null;
+	}
+
+	notStatue(GO){
+		return GO !== this.sprite;
 	}
 }

@@ -55,15 +55,6 @@ export default class Documents extends Phaser.GameObjects.Container {
 			//sonido
 			paperSound.play();
 		});
-
-		// //se añade colision con los boundaries
-		// this.bounds = this.scene.getHUD().getBoundaries();
-		// this.scene.physics.add.collider(this, this.bounds, function(_document, _bound){
-		// 	console.log(_document);
-		// 	_document.y = (_document.upper_limit + (_document.height * _document.scale / 2));
-		// 	if (_document.body.touching.up && _bound.body.touching.down) {
-		//     }
-		// }); // Colision de documentos con bondaries
 	}
 
 	setTam(h) {
