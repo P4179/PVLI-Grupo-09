@@ -37,7 +37,10 @@ export default class Boot extends Phaser.Scene {
     this.load.spritesheet('manGreen', 'animacion_retrato_hombre_5_spritesheet.png', {frameWidth: 420, frameHeight: 420});
     this.load.spritesheet('man1', 'animacion_retrato_hombre_1_spritesheet.png', {frameWidth: 420, frameHeight: 420});
     this.load.spritesheet('man2', 'animacion_retrato_hombre_2_spritesheet.png', {frameWidth: 420, frameHeight: 420});
+    this.load.spritesheet('man3', 'animacion_retrato_hombre_3_spritesheet.png', {frameWidth: 420, frameHeight: 420});
+    this.load.spritesheet('man4', 'animacion_retrato_hombre_4_spritesheet.png', {frameWidth: 420, frameHeight: 420});
     this.load.spritesheet('woman1', 'animacion_retrato_mujer_1_spritesheet.png', {frameWidth: 420, frameHeight: 420});
+    this.load.spritesheet('woman2', 'animacion_retrato_mujer_2_spritesheet.png', {frameWidth: 420, frameHeight: 420});
     // Estatuas falsas
     this.load.image('man1_Fake', 'retrato_hombre_1_FAKE.png');
     this.load.image('man2_Fake', 'retrato_hombre_2_FAKE.png');
