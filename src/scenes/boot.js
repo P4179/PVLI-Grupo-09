@@ -51,6 +51,8 @@ export default class Boot extends Phaser.Scene {
     this.load.image('man4_Fake', 'retrato_hombre_4_FAKE.png');
     this.load.image('woman1_Fake', 'retrato_mujer_1_FAKE.png');
     this.load.image('woman2_Fake', 'retrato_mujer_2_FAKE.png');
+    this.load.image('woman3_Fake', 'retrato_mujer_3_FAKE.png');
+    this.load.image('woman4_Fake', 'retrato_mujer_4_FAKE.png');
     
     // Documentos
     this.load.setPath('assets/sprites/documentos');
