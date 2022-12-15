@@ -1,7 +1,6 @@
 import Calendar from '../objects/calendar.js';
 import Fails from '../objects/fails.js';
 import Buttons_Yes_No from '../objects/button_yes_no.js';
-import Space_Boundary from '../objects/space_boundary.js';
 import Comparator from '../objects/comparator.js';
 import Background from '../objects/background.js';
 import Clock from '../objects/clock.js';
@@ -39,18 +38,11 @@ export default class HUD extends Phaser.GameObjects.Container {
 		// instancia de Fails
 		this.fails = new Fails(this.scene, CANVAS_WIDTH - 10, 10);
 
-		// instancia de bounadries
-		// this.boundaries = this.scene.physics.add.staticGroup();
-		// límite superior
-		// this.upper_boundary = new Phaser.GameObjects.Rectangle(this.scene, this.scene.sys.canvas.width / 2, this.scene.sys.canvas.height/2 - 170, 550);
-		// this.scene.add.existing(this.upper_boundary);
-		// this.boundaries.add(this.upper_boundary);
-		// this.left_boundary = new Phaser.GameObjects.Rectangle(this.scene,  this.scene.sys.canvas.width / 2, this.scene.sys.canvas.height/2 + 65, 500);
-		// this.scene.add.existing(this.left_boundary);
-		// this.boundaries.add(this.left_boundary);
-		// this.right_boundary = new Phaser.GameObjects.Rectangle(this.scene, 50, -25, 500);
-		// this.scene.add.existing(this.right_boundary);
-		// this.boundaries.add(this.right_boundary);
+		// se instancia el comparador
+		this.add(new Comparator(this.scene, 100, 250));
+		// this.comparator_text = this.scene.add.bitmapText(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2, 'documentFont', 'hello', 11);
+		// this._sNametext.setOrigin(0.5);
+		// this._sNametext.setFontSize(this.fontsize);
 	}
 
 	activateComparator(){
@@ -58,6 +50,10 @@ export default class HUD extends Phaser.GameObjects.Container {
 		documents.children.each(function(doc) {
 			doc.destroyMe();
 		  }, this);
+	}
+
+	showComparatorText(text){
+		this.comparator_text.text = text;
 	}
 
 	getFailsObject(){

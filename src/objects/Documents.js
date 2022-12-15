@@ -91,7 +91,7 @@ export default class Documents extends Phaser.GameObjects.Container {
 		this.interactiveGroup.children.each(function (t) {
 			t.on('pointerdown', () => {
 				console.log(t);
-				this.scene.getStatue().setCompVar(t);
+				this.scene.getStatue().setCompVar(t.text);
 
 				// this.scene.getStatue().setCompVar(this);
 			});

@@ -31,6 +31,10 @@ export default class DayBase extends Phaser.Scene {
 
     this.dayText();
     this.dayStarted();
+      //rectangulo negro para oscurecer la escena
+      this.grayscreen = this.add.rectangle(0, 0, this.game.config.width, this.game.config.height, 0x000000, 0.5);
+      this.grayscreen.setOrigin(0);
+      this.grayscreen.setVisible(false);
 
     // hacer que la pantalla se vuelva oscura cuando se activa el comparador
     this.grayscreen = this.add.rectangle(0, 0, this.CANVAS_WIDTH, this.CANVAS_HEIGHT, 0x000000, 0.5)
