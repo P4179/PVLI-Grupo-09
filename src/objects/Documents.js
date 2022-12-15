@@ -24,6 +24,18 @@ export default class Documents extends Phaser.GameObjects.Container {
 		//una vez el documento tiene tamaño, se añade a las físicas. Si se añade antes, no tendrá collider
 		this.scene.physics.add.existing(this);
 
+		const config = {
+	        mute: false,
+	        volume: 1,
+	        rate: 1,
+	        detune: 0,
+	        seek: 0,
+	        loop: false,
+	        delay: 0,
+	    }; 
+
+	    let paperSound = this.scene.sound.add("documentsS", config);
+
 		//se cambia la escala despues de añadirla a las físicas para que cambie también el body
 		this.setScale((this.y / h) ** 2);
 		this.setInteractive();
@@ -40,6 +52,8 @@ export default class Documents extends Phaser.GameObjects.Container {
 			if ((dragX + ((gameObject.width * gameObject.scale) / 2)) < this.scene.sys.canvas.width &&
 				((dragX - ((gameObject.width * gameObject.scale) / 2)) > 0))
 				gameObject.x = dragX;
+			//sonido
+			paperSound.play();
 		});
 
 		// //se añade colision con los boundaries

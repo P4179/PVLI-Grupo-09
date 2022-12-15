@@ -20,6 +20,20 @@ export default class DayBase extends Phaser.Scene {
       this.grayscreen.setOrigin(0);
       this.grayscreen.setVisible(false);
 
+      // Música del juego (ambiental)
+      const config = {
+        mute: false,
+        volume: 0.01,
+        rate: 1,
+        detune: 0,
+        seek: 0,
+        loop: true,
+        delay: 0,
+      }; 
+
+      this.music = this.sound.add("demoAudio", config);
+      this.music.play();
+
 	}
 
 	update(t, dt){

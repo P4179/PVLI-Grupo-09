@@ -5,6 +5,19 @@ export default class StatueManager {
 		this.scene = scene;
 		// contador con las estatuas que se han comprobado
 		this.cont = 0;
+
+		const config = {
+	        mute: false,
+	        volume: 0.7,
+	        rate: 1,
+	        detune: 0,
+	        seek: 0,
+	        loop: false,
+	        delay: 0,
+	      }; // config es opcional
+
+	      this.success = this.scene.sound.add("success", config);
+	      this.error = this.scene.sound.add("error", config);
 	}
 
 	createInfo(text) {
@@ -26,6 +39,11 @@ export default class StatueManager {
   		// si se ha comprobado mal, se añade un error
     	if(this.statueInst.canPass(type)){
       		this.scene.fails.addFail();
+      		// sonido fallo
+      		this.error.play();
+    	}
+    	else{ // sonido acierto
+    		this.success.play();
     	}
     	this.statuesPool.release(this.statueInst);
     	// this.statueInst.destroyMe();

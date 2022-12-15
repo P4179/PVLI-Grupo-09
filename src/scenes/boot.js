@@ -73,6 +73,14 @@ export default class Boot extends Phaser.Scene {
     this.load.image('colores','colores.png');
     this.load.image('xrayItems','Items.png');
     this.load.image('validStamps','validStamps.png');
+
+    // Audios
+    this.load.setPath('assets/audio');
+    this.load.audio("success", "success.mp3");
+    this.load.audio("error", "error.mp3");
+    this.load.audio("documentsS", "documents.mp3");
+    this.load.audio("demoAudio", "Shinrin-Yoku.ogg");
+    this.load.audio("manualA", "manual.mp3");
   }
 
   // Creación de la escena
