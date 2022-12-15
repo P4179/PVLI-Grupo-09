@@ -24,14 +24,15 @@ export default class StatueLv3 extends Statue {
 
 	showContent() {
 		// se pone en negro la estatua
-		this.setTint(Phaser.Display.Color.GetColor(10, 10, 10));
-
+		this.setTint(Phaser.Display.Color.GetColor(10, 10, 10));	
 		// se muestra su contenido
-		let Scontent = this.scene.add.image(this.x, this.y - 75, this.content);
+		let Scontent = this.scene.add.image(this.x, this.y + 5, this.content);
 		Scontent.setScale(0.6);
-        setTimeout(() => {
+		this.scene.pauseScene();
+        setTimeout(() => {      	
         	this.setTint(Phaser.Display.Color.GetColor(1000, 1000, 1000));
 	    	Scontent.destroy();
+	    	this.scene.resumeScene();
     	}, 3000);
 	}
 }
