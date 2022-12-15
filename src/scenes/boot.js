@@ -114,6 +114,6 @@ export default class Boot extends Phaser.Scene {
   // Creación de la escena
   // En este caso, solo se pasa a la escena del primer nivel
   create() {
-    this.scene.start('day3');
+    this.scene.start('day1');
   }
 }

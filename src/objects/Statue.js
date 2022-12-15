@@ -68,10 +68,15 @@ export default class Statue extends Phaser.GameObjects.Sprite {
 		if(this.comparatorActive){
 			if(this.compVar1 !== null && this.compVar2 !== null){
 				// si se está comprobando la imagen con la estatua
-				if((this.compVar1.type !== 'BitmapText' || this.compVar2.type !== 'BitmapText') &&
-				!this.notStatue(this.compVar1) || !this.notStatue(this.compVar2)) {
-					let l = this.sprite.split('_');
-					if(l[l.length] !== 'FAKE')
+				if((this.compVar1.type !== 'BitmapText' && this.compVar2.type !== 'BitmapText') &&
+				(this.notStatueSprite(this.compVar1) || this.notStatueSprite(this.compVar2))) {
+					let l;
+					if(this.notStatueSprite(this.compVar1))
+						l = this.compVar1.texture.key.split('_');
+					else
+						l = this.compVar2.texture.key.split('_');
+					console.log(l[l.length - 1]);
+					if(l[l.length - 1] !== 'Fake')
 						this.scene.HUD.showComparatorText('Correct');
 					else 
 						this.scene.HUD.showComparatorText('Inorrect');
@@ -138,15 +143,15 @@ export default class Statue extends Phaser.GameObjects.Sprite {
 	}
 
 	resetVars(){
-		if(this.compVar1 !== null && this.notStatue(this.compVar1) && this.compVar1.isTinted)
+		if(this.compVar1 !== null && this.notStatueSprite(this.compVar1) && this.compVar1.isTinted)
 			this.compVar1.clearTint();
-		if(this.compVar2 !== null && this.notStatue(this.compVar2) && this.compVar2.isTinted)
+		if(this.compVar2 !== null && this.notStatueSprite(this.compVar2) && this.compVar2.isTinted)
 			this.compVar2.clearTint();
 		this.compVar1 = null;
 		this.compVar2 = null;
 	}
 
-	notStatue(GO){
+	notStatueSprite(GO){
 		return GO !== this.sprite;
 	}
 }
