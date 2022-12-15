@@ -1,9 +1,8 @@
 // Clase calendario
-// Es un container que tiene como hijos un sprite del marco del reloj y un texto con la fecha actual
 
 export default class Calendar extends Phaser.GameObjects.Container {
 	/*
-	* Constructor de Start
+	* Constructor de Calendar
 	* @param {Phaser.Scene} scene Escena a la que pertenece Clock
 	* @param {number} x Coordenada X
 	* @param {number} y Coordenada Y
@@ -38,26 +37,11 @@ export default class Calendar extends Phaser.GameObjects.Container {
 		this.add(year);
 
 		let newDayText = this.scene.add.bitmapText(this.scene.game.config.width / 2, this.scene.game.config.height / 2,
-		 'documentFont', "DAY " + this.scene.dayNumber, 5).setOrigin(0.5, 0.5).setTintFill(0xffffff).setDropShadow(1);
-		newDayText.setVisible(false);
-		let appear = this.scene.tweens.add({
-            targets: newDayText,
-            scale: 8,
-            duration: 1000,
-            ease: 'Cubic.easeIn',
-            repeat: 0,
-            paused: true,
-        })
-        let disappear = this.scene.tweens.add({
-            targets: newDayText,
-            scale: 0,
-            duration: 1000,
-            ease: 'Circ.easeOut',
-            repeat: 0,
-            delay: 1000,
-            paused: true,
-        })
+		 'documentFont', "DAY " + this.scene.dayNumber, 5)
+		.setOrigin(0.5, 0.5).setTintFill(0xffffff).setDropShadow(1).setVisible(false);
+		
 
+        // después de cierto tiempo se reproduce la animación de calendar
 		this.scene.time.addEvent( {
      		delay: 1500, 
         	callback: () => {
@@ -72,26 +56,21 @@ export default class Calendar extends Phaser.GameObjects.Container {
         	month.setVisible(false);
         	year.setVisible(false);
 
-        	newDayText.setVisible(true);
-        	appear.play();
+        	// se emite un evento para que el texto que indica el nuevo día también aparezca
+        	this.emit('calendarStarted');
         })
 
+        // en el último frame de la animación del calendario, aparece el texto con el nuevo día
         calendar.on('animationupdate', () => {
         	if(calendar.anims.currentFrame.index === 7) {
         		day.setText(date.d);
         		day.setVisible(true);
    				month.setVisible(true);
         		year.setVisible(true);
-        		disappear.play();
+
+        		// se emite un evento para que el texto con el nuevo día desaparezca
+        		this.emit('calendarFinished');
         	}
         })
-
-        disappear.on('start', () => {
-        	this.emit('startDay');
-        })
-
-        disappear.on('complete', () => {
-        	newDayText.destroy();
-        });
 	}
 }

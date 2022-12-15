@@ -6,7 +6,6 @@ export default class StatueLv3 extends Statue {
 	constructor(scene, info) {
 		super(scene, info);
 
-		this.content = info.rx;
 
 		const CANVAS_WIDTH = this.scene.game.config.width;
 		const CANVAS_HEIGHT = this.scene.game.config.height;
@@ -18,22 +17,21 @@ export default class StatueLv3 extends Statue {
 
 		this.documents.add(this.ACDocument);
 		this.documents.add(this.IDDocument);
+
+		this.Scontent = this.scene.add.sprite(this.x, this.y / 2, info.rx).setScale(0.5);
+		this.Scontent.setVisible(false);
 	}
 
 	showContent() {
 		// se pone en negro la estatua
 		this.setTint(Phaser.Display.Color.GetColor(10, 10, 10));
-		let Scontent = this.scene.add.image(this.x, this.y - 75, this.content);
-		Scontent.setScale(0.6);
+		this.Scontent.setVisible(true);
 		this.scene.pauseScene();
-		this.scene.time.addEvent( {
-     		delay: 3000, 
-        	callback: () => {
-        		this.setTint(Phaser.Display.Color.GetColor(1000, 1000, 1000));
-	    		Scontent.destroy();
-	    		this.scene.resumeScene();
-        	},
-        	callbackScope: this.scene
-        });
+		setTimeout(() => {      	
+        	this.setTint(Phaser.Display.Color.GetColor(1000, 1000, 1000));
+        	this.Scontent.setVisible(false);
+	    	this.scene.resumeScene();
+	    	return true;
+    	}, 500);
 	}
 }

@@ -28,10 +28,10 @@ export default class Pool {
 			// estatua
 			entity.setActive(true);
 			entity.setVisible(true);
-			entity.arriving();
+			entity.arriving();	// tween con la llegada de la estatua
 			// documentos
-			// cuando la estatua llega se produce el evento y se activan sus documentos
-			entity.on('arriveStatue', () => {
+			// cuando la estatua llega se captura el evento y se activan sus documentos
+			entity.on('statueHasArrived', () => {
 				for (var i = 0; i < entity.getDocuments().getLength(); ++i) {
 					let document = entity.getDocuments().children.entries[i];
 					document.setActive(true);

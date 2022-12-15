@@ -5,6 +5,7 @@ import Space_Boundary from '../objects/space_boundary.js';
 import Comparator from '../objects/comparator.js';
 import Background from '../objects/background.js';
 import Clock from '../objects/clock.js';
+import Manual from '../objects/manual.js';
 
 // HUD
 
@@ -24,19 +25,19 @@ export default class HUD extends Phaser.GameObjects.Container {
 		this.add(new Buttons_Yes_No(this.scene, 90, CANVAS_HEIGHT - 220, true));
 		this.add(new Buttons_Yes_No(this.scene, 90, CANVAS_HEIGHT - 70, false));
 
+		// se instancia el comparador
+		this.add(new Comparator(this.scene, CANVAS_WIDTH - 140, CANVAS_HEIGHT - 125));
+
 		// calendario
 		// se pasa la fecha como un solo objeto con tres parámetros
 		this.calendar = new Calendar(this.scene, CANVAS_WIDTH - 90, CANVAS_HEIGHT - 230, date);
 		this.add(this.calendar);
 
 		// reloj
-		this.add(new Clock(this.scene, CANVAS_WIDTH - 90, CANVAS_HEIGHT - 45));
+		this.add(new Clock(this.scene, CANVAS_WIDTH - 90, CANVAS_HEIGHT - 45, 8));
 
 		// instancia de Fails
 		this.fails = new Fails(this.scene, CANVAS_WIDTH - 10, 10);
-
-		// se instancia el comparador
-		this.add(new Comparator(this.scene, CANVAS_WIDTH - 140, CANVAS_HEIGHT - 125));
 
 		// instancia de bounadries
 		// this.boundaries = this.scene.physics.add.staticGroup();

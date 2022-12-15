@@ -23,12 +23,10 @@ export default class Fails extends Phaser.GameObjects.BitmapText {
 
         // la diferencia entre play y active es que hay un delay y no hasta que se produce el callback, respectivamente
         this.tween.on('active', () => {
-        	console.log("hola");
         	this.setTintFill(0xE52121);
         })
 
         this.tween.on('complete', () => {
-        	console.log("adios");
         	this.setTintFill(0xffffff);
         })
 	}

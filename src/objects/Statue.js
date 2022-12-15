@@ -3,9 +3,6 @@ export default class Statue extends Phaser.GameObjects.Sprite {
 		super(scene, scene.game.config.width / 2, 217.5, info.sprite);
 		this.scene.add.existing(this);
 
-		//this.setOrigin(0.5, 1);
-		//this.setOrigin(0.5, 1);
-		//this.setScale(0.5);
 		this.setPosition(this.scene.sys.canvas.width / 2, 195);
 		this.setScale(0);
 
@@ -43,15 +40,6 @@ export default class Statue extends Phaser.GameObjects.Sprite {
 			// this.scene.getStatue().setCompVar(this);
 		});
 
-		/*
-		// Si la animación de entrada se completa pasamos a ejecutar la animación 'idle'
-		this.on('animationcomplete', end => {
-			if (this.anims.currentAnim.key === 'entrada'){
-				this.stopEntrada()
-			}
-		})
-		*/
-
 		this.arrive = this.scene.tweens.add({
 		    targets: [ this ],
 		    x: this.scene.game.config.width / 2,
@@ -68,16 +56,10 @@ export default class Statue extends Phaser.GameObjects.Sprite {
 		});
 
 		this.arrive.on('complete', () => {
-			this.emit('arriveStatue');
+			// se activa el ratón
+            this.scene.input.mouse.manager.enabled = true;
+			this.emit('statueHasArrived');
 		})
-	}
-
-	arriving() {
-		this.arrive.play();
-	}
-
-	canPass(type) {
-		return this.pass !== type;
 	}
 
 	// comparar los parámetors de los documentos que traen las estatuas
@@ -108,6 +90,17 @@ export default class Statue extends Phaser.GameObjects.Sprite {
 		return this.documents;
 	}
 
+	// se reproduce el tween con la llegada de la estatua
+	arriving() {
+		this.arrive.play();
+	}
+
+	// se comprueba si la estatua puede pasar o no
+	canPass(type) {
+		return this.pass !== type;
+	}
+
+	// COMPARADOR
 	comparator(state) {
 		this.comparatorActive = state;
 		this.documents.children.each(function (doc) {
