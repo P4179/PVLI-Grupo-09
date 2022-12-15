@@ -25,6 +25,7 @@ export default class XRAY extends Button {
             duration: 390,
             ease: 'Power1',
             flipX: false,
+            hold: 2000,
             yoyo: true,
             paused: true,
             repeat: 0,
@@ -53,7 +54,7 @@ export default class XRAY extends Button {
             });
 
             // se activa el ratón para poder continuar jugando
-            this.scene.input.mouse.manager.enabled = true;         
+            this.tween.on('complete',()=>{this.scene.input.mouse.manager.enabled = true});         
         });
     }
 

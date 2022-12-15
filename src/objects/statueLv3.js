@@ -26,12 +26,12 @@ export default class StatueLv3 extends Statue {
 		// se pone en negro la estatua
 		this.setTint(Phaser.Display.Color.GetColor(10, 10, 10));
 		this.Scontent.setVisible(true);
-		this.scene.pauseScene();
+		this.scene.addXrayEffect();
 		setTimeout(() => {      	
         	this.setTint(Phaser.Display.Color.GetColor(1000, 1000, 1000));
         	this.Scontent.setVisible(false);
-	    	this.scene.resumeScene();
+	    	this.scene.removeXrayEffect();
 	    	return true;
-    	}, 500);
+    	}, 2000);
 	}
 }
