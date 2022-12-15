@@ -14,6 +14,17 @@ export default class XRAY extends Button {
         this.sprite = 'button_xray';
         this.setScale(0.5);
 
+        const config = {
+            mute: false,
+            volume: 1,
+            rate: 1,
+            detune: 0,
+            seek: 0,
+            loop: false,
+            delay: 0,
+        }; 
+        this.xraySound = this.scene.sound.add("xrayS", config);
+
         // animación contenido estatua
         // setDepth(10) para que se renderice delante de las estatuas
         this.eXRAY = this.scene.add.sprite(0, 0, 'escaner').setScale(1.8).setVisible(false).setDepth(10);
@@ -47,6 +58,9 @@ export default class XRAY extends Button {
 
             // animación de eXRAY
             this.tween.play();
+
+            // sonido
+            this.xraySound.play();            
 
             // cuando se ha terminado la animación del botón se muestra el contenido de la estatua
             this.aspecto.on('animationcomplete', () => {

@@ -10,7 +10,7 @@ export default class BoxLevel2 extends Phaser.Scene {
             tileHeight: 33
         });
 
-        const tileset = this.map.addTilesetImage('prueba', 'patrones_tilemap_nivel_2');
+        const tileset = this.map.addTilesetImage('prueba', 'patrones_tilemap');
 
         this.background = this.map.createLayer('background', tileset);
         this.staticlayer = this.map.createLayer('walls', tileset);
