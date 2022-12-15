@@ -160,11 +160,6 @@ body {
     left: 2;
     top: 0;
   }
-/* Cargar fuentes externas */
-@font-face {
-    font-family: ds_digi;
-    src: url('../assets/fonts/ds-digi.ttf');
-}
 
  /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
  @media screen and (max-width: 600px) {

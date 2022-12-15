@@ -1,36 +1,102 @@
-// Clase reloj
-// Es un container que tiene como hijos un sprite del marco del reloj y un texto con la fecha actual
-
-import Date from "../auxs/date.js";
-
 export default class Clock extends Phaser.GameObjects.Container {
-	/*
-	* Constructor de Start
-	* @param {Phaser.Scene} scene Escena a la que pertenece Clock
-	* @param {number} x Coordenada X
-	* @param {number} y Coordenada Y
-	* @param {number} date.d es el día, date.m es el mes, date.y es el año
-	*/
-	constructor (scene, x, y, date) {
-		// tiene un cuarto parámetro opcional que sirve para añadir hijos
-		// luego, se pueden añadir más
+	constructor(scene, x, y, startWork) {
 		super(scene, x, y);
+
 		this.scene.add.existing(this);
 
-		// se crean los hijos y se añaden al propio container, es decir, al this
-		// se crea el sprite del reloj
-		let aspecto = this.scene.add.sprite(0, 0, 'clock');
-		aspecto.setScale(0.07);
-		// se añade como hijo al container
-		this.add(aspecto);
+		this.elapsed_Time = 0;
+		// cada cuánto tiempo parpadea
+		this.flash = 700;
 
 
-		let fecha = new Date(scene, 0, 0, date.d, date.m, date.y);
-		fecha.setFontSize(20);
-        fecha.setTint(0xDC7633);
-		this.add(fecha);
+		this.startWork = startWork;
+		let hourDivided = this.dividTwoDigits(this.startWork);
+		this.hour = this.scene.timer / 12;
+		this.elapsed_Time2 = 0;
 
-		// cambiar la escala del container, de modo que cambia el tamaño de todos sus hijos
-		// si no se pone el parámetro de la y se toma que es el mismo que el de la x
+		let clock = this.scene.add.sprite(0, 0, 'reloj');
+		this.add(clock);
+
+		this.digits = []
+		let firstDigit = this.scene.add.sprite(-60, 0, 'nums_reloj', hourDivided[0]);
+		firstDigit.setScale(0.55);
+		this.digits.push(firstDigit);
+		this.add(firstDigit);
+
+		let secondDigit = this.scene.add.sprite(-25, 0, 'nums_reloj', hourDivided[1]);
+		secondDigit.setScale(0.55);
+		this.digits.push(secondDigit);
+		this.add(secondDigit);
+
+		let points = this.scene.add.sprite(5, 0, 'puntos', 0);
+		firstDigit.setScale(0.55);
+		this.digits.push(points);
+		this.add(points);
+
+		let thirdDigit = this.scene.add.sprite(35, 0, 'nums_reloj', 0);
+		thirdDigit.setScale(0.55);
+		this.digits.push(thirdDigit);
+		this.add(thirdDigit);
+
+		let fourthDigit = this.scene.add.sprite(70, 0, 'nums_reloj', 0);
+		fourthDigit.setScale(0.55);
+		this.digits.push(fourthDigit);
+		this.add(fourthDigit);
+
+		this.setScale(0.5);
+
+		this.startClock = false;
+		this.scene.events.on('startDay', () => {
+			this.startClock = true;
+		});
+	}
+
+	preUpdate(t, dt) {
+		this.elapsed_Time2 += dt;
+		if(this.elapsed_Time2 > this.hour) {
+			this.elapsed_Time2 = 0;
+			++this.startWork;
+			this.changeHour(this.startWork);
+		}
+
+		if(this.startClock) {
+			this.elapsed_Time += dt;
+			if(this.elapsed_Time > this.flash){
+				this.elapsed_Time = 0;
+				this.digits.forEach((digit) => {
+				digit.visible = !digit.visible;
+				});
+			}	
+		}
+	}
+
+	dividTwoDigits(digits) {
+		let divided = []
+		if(digits < 10) {
+			divided[0] = 0;
+			divided[1] = digits;
+		}
+		else {
+			let aux = this.startWork;
+			let index = 1;
+			while(index >= 0) {
+				let digit = aux % 10;
+				digit = parseInt(digit);
+				aux = aux / 10;
+				divided[index] = digit;
+				--index;
+			}
+		}
+		return divided;
+	}
+
+	// solo se cambian las horas
+	changeHour(hour) {
+		let hourDivided = this.dividTwoDigits(hour);
+		for(var i = 0; i < hourDivided.length; ++i) {
+			// el frame del spritesheet imagen corresponde con las horas
+			// es decir, el frame 0 es el 0, el frame 1 es el 1,...
+			this.digits[i].setFrame(hourDivided[i])
+		}
 	}
 }

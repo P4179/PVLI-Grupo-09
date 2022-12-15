@@ -13,7 +13,7 @@ export default class Manual extends Phaser.GameObjects.Sprite{
 	 */
 
 	constructor(scene, x, y, day){
-		super(scene, x, y,"close_manual");
+		super(scene, x, y, 'close_manual');
 		this.scene.add.existing(this);
 		this._open = false;
 		this._cBegin = -246;
@@ -119,7 +119,7 @@ export default class Manual extends Phaser.GameObjects.Sprite{
     				colorText._depth = 1;
     				soundText = this.scene.add.text(this.x + 130, this.y + 70, 'The high sound is the correct', {fontFamily: 'Ink Free'}).setOrigin(0.5, 0.5);
     				soundText._depth = 1;
-    				colors = this.scene.add.image(this.x + 120, this.y - 30, 'colores');
+    				colors = this.scene.add.sprite(this.x + 120, this.y - 30, 'colores');
     				colors.setScale(0.8);
     				colors._depth = 1;
     			}
@@ -129,10 +129,10 @@ export default class Manual extends Phaser.GameObjects.Sprite{
 					stampText._depth = 1;
 					xrayText = this.scene.add.text(this.x + 125, this.y - 5, 'Not valid items', {fontFamily: 'Ink Free'}).setOrigin(0.5, 0.5);
 					xrayText._depth = 1;
-					stamps = this.scene.add.image(this.x + 120, this.y - 50, 'validStamps');
+					stamps = this.scene.add.sprite(this.x + 120, this.y - 50, 'validStamps');
     				stamps.setScale(0.9);
     				stamps._depth = 1;
-					xrayItems = this.scene.add.image(this.x + 120, this.y + 60, 'xrayItems');
+					xrayItems = this.scene.add.sprite(this.x + 120, this.y + 60, 'xrayItems');
     				xrayItems.setScale(0.9);
     				xrayItems._depth = 1;
     			}
@@ -146,10 +146,6 @@ export default class Manual extends Phaser.GameObjects.Sprite{
     		}
 		})
 
-	}
-
-	destroyMe(){
-		this.destroy();
 	}
 }
 

@@ -36,8 +36,8 @@ export default class Documents extends Phaser.GameObjects.Container {
 
 	    let paperSound = this.scene.sound.add("documentsS", config);
 
-		//se cambia la escala despues de añadirla a las físicas para que cambie también el body
-		this.setScale((this.y / h) ** 2);
+		this.setTam(h);
+		
 		this.setInteractive();
 		this.scene.input.setDraggable(this);
 		this.scene.input.on('drag', function (pointer, gameObject, dragX, dragY) {
@@ -64,7 +64,11 @@ export default class Documents extends Phaser.GameObjects.Container {
 		// 	if (_document.body.touching.up && _bound.body.touching.down) {
 		//     }
 		// }); // Colision de documentos con bondaries
+	}
 
+	setTam(h) {
+		//se cambia la escala despues de añadirla a las físicas para que cambie también el body
+		this.setScale((this.y / h) ** 2);
 	}
 
 	comparatorSwitch(state) {

@@ -12,41 +12,55 @@ export default class XRAY extends Button {
         this.scene.add.existing(this);
 
         this.sprite = 'button_xray';
+        this.setScale(0.5);
 
-        // suscripción al evento, de modo que cuando se emita sucederá lo que hay en el arrow function
+        // animación contenido estatua
+        // setDepth(10) para que se renderice delante de las estatuas
+        this.eXRAY = this.scene.add.sprite(0, 0, 'escaner').setScale(1.8).setVisible(false).setDepth(10);
+        // animación de bajada y subida del escaner
+        this.tween = this.scene.tweens.add({
+            targets: this.eXRAY,
+            x: this.scene.game.config.width / 2,
+            y: 120,
+            duration: 390,
+            ease: 'Power1',
+            flipX: false,
+            yoyo: true,
+            paused: true,
+            repeat: 0,
+            delay: 1
+        });
+
+        // se produce este evento cuando se ha pulsado el botón
         this.on('button_xray', () => {
-
-            // desactiva el ratón para que no se hagan acciones durante los rayos x
+            // se desactiva el ratón para que no se hagan acciones durante los rayos X
             this.scene.input.mouse.manager.enabled = false;
 
+            // animaciones del botón
             this.aspecto.play('click' + this.sprite);
             this.moveText.play();
-            // animación contenido estatua
-            let eXRAY = this.scene.add.image(this.scene.getStatue().x, this.scene.getStatue().y - 300, 'escaner');
-            eXRAY.setScale(2);
 
-            // Animación de bajada y subida del escaner
-            let tween = this.scene.tweens.add({
-                targets: [ eXRAY ],
-                x: this.scene.game.config.width / 2,
-                y: 130,
-                duration: 390,
-                ease: 'Power1',
-                paused: true,
-                flipX: false,
-                yoyo: true,
-                repeat: 0,
-                delay: 1
+            this.eXRAY.setVisible(true);
+            this.eXRAY.x = this.scene.getStatue().x;
+            this.eXRAY.y = this.scene.getStatue().y - 300;
+
+            // animación de eXRAY
+            this.tween.play();
+
+            // cuando se ha terminado la animación del botón se muestra el contenido de la estatua
+            this.aspecto.on('animationcomplete', () => {
+                this.xray(this.scene.getStatue());
             });
-            tween.play();
 
-            this.aspecto.on('animationcomplete', ()=>this.xray(this.scene.getStatue()));
-            // activa el ratón para poder continuar jugando
+            // se activa el ratón para poder continuar jugando
             this.scene.input.mouse.manager.enabled = true;         
         });
     }
 
     xray(statue) {
-        statue.showContent();
+        // si se ha mostrado el contenido de la estatua, se desactiva el escaner
+        if(statue.showContent()) {
+            this.eXRAY.setVisible(false);
+        }
     }
 }
