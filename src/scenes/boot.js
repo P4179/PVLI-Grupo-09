@@ -101,6 +101,7 @@ export default class Boot extends Phaser.Scene {
     this.load.audio("documentsS", "documents.mp3");
     this.load.audio("demoAudio", "Shinrin-Yoku.ogg");
     this.load.audio("manualA", "manual.mp3");
+    this.load.audio("xrayS", "beep.mp3");
 
     // NIVELES CAJAS
     this.load.setPath('assets/sprites/niveles_cajas');

@@ -36,6 +36,9 @@ export default class Documents extends Phaser.GameObjects.Container {
 
 	    let paperSound = this.scene.sound.add("documentsS", config);
 
+		//sonido
+		this.on('pointerdown', ()=>{paperSound.play()});	
+
 		this.setTam(h);
 		
 		this.setInteractive();
@@ -56,8 +59,6 @@ export default class Documents extends Phaser.GameObjects.Container {
 			if ((dragX + ((gameObject.width * gameObject.scale) / 2)) < this.scene.sys.canvas.width &&
 				((dragX - ((gameObject.width * gameObject.scale) / 2)) > 0))
 				gameObject.x = dragX;
-			//sonido
-			paperSound.play();
 		});
 	}
 
