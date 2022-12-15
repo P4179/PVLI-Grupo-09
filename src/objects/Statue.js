@@ -68,8 +68,8 @@ export default class Statue extends Phaser.GameObjects.Sprite {
 		if(this.comparatorActive){
 			if(this.compVar1 !== null && this.compVar2 !== null){
 				// si se está comprobando la imagen con la estatua
-				if((this.compVar1.type !== 'BitmapText' && this.compVar1.type !== 'BitmapText') &&
-				this.notStatue(this.compVar1) || this.notStatue(this.compVar2)) {
+				if((this.compVar1.type !== 'BitmapText' || this.compVar2.type !== 'BitmapText') &&
+				!this.notStatue(this.compVar1) || !this.notStatue(this.compVar2)) {
 					let l = this.sprite.split('_');
 					if(l[l.length] !== 'FAKE')
 						this.scene.HUD.showComparatorText('Correct');
