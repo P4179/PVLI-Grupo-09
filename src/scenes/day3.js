@@ -22,7 +22,7 @@ export default class Day3 extends DayBase {
     const CANVAS_HEIGHT = this.game.config.height;
 
     // se crea el manual
-    new Manual(this, 650, CANVAS_WIDTH/4, false);
+    new Manual(this, 650, CANVAS_WIDTH/4, false, 3);
 
     // se crea el botón de rayos X
     new XRAY(this, 100, 380, 'escaner');
