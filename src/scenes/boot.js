@@ -47,8 +47,8 @@ export default class Boot extends Phaser.Scene {
     // Estatuas falsas
     this.load.image('man1_Fake', 'retrato_hombre_1_FAKE.png');
     this.load.image('man2_Fake', 'retrato_hombre_2_FAKE.png');
-    this.load.image('man3_Fake', 'retrato_hombre_2_FAKE.png');
-    this.load.image('man4_Fake', 'Hombre_4_FAKE.PNG');
+    this.load.image('man3_Fake', 'retrato_hombre_3_FAKE.png');
+    this.load.image('man4_Fake', 'retrato_hombre_4_FAKE.png');
     
     // Documentos
     this.load.setPath('assets/sprites/documentos');
