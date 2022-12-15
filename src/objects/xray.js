@@ -15,10 +15,34 @@ export default class XRAY extends Button {
 
         // suscripción al evento, de modo que cuando se emita sucederá lo que hay en el arrow function
         this.on('button_xray', () => {
+
+            // desactiva el ratón para que no se hagan acciones durante los rayos x
+            this.scene.input.mouse.manager.enabled = false;
+
             this.aspecto.play('click' + this.sprite);
             this.moveText.play();
             // animación contenido estatua
-            this.xray(this.scene.getStatue());
+            let eXRAY = this.scene.add.image(this.scene.getStatue().x, this.scene.getStatue().y - 300, 'escaner');
+            eXRAY.setScale(2);
+
+            // Animación de bajada y subida del escaner
+            let tween = this.scene.tweens.add({
+                targets: [ eXRAY ],
+                x: this.scene.game.config.width / 2,
+                y: 130,
+                duration: 390,
+                ease: 'Power1',
+                paused: true,
+                flipX: false,
+                yoyo: true,
+                repeat: 0,
+                delay: 1
+            });
+            tween.play();
+
+            this.aspecto.on('animationcomplete', ()=>this.xray(this.scene.getStatue()));
+            // activa el ratón para poder continuar jugando
+            this.scene.input.mouse.manager.enabled = true;         
         });
     }
 
