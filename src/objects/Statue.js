@@ -127,18 +127,20 @@ export default class Statue extends Phaser.GameObjects.Sprite {
 				this.compVar2.setTintFill(0xFF21FF);
 		}
 		else {
-			this.compVar1.clearTint();
-			this.compVar2.clearTint();
+			if(this.compVar1.isTinted)
+				this.compVar1.clearTint();
 			this.compVar1 = v;
+			if(this.compVar2 !== null && this.compVar2.isTinted)
+				this.compVar2.clearTint();
 			this.compVar1.setTintFill(0xFF21FF);
 			this.compVar2 = null;
 		}
 	}
 
 	resetVars(){
-		if(this.notStatue(this.compVar1))
+		if(this.compVar1 !== null && this.notStatue(this.compVar1) && this.compVar1.isTinted)
 			this.compVar1.clearTint();
-		if(this.notStatue(this.compVar2))
+		if(this.compVar2 !== null && this.notStatue(this.compVar2) && this.compVar2.isTinted)
 			this.compVar2.clearTint();
 		this.compVar1 = null;
 		this.compVar2 = null;
