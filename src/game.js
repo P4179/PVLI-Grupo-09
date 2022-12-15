@@ -3,7 +3,6 @@ import Boot from './scenes/boot.js';
 import ScalinePostFX from '/assets/pipelines/ScalinePostFX.js'; 
 import Day1 from './scenes/day1.js';
 import Day2 from './scenes/day2.js';
-import Puzzleday2 from './scenes/puzzleday2.js';
 import Day3 from './scenes/day3.js';
 import BoxLevel1 from './scenes/boxLevel1.js';
 import BoxLevel2 from './scenes/boxLevel2.js';
@@ -53,7 +52,7 @@ let config = {
     },
     pipeline: { ScalinePostFX },
     // escenas que hay en el juego
-    scene: [Title, Boot, Day1, Day2, Puzzleday2, Day3, BoxLevel1, BoxLevel2, Family],
+    scene: [Title, Boot, Day1, Day2, Day3, BoxLevel1, BoxLevel2, Family],
     title: "Proyecto final"
 };
 

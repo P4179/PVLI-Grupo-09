@@ -38,11 +38,26 @@ export default class HUD extends Phaser.GameObjects.Container {
 		// instancia de Fails
 		this.fails = new Fails(this.scene, CANVAS_WIDTH - 10, 10);
 
-		// se instancia el comparador
-		this.add(new Comparator(this.scene, 100, 250));
-		// this.comparator_text = this.scene.add.bitmapText(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2, 'documentFont', 'hello', 11);
-		// this._sNametext.setOrigin(0.5);
-		// this._sNametext.setFontSize(this.fontsize);
+		this.comparator_text = this.scene.add.bitmapText(0 + 15, 0 + 15, 'documentFont', 'hello', 31);
+		this.comparator_text.setDepth(99);
+		this.comparator_text.setTintFill(0xFFFFFF);
+		this.comparator_text.setOrigin(0);
+		this.comparator_text.setVisible(false);
+
+		this.tween = this.scene.tweens.add({
+            targets: this.comparator_text,
+            scale: 1.5,
+            duration: 250,
+            ease: 'Sine.easeOut',
+            yoyo: true,
+            repeat: 4,
+            paused: true
+        });
+
+		this.tween.on('complete', () => {
+        	this.scene.getStatue().resetVars();
+			this.comparator_text.setVisible(false);
+        })
 	}
 
 	activateComparator(){
@@ -53,7 +68,13 @@ export default class HUD extends Phaser.GameObjects.Container {
 	}
 
 	showComparatorText(text){
+		if(text === 'Correct')
+			this.comparator_text.setTintFill(0x21E521);
+		if(text === 'Inorrect')
+			this.comparator_text.setTintFill(0xE52121);
+		this.tween.play();
 		this.comparator_text.text = text;
+		this.comparator_text.setVisible(true);
 	}
 
 	getFailsObject(){
