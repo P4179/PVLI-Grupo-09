@@ -43,26 +43,45 @@ export default class Button extends Phaser.GameObjects.Container {
         })
         this.add(this.aspecto);
 
-        // se asigna el texto dependiendo del botón
-        this.textButton = this.scene.add.bitmapText(0, 0, 'documentFont', text, 30)
-        .setOrigin(0.5, 0.5).setTintFill(0xFFFFFF).setDropShadow(5);
-        // tween para que el texto se mueva un poco para abajo cuando se pulsa el botón
-        this.moveText = this.scene.tweens.add({
-            targets: this.textButton,
-            y: 8,
-            duration: 60,
-            yoyo: true,
-            repeat: 0,
-            paused: true,
-        });
-        this.add(this.textButton);
-
         this.aspecto.setInteractive();
 
         this.aspecto.on('pointerdown', () => {
             // cuando se pulsa el botón se emite el evento propio
             this.emit(sprite);
         });
+
+        // se asigna el texto dependiendo del botón
+        this.textButton = this.scene.add.bitmapText(0, 0, 'documentFont', text, 30)
+        .setOrigin(0.5, 0.5).setTintFill(0xFFFFFF).setDropShadow(5);
+        // tween para que el texto se mueva un poco para abajo cuando se pulsa el botón
+        this.moveText = this.scene.tweens.add({
+            targets: this.textButton,
+            y: 7,
+            duration: 70,
+            ease: 'Sine.easeOut',
+            yoyo: true,
+            repeat: 0,
+            paused: true
+        });
+        this.textDown = this.scene.tweens.add({
+            targets: this.textButton,
+            y: 4,
+            duration: 0,
+            ease: 'Quart.easeOut',
+            repeat: 0,
+            paused: true,
+            delay: 90
+        })
+        this.textUp = this.scene.tweens.add({
+            targets: this.textButton,
+            y: -4,
+            duration: 0,
+            ease: 'Quad.easeIn',
+            repeat: 0,
+            paused: true,
+            delay: 90
+        })
+        this.add(this.textButton);
 
         this.setScale(0.8);
     }

@@ -1,36 +1,61 @@
-// Clase reloj
-// Es un container que tiene como hijos un sprite del marco del reloj y un texto con la fecha actual
-
-import Date from "../auxs/date.js";
-
 export default class Clock extends Phaser.GameObjects.Container {
-	/*
-	* Constructor de Start
-	* @param {Phaser.Scene} scene Escena a la que pertenece Clock
-	* @param {number} x Coordenada X
-	* @param {number} y Coordenada Y
-	* @param {number} date.d es el día, date.m es el mes, date.y es el año
-	*/
-	constructor (scene, x, y, date) {
-		// tiene un cuarto parámetro opcional que sirve para añadir hijos
-		// luego, se pueden añadir más
+	constructor(scene, x, y) {
 		super(scene, x, y);
+
 		this.scene.add.existing(this);
 
-		// se crean los hijos y se añaden al propio container, es decir, al this
-		// se crea el sprite del reloj
-		let aspecto = this.scene.add.sprite(0, 0, 'clock');
-		aspecto.setScale(0.07);
-		// se añade como hijo al container
-		this.add(aspecto);
+		this.elapsed_Time = 0;
+		// cada cuánto tiempo parpadea
+		this.flash = 700;
+		this.time = 9;
+		this.hour = this.timer / 12; 
+		this.elapsed_Time2 = 0;
 
+		let clock = this.scene.add.sprite(0, 0, 'reloj');
+		this.add(clock);
 
-		let fecha = new Date(scene, 0, 0, date.d, date.m, date.y);
-		fecha.setFontSize(20);
-        fecha.setTint(0xDC7633);
-		this.add(fecha);
+		this.digits = []
 
-		// cambiar la escala del container, de modo que cambia el tamaño de todos sus hijos
-		// si no se pone el parámetro de la y se toma que es el mismo que el de la x
+		let firstDigit = this.scene.add.sprite(-60, 0, 'nums_reloj', 0);
+		firstDigit.setScale(0.55);
+		this.digits.push(firstDigit);
+		this.add(firstDigit);
+
+		let secondDigit = this.scene.add.sprite(-25, 0, 'nums_reloj', 9);
+		secondDigit.setScale(0.55);
+		this.digits.push(secondDigit);
+		this.add(secondDigit);
+
+		let points = this.scene.add.sprite(5, 0, 'puntos', 0);
+		firstDigit.setScale(0.55);
+		this.digits.push(points);
+		this.add(points);
+
+		let thirdDigit = this.scene.add.sprite(35, 0, 'nums_reloj', 0);
+		thirdDigit.setScale(0.55);
+		this.digits.push(thirdDigit);
+		this.add(thirdDigit);
+
+		let fourthDigit = this.scene.add.sprite(70, 0, 'nums_reloj', 0);
+		fourthDigit.setScale(0.55);
+		this.digits.push(fourthDigit);
+		this.add(fourthDigit);
+
+		this.setScale(0.5);
+	}
+
+	preUpdate(t, dt) {
+		this.elapsed_Time2 += dt;
+		if(this.elapsed_Time2 > this.hour) {
+			console.log("cambio_hora");
+			++this.time;
+		}
+		this.elapsed_Time += dt;
+		if(this.elapsed_Time > this.flash){
+			this.elapsed_Time = 0;
+			this.digits.forEach((digit) => {
+				digit.visible = !digit.visible;
+			});
+		}
 	}
 }

@@ -44,6 +44,8 @@ export default class XRAY extends Button {
             // activa el ratón para poder continuar jugando
             this.scene.input.mouse.manager.enabled = true;         
         });
+
+        this.setScale(0.5);
     }
 
     xray(statue) {

@@ -25,7 +25,7 @@ export default class Day3 extends DayBase {
     new Manual(this, 650, CANVAS_WIDTH/4, 3);
 
     // se crea el botón de rayos X
-    new XRAY(this, 100, 380, 'escaner');
+    new XRAY(this, this, CANVAS_WIDTH - 50, CANVAS_HEIGHT - 120, 'escaner');
 
     // los botones sí y no acceden al statueManager para llamar al método que instancia la siguiente estatua
     this.statueManager = new StatueManagerLv3(this, 'day3');

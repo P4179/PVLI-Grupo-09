@@ -23,14 +23,18 @@ export default class Comparator extends Button {
         this.on(sprite, () => {
             if (!state) {
                 this.aspecto.play('press' + sprite);
+                this.textDown.play();
                 state = true;
             }
             else {
                 this.aspecto.play('unpress' + sprite);
+                this.textUp.play();
                 state = false;
             }
             this.scene.getStatue().comparator(state);
             this.scene.darkenScreen(state);
         });
+
+        this.setScale(0.5);
     }
 }

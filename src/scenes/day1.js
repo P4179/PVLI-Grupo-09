@@ -1,6 +1,7 @@
 import Manual from '../objects/manual.js';
 import StatueManagerLv1 from '../auxs/statueManagerLv1.js';
 import DayBase from './dayBase.js';
+import Reset from '../objects/reset_button.js';
 
 // Escena que se trata del nivel 1 del juego
 
@@ -37,7 +38,11 @@ export default class Day1 extends DayBase {
     // se crea el manual
     new Manual(this, 650, CANVAS_WIDTH/4, 1);
 
-    // los botones sí y no acceden al statueManager para llamar al método que instancia la siguiente estatua
-    this.statueManager = new StatueManagerLv1(this, 'day1');
+    this.HUD.calendar.on('startDay', () => {
+      // los botones sí y no acceden al statueManager para llamar al método que instancia la siguiente estatua
+        this.statueManager = new StatueManagerLv1(this, 'day1');
+    });
+
+    new Reset(this, CANVAS_WIDTH - 40, CANVAS_HEIGHT - 40);
   }
 }

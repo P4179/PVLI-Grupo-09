@@ -1,8 +1,10 @@
-import Clock from '../objects/clock.js';
+import Calendar from '../objects/calendar.js';
 import Fails from '../objects/fails.js';
 import Buttons_Yes_No from '../objects/button_yes_no.js';
 import Space_Boundary from '../objects/space_boundary.js';
 import Comparator from '../objects/comparator.js';
+import Background from '../objects/background.js';
+import Clock from '../objects/clock.js';
 
 // HUD
 
@@ -14,25 +16,27 @@ export default class HUD extends Phaser.GameObjects.Container {
 
 		this.scene.add.existing(this);
 
-		const CANVAS_WIDTH = this.scene.sys.canvas.width;
-		const CANVAS_HEIGHT = this.scene.sys.canvas.height;
+		const CANVAS_WIDTH = this.scene.game.config.width;
+		const CANVAS_HEIGHT = this.scene.game.config.height;
 
-		// fondo
-		// todos los sprites se añaden después del fondo porque sino quedan debajo
-		this.add(this.scene.add.image(0, 0, 'background').setOrigin(0, 0).setDisplaySize(CANVAS_WIDTH, CANVAS_HEIGHT));
+		this.add(new Background(this.scene));
 
-		this.add(new Buttons_Yes_No(this.scene, CANVAS_WIDTH - 100, 380, true));
-		this.add(new Buttons_Yes_No(this.scene, CANVAS_WIDTH - 100, 530, false));
+		this.add(new Buttons_Yes_No(this.scene, 90, CANVAS_HEIGHT - 220, true));
+		this.add(new Buttons_Yes_No(this.scene, 90, CANVAS_HEIGHT - 70, false));
 
-		// se instancia el reloj
+		// calendario
 		// se pasa la fecha como un solo objeto con tres parámetros
-		this.add(new Clock(this.scene, 90, CANVAS_HEIGHT - 70, date));
+		this.calendar = new Calendar(this.scene, CANVAS_WIDTH - 90, CANVAS_HEIGHT - 230, date);
+		this.add(this.calendar);
+
+		// reloj
+		this.add(new Clock(this.scene, CANVAS_WIDTH - 90, CANVAS_HEIGHT - 45));
 
 		// instancia de Fails
 		this.fails = new Fails(this.scene, CANVAS_WIDTH - 10, 10);
 
 		// se instancia el comparador
-		this.add(new Comparator(this.scene, 100, 250));
+		this.add(new Comparator(this.scene, CANVAS_WIDTH - 140, CANVAS_HEIGHT - 125));
 
 		// instancia de bounadries
 		// this.boundaries = this.scene.physics.add.staticGroup();

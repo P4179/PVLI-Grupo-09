@@ -1,10 +1,12 @@
 import Title from './scenes/title.js';
 import Boot from './scenes/boot.js';
-import Day1 from './scenes/day1.js'
-import Day2 from './scenes/day2.js'
-import Day3 from './scenes/day3.js'
-import End from './scenes/end.js'
 import ScalinePostFX from '/assets/pipelines/ScalinePostFX.js'; 
+import Day1 from './scenes/day1.js';
+import Day2 from './scenes/day2.js';
+import Day3 from './scenes/day3.js';
+import BoxLevel1 from './scenes/boxLevel1.js';
+import BoxLevel2 from './scenes/boxLevel2.js';
+import Family from './scenes/family.js';
 
 // Configuración de Phaser
 // Se crea la clase game que se encarga de crear e iniciar el juego
@@ -50,7 +52,7 @@ let config = {
     },
     pipeline: { ScalinePostFX },
     // escenas que hay en el juego
-    scene: [Title, Boot, Day1, Day2, Day3, End],
+    scene: [Title, Boot, Day1, Day2, Day3, BoxLevel1, BoxLevel2, Family],
     title: "Proyecto final"
 };
 

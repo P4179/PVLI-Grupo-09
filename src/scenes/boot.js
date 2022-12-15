@@ -22,7 +22,12 @@ export default class Boot extends Phaser.Scene {
     // SPRITES
     // Fondo de los niveles
     this.load.setPath('assets/sprites/fondos');
-    this.load.image('background', 'fondo_2.png');
+    this.load.image('templo', 'templo.png');
+    this.load.image('mesa', 'mesa.png');
+    this.load.image('background', 'Background.png');
+    this.load.image('trees', '4.png');
+    this.load.image('mountains1', '1.png');
+    this.load.image('mountains2', '2.png');
 
     // Estatuas
     this.load.setPath('assets/sprites/estatuas');
@@ -45,16 +50,26 @@ export default class Boot extends Phaser.Scene {
 
     // Otros
     this.load.setPath('assets/sprites/otros');
-    // Reloj
-    this.load.image('clock', 'digital-clock.png');
     // Sellos de museos
-    this.load.spritesheet('stamp_sprites', 'Stamps.png', {frameWidth: 42, frameHeight: 42})
+    this.load.spritesheet('stamp_sprites', 'Stamps.png', {frameWidth: 42, frameHeight: 42});
     // Explosivo
     this.load.image('explosive', 'Explosivo.png');
     // Vacío
     this.load.image('empty', 'vacio.png');
     // XRAY Escaner
     this.load.image('escaner','rayosx.png');
+    // Calendario
+    this.load.spritesheet('calendar', 'calendar.png', {frameWidth: 640, frameHeight: 480});
+    // Farollillos
+    this.load.image('lantern1', 'Farolillo1.png');
+    this.load.image('lantern2', 'Farolillo2.png');
+    this.load.image('lantern3', 'Farolillo3.png');
+    // Reloj
+    this.load.image('reloj', 'reloj.png');
+    // Números del reloj
+    this.load.spritesheet('nums_reloj', 'nums_reloj.png', {frameWidth: 62.8, frameHeight: 120});
+    // Puntos del reloj
+    this.load.image('puntos', 'puntos.png');
 
     // Botones
     this.load.setPath('assets/sprites/botones');
@@ -74,13 +89,17 @@ export default class Boot extends Phaser.Scene {
     this.load.image('xrayItems','Items.png');
     this.load.image('validStamps','validStamps.png');
 
-    // Audios
+    // AUDIOS
     this.load.setPath('assets/audio');
     this.load.audio("success", "success.mp3");
     this.load.audio("error", "error.mp3");
     this.load.audio("documentsS", "documents.mp3");
     this.load.audio("demoAudio", "Shinrin-Yoku.ogg");
     this.load.audio("manualA", "manual.mp3");
+
+    // NIVELES CAJAS
+    this.load.setPath('assets/sprites/niveles_cajas');
+    this.load.spritesheet('reset', 'reset.png', {frameWidth: 39, frameHeight: 44});
   }
 
   // Creación de la escena

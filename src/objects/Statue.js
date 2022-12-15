@@ -1,12 +1,4 @@
 export default class Statue extends Phaser.GameObjects.Sprite {
-	/**
-	 * Constructor de Estatua, estatua de terracota
-	 * @param {Scene} scene - escena en la que aparece
-	 * @param {number} x - coordenada x
-	 * @param {number} y - coordenada y
-	 * @param {boolean} continue - booleano que define si la estatua pasa o no
-	 * @param {string} filename - nombre del archivo con el sprite
-	 */
 	constructor(scene, info) {
 		super(scene, scene.game.config.width / 2, 217.5, info.sprite);
 		this.scene.add.existing(this);
@@ -60,7 +52,7 @@ export default class Statue extends Phaser.GameObjects.Sprite {
 		})
 		*/
 
-		this.tween = this.scene.tweens.add({
+		this.arrive = this.scene.tweens.add({
 		    targets: [ this ],
 		    x: this.scene.game.config.width / 2,
 		    y: 112,
@@ -68,7 +60,6 @@ export default class Statue extends Phaser.GameObjects.Sprite {
 		    scaleY: 0.5,
 		    duration: 1000,
 		    ease: 'Sine.easeInOut',
-		    //ease: 'Linear',
 		    paused: true,
 		    flipX: false,
 		    yoyo: false,
@@ -76,10 +67,13 @@ export default class Statue extends Phaser.GameObjects.Sprite {
 		    delay: 1
 		});
 
-		this.tween.on('complete', () => {
-			this.emit('arrive');
+		this.arrive.on('complete', () => {
+			this.emit('arriveStatue');
 		})
+	}
 
+	arriving() {
+		this.arrive.play();
 	}
 
 	canPass(type) {

@@ -11,28 +11,29 @@ export default class StatueLv3 extends Statue {
 		const CANVAS_WIDTH = this.scene.game.config.width;
 		const CANVAS_HEIGHT = this.scene.game.config.height;
 
-		this.on('arrive', () => {
-			this.ACDocument = new Authenticity_Certificate(this.scene, CANVAS_WIDTH / 2 - 160, CANVAS_HEIGHT / 2 - 50,
+		this.ACDocument = new Authenticity_Certificate(this.scene, CANVAS_WIDTH / 2 - 160, CANVAS_HEIGHT / 2 - 50,
 			info.name, info.expiration_date, info.photo, info.creation_date, info.serial_number);
-			this.IDDocument = new Identity_Suplement(this.scene, CANVAS_WIDTH / 2 - 110, CANVAS_HEIGHT / 2 - 50,
+		this.IDDocument = new Identity_Suplement(this.scene, CANVAS_WIDTH / 2 - 110, CANVAS_HEIGHT / 2 - 50,
 			info.name2, info.serial_number2, info.expiration_date2, info.stamp);
 
-			this.documents.add(this.ACDocument);
-			this.documents.add(this.IDDocument);
-		})
+		this.documents.add(this.ACDocument);
+		this.documents.add(this.IDDocument);
 	}
 
 	showContent() {
 		// se pone en negro la estatua
-		this.setTint(Phaser.Display.Color.GetColor(10, 10, 10));	
-		// se muestra su contenido
-		let Scontent = this.scene.add.image(this.x, this.y + 5, this.content);
+		this.setTint(Phaser.Display.Color.GetColor(10, 10, 10));
+		let Scontent = this.scene.add.image(this.x, this.y - 75, this.content);
 		Scontent.setScale(0.6);
 		this.scene.pauseScene();
-        setTimeout(() => {      	
-        	this.setTint(Phaser.Display.Color.GetColor(1000, 1000, 1000));
-	    	Scontent.destroy();
-	    	this.scene.resumeScene();
-    	}, 3000);
+		this.scene.time.addEvent( {
+     		delay: 3000, 
+        	callback: () => {
+        		this.setTint(Phaser.Display.Color.GetColor(1000, 1000, 1000));
+	    		Scontent.destroy();
+	    		this.scene.resumeScene();
+        	},
+        	callbackScope: this.scene
+        });
 	}
 }

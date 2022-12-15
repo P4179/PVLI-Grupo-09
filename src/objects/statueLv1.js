@@ -7,12 +7,10 @@ export default class StatueLv1 extends Statue {
 
 		const CANVAS_WIDTH = this.scene.game.config.width;
 		const CANVAS_HEIGHT = this.scene.game.config.height;
-
-		this.on('arrive', () => {
-			this.ACDocument = new Authenticity_Certificate(this.scene, CANVAS_WIDTH / 2 - 160, CANVAS_HEIGHT / 2 - 50,
+		
+		this.ACDocument = new Authenticity_Certificate(this.scene, CANVAS_WIDTH / 2 - 160, CANVAS_HEIGHT / 2 - 50,
 			info.name, info.expiration_date, info.photo, info.creation_date, info.serial_number);
-			// se añade al grupo de documetnos
-			this.documents.add(this.ACDocument);
-		})
+		// se añade al grupo de documetnos
+		this.documents.add(this.ACDocument);
 	}
 }
