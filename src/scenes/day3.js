@@ -17,6 +17,9 @@ export default class Day3 extends DayBase {
   create() {
     super.create();
 
+    const CANVAS_WIDTH = this.game.config.width;
+    const CANVAS_HEIGHT = this.game.config.height;
+
     // se crea el botón de rayos X
     new XRAY(this, CANVAS_WIDTH - 50, CANVAS_HEIGHT - 125);
 
@@ -26,13 +29,11 @@ export default class Day3 extends DayBase {
     });
   }
 
-  pauseScene(){
-    this.scene.pause(this);
+  addXrayEffect(){
     this.cameras.main.setPostPipeline(ScalinePostFX);
   }
 
-  resumeScene(){
-    this.scene.resume(this);
+  removeXrayEffect(){
     this.cameras.main.removePostPipeline(ScalinePostFX);
   }
 }
