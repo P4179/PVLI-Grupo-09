@@ -26,17 +26,19 @@ export default class Manual extends Phaser.GameObjects.Sprite{
         this.setInteractive();
 
         // textos
-		let textFecha;
-		let normas;
-		let colorText;
-		let soundText;
-		let stampText;
-		let xrayText;
+        this.textFecha = this.scene.add.text(this.x - 150, this.y + 80, 'Creation date interval:\n -246 --> -216', {fontFamily: 'Ink Free'}).setOrigin(0.5, 0.5).setVisible(false).setDepth(1);
+		this.normas1 = this.scene.add.text(this.x - 170, this.y - 60, 'Check List\n - Photo  \n - Expiration day \n - Creation date', {fontFamily: 'Ink Free'}).setOrigin(0.5, 0.5).setVisible(false).setDepth(1);
+		this.normas2 = this.scene.add.text(this.x - 160, this.y - 35, 'Check List\n - Photo  \n - Expiration day \n - Creation date \n - Name \n - Terracotta color \n - Sound', {fontFamily: 'Ink Free'}).setOrigin(0.5, 0.5).setVisible(false).setDepth(1);
+		this.normas3 = this.scene.add.text(this.x - 170, this.y - 25, 'Check List\n - Photo  \n - Expiration day \n - Creation date \n - Name \n - Serial number \n - Stamp \n - XRAY', {fontFamily: 'Ink Free'}).setOrigin(0.5, 0.5).setVisible(false).setDepth(1);
+		this.colorText = this.scene.add.text(this.x + 120, this.y - 95, 'Correct terracotta colors', {fontFamily: 'Ink Free'}).setOrigin(0.5, 0.5).setVisible(false).setDepth(1);
+		this.soundText = this.scene.add.text(this.x + 130, this.y + 70, 'The high sound is the correct', {fontFamily: 'Ink Free'}).setOrigin(0.5, 0.5).setVisible(false).setDepth(1);
+		this.stampText = this.scene.add.text(this.x + 120, this.y - 95, 'Valid stamps', {fontFamily: 'Ink Free'}).setOrigin(0.5, 0.5).setVisible(false).setDepth(1);
+		this.xrayText = this.scene.add.text(this.x + 125, this.y - 5, 'Not valid items', {fontFamily: 'Ink Free'}).setOrigin(0.5, 0.5).setVisible(false).setDepth(1);
 
 		// imagenes
-		let colors;
-		let stamps;
-		let xrayItems;
+		this.colors = this.scene.add.sprite(this.x + 120, this.y - 30, 'colores').setScale(0.8).setVisible(false).setDepth(1);
+		this.stamps = this.scene.add.sprite(this.x + 120, this.y - 50, 'validStamps').setScale(0.9).setVisible(false).setDepth(1);
+		this.xrayItems = this.scene.add.sprite(this.x + 120, this.y + 60, 'xrayItems').setScale(0.9).setVisible(false).setDepth(1);
 
 		const config = {
 	        mute: false,
@@ -82,18 +84,22 @@ export default class Manual extends Phaser.GameObjects.Sprite{
 	            this.play('m_close');
 	            this._open = false;
 	            this.setScale(0.6);
-	            textFecha.destroy();
-	            normas.destroy();   
-	            if(this.day === 2){
-	            	colorText.destroy();
-	            	soundText.destroy();
-	            	colors.destroy();
+	            this.textFecha.setVisible(false);
+	            if(this.day === 1){
+	            	this.normas1.setVisible(false);
+	            }
+	            else if(this.day === 2){
+	            	this.normas2.setVisible(false);
+	            	this.colorText.setVisible(false);
+	            	this.soundText.setVisible(false);
+	            	this.colors.setVisible(false);
 	            }
 	            else if(this.day === 3){
-	            	stampText.destroy();
-	            	xrayText.destroy();
-					stamps.destroy();
-	            	xrayItems.destroy();
+	            	this.normas3.setVisible(false);
+	            	this.stampText.setVisible(false);
+	            	this.xrayText.setVisible(false);
+					this.stamps.setVisible(false);
+	            	this.xrayItems.setVisible(false);
 	            }
 	            this.setSizeToFrame('open_manual(close)');
 	            this.manualSound.play();
@@ -111,35 +117,22 @@ export default class Manual extends Phaser.GameObjects.Sprite{
     			this.play('open');
     			this.setScale(5);
     			if(this.day === 1){
-    				normas = this.scene.add.text(this.x - 170, this.y - 60, 'Check List\n - Photo  \n - Expiration day \n - Creation date', {fontFamily: 'Ink Free'}).setOrigin(0.5, 0.5);
-    			}
+					this.normas1.setVisible(true);    			
+				}
     			else if(this.day === 2){
-    				normas = this.scene.add.text(this.x - 160, this.y - 35, 'Check List\n - Photo  \n - Expiration day \n - Creation date \n - Name \n - Terracotta color \n - Sound', {fontFamily: 'Ink Free'}).setOrigin(0.5, 0.5);
-    				colorText = this.scene.add.text(this.x + 120, this.y - 95, 'Correct terracotta colors', {fontFamily: 'Ink Free'}).setOrigin(0.5, 0.5);
-    				colorText._depth = 1;
-    				soundText = this.scene.add.text(this.x + 130, this.y + 70, 'The high sound is the correct', {fontFamily: 'Ink Free'}).setOrigin(0.5, 0.5);
-    				soundText._depth = 1;
-    				colors = this.scene.add.sprite(this.x + 120, this.y - 30, 'colores');
-    				colors.setScale(0.8);
-    				colors._depth = 1;
+					this.normas2.setVisible(true);       				
+					this.colorText.setVisible(true);  
+					this.soundText.setVisible(true);
+					this.colors.setVisible(true);
     			}
     			else {
-    				normas = this.scene.add.text(this.x - 170, this.y - 25, 'Check List\n - Photo  \n - Expiration day \n - Creation date \n - Name \n - Serial number \n - Stamp \n - XRAY', {fontFamily: 'Ink Free'}).setOrigin(0.5, 0.5);
-    				stampText = this.scene.add.text(this.x + 120, this.y - 95, 'Valid stamps', {fontFamily: 'Ink Free'}).setOrigin(0.5, 0.5);
-					stampText._depth = 1;
-					xrayText = this.scene.add.text(this.x + 125, this.y - 5, 'Not valid items', {fontFamily: 'Ink Free'}).setOrigin(0.5, 0.5);
-					xrayText._depth = 1;
-					stamps = this.scene.add.sprite(this.x + 120, this.y - 50, 'validStamps');
-    				stamps.setScale(0.9);
-    				stamps._depth = 1;
-					xrayItems = this.scene.add.sprite(this.x + 120, this.y + 60, 'xrayItems');
-    				xrayItems.setScale(0.9);
-    				xrayItems._depth = 1;
+					this.normas3.setVisible(true);  
+					this.stampText.setVisible(true);  		
+					this.xrayText.setVisible(true);		
+					this.stamps.setVisible(true);
+					this.xrayItems.setVisible(true);
     			}
-    			normas._depth = 1;
-				textFecha = this.scene.add.text(this.x - 150, this.y + 80, 'Creation date interval:\n -246 --> -216', {fontFamily: 'Ink Free'}).setOrigin(0.5, 0.5);
-	            
-	            textFecha._depth = 1;
+				this.textFecha.setVisible(true);     
     		}	
     		else if(this.anims.currentAnim.key === 'm_close'){
     			this.play('close')
