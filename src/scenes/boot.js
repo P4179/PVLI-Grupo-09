@@ -70,11 +70,14 @@ export default class Boot extends Phaser.Scene {
     this.load.spritesheet('close_manualF', 'close_manualF.png', {frameWidth: 248, frameHeight: 248});
     this.load.spritesheet('close_manual(open)', 'close_manual(open).png', {frameWidth: 496, frameHeight: 248});
     this.load.spritesheet('open_manual(close)', 'open_manual(close).png', {frameWidth: 496, frameHeight: 248});
+    this.load.image('colores','colores.png');
+    this.load.image('xrayItems','Items.png');
+    this.load.image('validStamps','validStamps.png');
   }
 
   // Creación de la escena
   // En este caso, solo se pasa a la escena del primer nivel
   create() {
-    this.scene.start('day3');
+    this.scene.start('day1');
   }
 }
