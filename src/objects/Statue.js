@@ -91,6 +91,12 @@ export default class Statue extends Phaser.GameObjects.Sprite {
 		return this.documents;
 	}
 
+	resetDocumentDepths(){
+		this.documents.children.each(function (d) {
+			d.setDepth(0);
+		}, this);
+	}
+
 	// se reproduce el tween con la llegada de la estatua
 	arriving() {
 		this.arrive.play();

@@ -41,6 +41,10 @@ export default class Documents extends Phaser.GameObjects.Container {
 		this.setInteractive();
 		this.scene.input.setDraggable(this);
 		this.scene.input.on('drag', function (pointer, gameObject, dragX, dragY) {
+			this.scene.getStatue().resetDocumentDepths();
+			if(gameObject.depth != 3){
+				gameObject.setDepth(3);
+			}
 			//escalado de los documentos cuando se arrastran
 			gameObject.setScale((gameObject.y / h) ** 2);
 			gameObject.setDepth(10);
@@ -83,8 +87,6 @@ export default class Documents extends Phaser.GameObjects.Container {
 			t.on('pointerdown', () => {
 				console.log(t);
 				this.scene.getStatue().setCompVar(t);
-
-				// this.scene.getStatue().setCompVar(this);
 			});
 		}, this);
 	}
