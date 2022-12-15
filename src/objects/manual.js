@@ -8,15 +8,13 @@ export default class Manual extends Phaser.GameObjects.Sprite{
 	 * @param {number} y - coordinate y
 	 * @param {number} cBegin - comienzo fecha de creación de estatuas (-246)
 	 * @param {number} cEnd - fin fecha de creación de estatuas (-216)
-	 * @param {boolean} sello - determina el sello valido
 	 * @param {boolean} open - determina si el manual está abierto o cerrado
 	 * @param {day} - indica el día en el que se encuentra para decidir que se muestra
 	 */
 
-	constructor(scene, x, y, sello, day){
+	constructor(scene, x, y, day){
 		super(scene, x, y,"close_manual");
 		this.scene.add.existing(this);
-		this._sello = sello;
 		this._open = false;
 		this._cBegin = -246;
 		this._cEnd = -216;
@@ -39,6 +37,18 @@ export default class Manual extends Phaser.GameObjects.Sprite{
 		let colors;
 		let stamps;
 		let xrayItems;
+
+		const config = {
+	        mute: false,
+	        volume: 1,
+	        rate: 1,
+	        detune: 0,
+	        seek: 0,
+	        loop: false,
+	        delay: 0,
+	    }; 
+
+	    this.manualSound = this.scene.sound.add("manualA", config);
 
 		this.scene.anims.create({
 			key: 'm_close',
@@ -86,11 +96,13 @@ export default class Manual extends Phaser.GameObjects.Sprite{
 	            	xrayItems.destroy();
 	            }
 	            this.setSizeToFrame('open_manual(close)');
+	            this.manualSound.play();
 	        }
 	        else{
 	            this.play('m_open');
 	            this._open = true;
 	            this.setScale(1);
+	            this.manualSound.play();
 	        }
     	});
 
