@@ -13,8 +13,9 @@ export default class Boot extends Phaser.Scene {
     this.load.text('day1', 'day1.json');
     this.load.text('day2', 'day2.json');
     this.load.text('day3', 'day3.json');
-    this.load.tilemapTiledJSON('tilemap_nivel_2', 'mapa_tiles_nivel_2/box_map_2.json');
-    this.load.image('patrones_tilemap_nivel_2', 'mapa_tiles_nivel_2/prueba.png');
+    this.load.tilemapTiledJSON('tilemap_nivel_1', 'mapa_tiles/box_map_1.json');
+    this.load.tilemapTiledJSON('tilemap_nivel_2', 'mapa_tiles/box_map_2.json');
+    this.load.image('patrones_tilemap', 'mapa_tiles/prueba.png');
     
     // TEXTO BITMAP
     this.load.setPath('assets/fonts');
@@ -115,6 +116,6 @@ export default class Boot extends Phaser.Scene {
   // Creación de la escena
   // En este caso, solo se pasa a la escena del primer nivel
   create() {
-    this.scene.start('day1');
+    this.scene.start('day3');
   }
 }

@@ -4,6 +4,30 @@ export default class BoxLevel1 extends Phaser.Scene {
 	}
 
 	create() {
-		this.scene.start('day2');
+		this.map = this.make.tilemap({
+            key: 'tilemap_nivel_1',
+            tileWidth: 24,
+            tileHeight: 33
+        });
+
+        const tileset = this.map.addTilesetImage('tile', 'patrones_tilemap');
+
+        this.background = this.map.createLayer('background', tileset);
+        this.staticlayer = this.map.createLayer('walls', tileset);
+
+		this.staticlayer.setCollisionByProperty({ colisiona: true });
+
+        this.boxes = this.map.createFromObjects('boxes', {name: 'box', key: 'm_box'});
+        this.boxes.map(b => b.y += 33);
+        this.boxes.map(b => this.physics.add.existing(b));
+        this.boxes.map(b => b.body.setImmovable(true));
+ 
+        this.cameras.main.scrollX = -(this.game.config.width / 2 - this.map.widthInPixels / 2);
+        this.cameras.main.scrollY = -(this.game.config.height / 2 - this.map.heightInPixels  / 2);
+
+        // this.boxlayer.setCollisionByProperty({colli: true});
+        // this.physics.add.collider(this.player, this.boxlayer);
+
+		//this.scene.start('day2');
 	}
 }

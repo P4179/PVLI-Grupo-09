@@ -4,9 +4,9 @@
   <export target="box_map_1.json" format="json"/>
  </editorsettings>
  <tileset firstgid="1" name="prueba" tilewidth="24" tileheight="33" tilecount="135" columns="5">
-  <image source="mapa tiles 2/mapa_tiles_nivel_2/mapa_tiles_nivel_2/prueba.png" width="128" height="896"/>
+  <image source="mapa_tiles_nivel_2/prueba.png" width="128" height="896"/>
  </tileset>
- <tileset firstgid="136" name="prueba" tilewidth="24" tileheight="33" tilecount="135" columns="5">
+ <tileset firstgid="136" name="prueba" tilewidth="24" tileheight="33" tilecount="0" columns="5">
   <image source="mapa tiles 2/mapa_tiles_nivel_2/prueba.png" width="128" height="896"/>
  </tileset>
  <layer id="1" name="background" width="16" height="11">
