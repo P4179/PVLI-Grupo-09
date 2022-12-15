@@ -34,9 +34,16 @@ Lista de sprites:
 - IdSupplementInner.png (90x109)
 - MaterialRecord.png (153x43)
 - Stamps.png (84x126)
+- vacio.png (128x128)
 - Explosivo.png (128x128)
-
+- book.png (128x92)
+- relic.png (128x128)
+- colores.png (128x128)
+- rayosx.png (128x128)
+- Items.png (128x128)
+- validStamps.png (128x64)
 Lista de spritesheets
 - Botón spritesheet (150x147 cada frame)
 - Estatuas (420x420 cada frame)
 - Sellos (42x42 cada frame)
+

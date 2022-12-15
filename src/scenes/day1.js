@@ -22,7 +22,7 @@ export default class Day1 extends DayBase {
     const CANVAS_HEIGHT = this.game.config.height;
 
     // se crea el manual
-    new Manual(this, 650, CANVAS_WIDTH/4, false);
+    new Manual(this, 650, CANVAS_WIDTH/4, false, 1);
 
     // los botones sí y no acceden al statueManager para llamar al método que instancia la siguiente estatua
     this.statueManager = new StatueManagerLv1(this, 'day1');

@@ -53,6 +53,8 @@ export default class Boot extends Phaser.Scene {
     this.load.image('explosive', 'Explosivo.png');
     // Vacío
     this.load.image('empty', 'vacio.png');
+    // XRAY Escaner
+    this.load.image('escaner','rayosx.png');
 
     // Botones
     this.load.setPath('assets/sprites/botones');
@@ -67,7 +69,10 @@ export default class Boot extends Phaser.Scene {
     this.load.spritesheet('open_manualF', 'open_manualF.png', {frameWidth: 96, frameHeight: 48});
     this.load.spritesheet('close_manualF', 'close_manualF.png', {frameWidth: 248, frameHeight: 248});
     this.load.spritesheet('close_manual(open)', 'close_manual(open).png', {frameWidth: 496, frameHeight: 248});
-    this.load.spritesheet('open_manual(close)', 'open_manual(close).png', {frameWidth: 496, frameHeight: 248})
+    this.load.spritesheet('open_manual(close)', 'open_manual(close).png', {frameWidth: 496, frameHeight: 248});
+    this.load.image('colores','colores.png');
+    this.load.image('xrayItems','Items.png');
+    this.load.image('validStamps','validStamps.png');
   }
 
   // Creación de la escena
