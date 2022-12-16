@@ -92,8 +92,8 @@ export default class Boot extends Phaser.Scene {
     this.load.setPath('./assets/sprites/botones');
     this.load.spritesheet('button_yes', 'Boton_verde_Spritesheet.png', {frameWidth: 150, frameHeight: 147});
     this.load.spritesheet('button_no', 'Boton_rojo_SpriteSheet.png', {frameWidth: 150, frameHeight: 147});
-    this.load.spritesheet('button_xray', 'Boton_azul_SpriteSheet.png', {frameWidth: 150, frameHeight: 147});
-    this.load.spritesheet('button_comp', 'Boton_morado_SpriteSheet.png', {frameWidth: 150, frameHeight: 147});
+    this.load.spritesheet('button_xray', 'Boton_azul_Spritesheet.png', {frameWidth: 150, frameHeight: 147});
+    this.load.spritesheet('button_comp', 'Boton_morado_Spritesheet.png', {frameWidth: 150, frameHeight: 147});
 
     // Manual
     this.load.setPath('./assets/sprites/manual');
@@ -119,7 +119,7 @@ export default class Boot extends Phaser.Scene {
     this.load.setPath('./assets/sprites/niveles_cajas');
     this.load.spritesheet('reset', 'reset.png', {frameWidth: 39, frameHeight: 44});
     this.load.spritesheet('character', 'player.png', {frameWidth: 64, frameHeight: 64});
-    this.load.image('box', 'box.png');
+    this.load.image('box', 'Box.png');
   }
 
   // Creación de la escena
