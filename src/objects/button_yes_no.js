@@ -6,6 +6,7 @@ export default class Button_Yes_No extends Button {
 	 * @param {Scene} scene - escena en la que aparece
 	 * @param {number} x - coordenada x
 	 * @param {number} y - coordenada y
+	 * @param {bool} type - si es el botón de SÍ o el botón de NO
 	 */
 	constructor(scene, x, y, type) {
 		let sprite, text;
@@ -22,8 +23,8 @@ export default class Button_Yes_No extends Button {
 		this.scene.add.existing(this);
 
 		// suscripción al evento, de modo que cuando se emita sucederá lo que hay en el arrow function
-		this.on(sprite, () => {
-			this.aspecto.play('click' + sprite);
+		this.on(text, () => {
+			this.aspecto.play('click' + text);
             this.moveText.play();
 			this.scene.statueManager.nextStatue(type);
 		});

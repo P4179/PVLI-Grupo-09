@@ -85,6 +85,8 @@ export default class Boot extends Phaser.Scene {
     this.load.spritesheet('nums_reloj', 'nums_reloj.png', {frameWidth: 62.8, frameHeight: 120});
     // Puntos del reloj
     this.load.image('puntos', 'puntos.png');
+    // Bola de tenis
+    this.load.spritesheet('bola_tenis', 'bola_tenis.png', {frameWidth: 37.625, frameHeight: 39.5});
 
     // Botones
     this.load.setPath('assets/sprites/botones');
@@ -116,11 +118,13 @@ export default class Boot extends Phaser.Scene {
     // NIVELES CAJAS
     this.load.setPath('assets/sprites/niveles_cajas');
     this.load.spritesheet('reset', 'reset.png', {frameWidth: 39, frameHeight: 44});
+    this.load.spritesheet('character', 'player.png', {frameWidth: 64, frameHeight: 64});
+    this.load.image('box', 'box.png');
   }
 
   // Creación de la escena
   // En este caso, solo se pasa a la escena del primer nivel
   create() {
-    this.scene.start('day3');
+    this.scene.start('boxLevel2');
   }
 }

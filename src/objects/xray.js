@@ -11,7 +11,7 @@ export default class XRAY extends Button {
 
         this.scene.add.existing(this);
 
-        this.sprite = 'button_xray';
+        this.text = "XRAY";
         this.setScale(0.5);
 
         const config = {
@@ -44,12 +44,12 @@ export default class XRAY extends Button {
         });
 
         // se produce este evento cuando se ha pulsado el botón
-        this.on('button_xray', () => {
+        this.on(this.text, () => {
             // se desactiva el ratón para que no se hagan acciones durante los rayos X
             this.scene.input.mouse.manager.enabled = false;
 
             // animaciones del botón
-            this.aspecto.play('click' + this.sprite);
+            this.aspecto.play('click' + this.text);
             this.moveText.play();
 
             this.eXRAY.setVisible(true);

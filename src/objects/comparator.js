@@ -20,14 +20,14 @@ export default class Comparator extends Button {
         this.textButton.setFontSize(20);
 
         // suscripción al evento, de modo que cuando se emita sucederá lo que hay en el arrow function
-        this.on(sprite, () => {
+        this.on(text, () => {
             if (!state) {
-                this.aspecto.play('press' + sprite);
+                this.aspecto.play('press' + text);
                 this.textDown.play();
                 state = true;
             }
             else {
-                this.aspecto.play('unpress' + sprite);
+                this.aspecto.play('unpress' + text);
                 this.textUp.play();
                 state = false;
             }

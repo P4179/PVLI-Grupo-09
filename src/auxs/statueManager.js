@@ -14,10 +14,10 @@ export default class StatueManager {
 	        seek: 0,
 	        loop: false,
 	        delay: 0,
-	      }; 
+	    }; 
 
-	      this.success = this.scene.sound.add("success", config);
-	      this.error = this.scene.sound.add("error", config);
+	    this.success = this.scene.sound.add("success", config);
+	    this.error = this.scene.sound.add("error", config);
 	}
 
 	createInfo(text) {
@@ -59,5 +59,9 @@ export default class StatueManager {
   			success = 0;
   		}
   		return success;
+  	}
+
+  	getGroup() {
+  		return this.statuesPool.group;
   	}
 }

@@ -6,6 +6,16 @@ export default class StatueLv2 extends Statue {
 	constructor(scene, info) {
 		super(scene, info);
 
+		this.impacted = this.scene.tweens.add({
+			targets: this,
+			x: this.x + 30,
+			duration: 400,
+			ease: 'Expo.easeOut',
+			paused: true,
+			yoyo: true,
+			repeat: 0
+		});
+
 		const CANVAS_WIDTH = this.scene.game.config.width;
 		const CANVAS_HEIGHT = this.scene.game.config.height;		
 

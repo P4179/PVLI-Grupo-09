@@ -41,7 +41,8 @@ let config = {
     // fisicas
     physics: { 
         default: 'arcade', 
-        arcade: { 
+        // no tiene gravedad
+        arcade: {
             debug: true 
         },
         checkCollision: {
