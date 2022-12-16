@@ -9,7 +9,7 @@ export default class Boot extends Phaser.Scene {
   // Carga de los assets del juego
   preload() {
     // NIVELES
-    this.load.setPath('assets/levels');
+    this.load.setPath('./assets/levels');
     this.load.text('day1', 'day1.json');
     this.load.text('day2', 'day2.json');
     this.load.text('day3', 'day3.json');
@@ -18,13 +18,13 @@ export default class Boot extends Phaser.Scene {
     this.load.image('patrones_tilemap', 'mapa_tiles/prueba.png');
     
     // TEXTO BITMAP
-    this.load.setPath('assets/fonts');
+    this.load.setPath('./assets/fonts');
     // Texto para los documentos
     this.load.bitmapFont('documentFont', 'BMYbitmap/BMYbitmap.png', 'BMYbitmap/BMYbitmap.xml', {frameWidth: 24, frameHeight: 33});
     
     // SPRITES
     // Fondo de los niveles
-    this.load.setPath('assets/sprites/fondos');
+    this.load.setPath('./assets/sprites/fondos');
     this.load.image('templo', 'templo.png');
     this.load.image('mesa', 'mesa.png');
     this.load.image('background', 'Background.png');
@@ -33,7 +33,7 @@ export default class Boot extends Phaser.Scene {
     this.load.image('mountains2', '2.png');
     
     // Estatuas
-    this.load.setPath('assets/sprites/estatuas');
+    this.load.setPath('./assets/sprites/estatuas');
     // Spritesheets de las estatuas
     this.load.spritesheet('manGreen', 'animacion_retrato_hombre_5_spritesheet.png', {frameWidth: 420, frameHeight: 420});
     this.load.spritesheet('man1', 'animacion_retrato_hombre_1_spritesheet.png', {frameWidth: 420, frameHeight: 420});
@@ -55,13 +55,13 @@ export default class Boot extends Phaser.Scene {
     this.load.image('woman4_Fake', 'retrato_mujer_4_FAKE.png');
     
     // Documentos
-    this.load.setPath('assets/sprites/documentos');
+    this.load.setPath('./assets/sprites/documentos');
     this.load.image('auth_cert', 'AccessPermitInner.png');  // certificado de autenticidad
     this.load.image('auth_paper', 'IdSupplementInner.png'); // tarjeta de identidad
     this.load.image('mat_reg', 'MaterialRecord.png'); // carnet de materiales
     
     // Otros
-    this.load.setPath('assets/sprites/otros');
+    this.load.setPath('./assets/sprites/otros');
     // Cajas
     this.load.image('m_box', 'm_box.png');
     this.load.image('n_box', 'n_box.png');
@@ -89,14 +89,14 @@ export default class Boot extends Phaser.Scene {
     this.load.spritesheet('bola_tenis', 'bola_tenis.png', {frameWidth: 37.625, frameHeight: 39.5});
 
     // Botones
-    this.load.setPath('assets/sprites/botones');
+    this.load.setPath('./assets/sprites/botones');
     this.load.spritesheet('button_yes', 'Boton_verde_Spritesheet.png', {frameWidth: 150, frameHeight: 147});
     this.load.spritesheet('button_no', 'Boton_rojo_SpriteSheet.png', {frameWidth: 150, frameHeight: 147});
     this.load.spritesheet('button_xray', 'Boton_azul_SpriteSheet.png', {frameWidth: 150, frameHeight: 147});
     this.load.spritesheet('button_comp', 'Boton_morado_SpriteSheet.png', {frameWidth: 150, frameHeight: 147});
 
     // Manual
-    this.load.setPath('assets/sprites/manual');
+    this.load.setPath('./assets/sprites/manual');
     this.load.image('close_manual', 'close_manual.png');
     this.load.spritesheet('open_manualF', 'open_manualF.png', {frameWidth: 96, frameHeight: 48});
     this.load.spritesheet('close_manualF', 'close_manualF.png', {frameWidth: 248, frameHeight: 248});
@@ -107,7 +107,7 @@ export default class Boot extends Phaser.Scene {
     this.load.image('validStamps','validStamps.png');
 
     // AUDIOS
-    this.load.setPath('assets/audio');
+    this.load.setPath('./assets/audio');
     this.load.audio("success", "success.mp3");
     this.load.audio("error", "error.mp3");
     this.load.audio("documentsS", "documents.mp3");
@@ -116,7 +116,7 @@ export default class Boot extends Phaser.Scene {
     this.load.audio("xrayS", "beep.mp3");
 
     // NIVELES CAJAS
-    this.load.setPath('assets/sprites/niveles_cajas');
+    this.load.setPath('./assets/sprites/niveles_cajas');
     this.load.spritesheet('reset', 'reset.png', {frameWidth: 39, frameHeight: 44});
     this.load.spritesheet('character', 'player.png', {frameWidth: 64, frameHeight: 64});
     this.load.image('box', 'box.png');
