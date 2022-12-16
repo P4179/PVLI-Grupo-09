@@ -33,7 +33,7 @@ export default class Boot extends Phaser.Scene {
     this.load.image('mountains2', '2.png');
     
     // Estatuas
-    this.load.setPath('github.com/P4179/PVLI-Grupo-09/tree/main/assets/sprites/estatuas');
+    this.load.setPath('assets/sprites/estatuas');
     // Spritesheets de las estatuas
     this.load.spritesheet('manGreen', 'animacion_retrato_hombre_5_spritesheet.png', {frameWidth: 420, frameHeight: 420});
     this.load.spritesheet('man1', 'animacion_retrato_hombre_1_spritesheet.png', {frameWidth: 420, frameHeight: 420});
@@ -55,7 +55,7 @@ export default class Boot extends Phaser.Scene {
     this.load.image('woman4_Fake', 'retrato_mujer_4_FAKE.png');
     
     // Documentos
-    this.load.setPath('github.com/P4179/PVLI-Grupo-09/blob/main/assets/sprites/documentos');
+    this.load.setPath('assets/sprites/documentos');
     this.load.image('auth_cert', 'AccessPermitInner.png');  // certificado de autenticidad
     this.load.image('auth_paper', 'IdSupplementInner.png'); // tarjeta de identidad
     this.load.image('mat_reg', 'MaterialRecord.png'); // carnet de materiales
