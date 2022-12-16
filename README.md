@@ -1,6 +1,6 @@
 # PVLI-Grupo-09
 
-El juego de BMY se trata de un travajo universitario realizado por un grupo de cinco estudiantes de 2º de Desarrollo de Videojuegos. 
+El juego de BMY se trata de un trabajo universitario realizado por un grupo de cinco estudiantes de 2º de Desarrollo de Videojuegos. 
 
 **1. Redes sociales**
 
@@ -16,7 +16,7 @@ Enlace a la página web pública con la versión de publicación del juego pulsa
 
 **3. Descripción general del proyecto**
 
-El juego es de estilo point and click y de resolución de puzzles con tono humorístico. El usuario juega como investigador de estatuas. El juego trata sobre la verificación de las mismas y determinar si se tratan de falsificaciones o de las verdaderas. Las estatuas a analizar son los guerreros de terracota, que tratan de regresar a su lugar original, la tumba del emperador. Sin embargo, muchas falsificaciones tratarán de engañar al jugador para pasar. Con unas mecánicas y una estética similar a *Papers, Please* se deberá de analizar los diferentes documentos que te aporten las estatuas. Así como, el material del que estén hechas y su interior. 
+El juego es de estilo point and click y de resolución de puzzles con tono humorístico. El usuario juega como investigador de estatuas. El juego consiste en verificar la identidad de las mismas y determinar si se tratan de falsificaciones o de las verdaderas. Las estatuas a analizar son guerreros de terracota cuyo objetivo es regresar a su lugar de origen, la tumba del emperador. Sin embargo, muchas falsificaciones intentarán de engañar al jugador para pasar. Con unas mecánicas y una estética similar a *Papers, Please* se deberán analizar los diferentes documentos que aporten las estatuas, así como el material del que estén hechas y su interior. 
 El juego cuenta con tres finales en función de lo bien, regular o mal que lo haya hecho el jugador. 
 
 
