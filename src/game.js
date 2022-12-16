@@ -43,7 +43,7 @@ let config = {
         default: 'arcade', 
         // no tiene gravedad
         arcade: {
-            debug: true 
+            debug: false 
         },
         checkCollision: {
             up: true,
