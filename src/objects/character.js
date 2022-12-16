@@ -8,7 +8,7 @@ export default class Character extends Phaser.GameObjects.Sprite {
 
 		this.scene.add.existing(this);
 
-		this.setScale(1.5);
+		this.setScale(0.5);
 
 		this.scene.physics.add.existing(this);
 		// el personaje choca con los límites del mundo, por lo tanto, no puede salir de ellos
