@@ -204,7 +204,7 @@
       "year": -242
     },
     "sound": "agudo",
-    "pass": false
+    "pass": true
   },
 
   {
@@ -386,7 +386,7 @@
       "year": -230
     },
     "sound": "agudo",
-    "pass": false
+    "pass": true
   },
 
   {
@@ -464,7 +464,7 @@
       "year": -222
     },
     "sound": "agudo",
-    "pass": false
+    "pass": true
   },
 
   {
@@ -490,7 +490,7 @@
       "year": -246
     },
     "sound": "agudo",
-    "pass": false
+    "pass": true
   },
 
   {
