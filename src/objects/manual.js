@@ -1,5 +1,3 @@
-import Documents from './documents.js'
-
 export default class Manual extends Phaser.GameObjects.Sprite{	
 	/**
 	 * manual constructor

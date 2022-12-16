@@ -15,7 +15,7 @@ export default class DayBase extends Phaser.Scene {
     this.CANVAS_HEIGHT = this.game.config.height;
     
     // temporizador
-    this.timer = this.minutesToMs(2);
+    this.timer = this.minutesToMs(1);
     // tiempo transcurrido desde el comienzo del día
 
     // HUD
@@ -126,7 +126,7 @@ export default class DayBase extends Phaser.Scene {
   ambientalMusic() {
     const config = {
       mute: false,
-      volume: 0.01,
+      volume: 0.05,
       rate: 1,
       detune: 0,
       seek: 0,

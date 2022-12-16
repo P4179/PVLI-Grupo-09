@@ -1,7 +1,6 @@
 import Title from './scenes/title.js';
 import Boot from './scenes/boot.js';
-import InitialScene from './scenes/initialScene.js';
-import ScalinePostFX from '/assets/pipelines/ScalinePostFX.js'; 
+import ScalinePostFX from './scenes/ScalinePostFX.js'; 
 import Day1 from './scenes/day1.js';
 import Day2 from './scenes/day2.js';
 import Day3 from './scenes/day3.js';
@@ -52,9 +51,9 @@ let config = {
             right: true
         }
     },
-    pipeline: { ScalinePostFX },
+    // pipeline: { ScalinePostFX },
     // escenas que hay en el juego
-    scene: [Title, Boot, InitialScene, Day1, Day2, Day3, BoxLevel1, BoxLevel2, Family],
+    scene: [Title, Boot, Day1, Day2, Day3, BoxLevel1, BoxLevel2, Family],
     title: "Proyecto final"
 };
 
