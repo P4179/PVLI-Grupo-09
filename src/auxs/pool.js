@@ -9,10 +9,12 @@ export default class Pool {
 		// estatuas
 		this.group.children.iterate((item) => {
 			this.group.killAndHide(item);
+			// no se comprueban las colisiones de este objeto
+			item.body.checkCollision.none = true;
 			// documentos
 			item.getDocuments().children.iterate((document) => {
 				item.getDocuments().killAndHide(document);
-				document.body.checkCollision.none = false;
+				document.body.checkCollision.none = true;
 			});
         });
 
@@ -32,6 +34,8 @@ export default class Pool {
 			// documentos
 			// cuando la estatua llega se captura el evento y se activan sus documentos
 			entity.on('statueHasArrived', () => {
+				// cuando la estatua ha llegado se comprueban sus colisiones
+				entity.body.checkCollision.none = false;
 				for (var i = 0; i < entity.getDocuments().getLength(); ++i) {
 					let document = entity.getDocuments().children.entries[i];
 					document.setActive(true);
@@ -65,10 +69,11 @@ export default class Pool {
 	release (entity) {
 		// estatua
 		this.group.killAndHide(entity);
+		entity.body.checkCollision.none =  true;
 		// documentos
 		entity.getDocuments().children.iterate((document) => {
 			entity.getDocuments().killAndHide(document);
-			document.body.checkCollision.none = false;
+			document.body.checkCollision.none = true;
 		});
 		// avanza el index, que indica que estatua debe activarse
 		this.pass();

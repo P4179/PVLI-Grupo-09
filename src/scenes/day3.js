@@ -21,7 +21,7 @@ export default class Day3 extends DayBase {
     const CANVAS_HEIGHT = this.game.config.height;
 
     // se crea el botón de rayos X
-    new XRAY(this, CANVAS_WIDTH - 50, CANVAS_HEIGHT - 125);
+    new XRAY(this, this.game.config.width - 50, this.game.config.height - 125);
 
     this.events.on('startDay', () => {
       // los botones sí y no acceden al statueManager para llamar al método que instancia la siguiente estatua

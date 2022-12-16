@@ -2,8 +2,12 @@ export default class Statue extends Phaser.GameObjects.Sprite {
 	constructor(scene, info) {
 		super(scene, scene.game.config.width / 2, 217.5, info.sprite);
 		this.scene.add.existing(this);
+		
+		this.scene.physics.add.existing(this);
+		// se ajusta el tamaño del body, inicialmente es el del sprite
+		this.body.setSize(this.width / 3.5, this.height - 120).setImmovable(true);
 
-		this.setPosition(this.scene.sys.canvas.width / 2, 195);
+		this.setPosition(this.scene.game.config.width / 2, 195);
 		this.setScale(0);
 
 		this.sprite = info.sprite;
@@ -79,13 +83,13 @@ export default class Statue extends Phaser.GameObjects.Sprite {
 					if(l[l.length - 1] !== 'Fake')
 						this.scene.HUD.showComparatorText('Correct');
 					else 
-						this.scene.HUD.showComparatorText('Inorrect');
+						this.scene.HUD.showComparatorText('Incorrect');
 				}
 				else if(this.compVar1.text === this.compVar2.text) {
 					this.scene.HUD.showComparatorText('Correct');
 				}
 				else {
-					this.scene.HUD.showComparatorText('Inorrect');
+					this.scene.HUD.showComparatorText('Incorrect');
 				}
 				// this.resetVars();
 			}

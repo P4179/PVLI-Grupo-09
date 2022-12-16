@@ -26,7 +26,7 @@ export default class Documents extends Phaser.GameObjects.Container {
 
 		const config = {
 	        mute: false,
-	        volume: 1,
+	        volume: 0.1,
 	        rate: 1,
 	        detune: 0,
 	        seek: 0,
