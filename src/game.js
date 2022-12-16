@@ -51,7 +51,7 @@ let config = {
             right: true
         }
     },
-    pipeline: { ScalinePostFX },
+    // pipeline: { ScalinePostFX },
     // escenas que hay en el juego
     scene: [Title, Boot, Day1, Day2, Day3, BoxLevel1, BoxLevel2, Family],
     title: "Proyecto final"
