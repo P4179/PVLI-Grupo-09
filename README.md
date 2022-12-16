@@ -22,7 +22,5 @@ El juego cuenta con tres finales en función de lo bien, regular o mal que lo ha
 
 **4. Interfaz del juego**
 
-
-![captura1](https://user-images.githubusercontent.com/95546683/198315333-580c77b6-734a-4bc7-9dab-01c64e72b219.jpg)
-
+![interfaz](https://user-images.githubusercontent.com/99910857/208090545-c58f8930-cfed-46b6-b636-758ca8de4062.png)
 
