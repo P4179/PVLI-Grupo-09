@@ -20,7 +20,9 @@ export default class Boot extends Phaser.Scene {
     // TEXTO BITMAP
     this.load.setPath('./assets/fonts');
     // Texto para los documentos
-    this.load.bitmapFont('documentFont', 'BMYbitmap/BMYbitmap.png', 'BMYbitmap/BMYbitmap.xml', {frameWidth: 24, frameHeight: 33});
+    this.load.bitmapFont('documentFont', 'BMYbitmap/BMYbitmap.png', 'BMYbitmap/BMYbitmap.xml');
+    // Texto para el periodico
+    this.load.bitmapFont('newsFont', 'news_bitmap/news_bitmap.png', 'news_bitmap/news_bitmap.xml')
     
     // SPRITES
     // Fondo de los niveles
@@ -62,9 +64,10 @@ export default class Boot extends Phaser.Scene {
     
     // Otros
     this.load.setPath('./assets/sprites/otros');
+    // Periodico
+    this.load.image('daily_news', 'News.png');
     // Cajas
     this.load.image('m_box', 'm_box.png');
-    this.load.image('n_box', 'n_box.png');
     // Sellos de museos
     this.load.spritesheet('stamp_sprites', 'Stamps.png', {frameWidth: 42, frameHeight: 42});
     // Explosivo
@@ -125,6 +128,6 @@ export default class Boot extends Phaser.Scene {
   // Creación de la escena
   // En este caso, solo se pasa a la escena del primer nivel
   create() {
-    this.scene.start('day1');
+    this.scene.start('initialScene');
   }
 }
