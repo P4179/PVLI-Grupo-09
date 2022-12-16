@@ -17,7 +17,23 @@ export default class Material_Record extends Documents{
         super(scene, x, y, 'mat_reg');
         this._sName = sName;
         this._sCreationD = sCreationD;
+		this.colour_frame = -1;
 		this.fontsize = 9;
+		if(sColour = 'mostaza'){
+			this.colour_frame = 3;
+		}
+		else if(sColour = 'terracota'){
+			this.colour_frame = 0;
+		}
+		else if(sColour = 'rojo_fresa'){
+			this.colour_frame = 4;
+		}
+		else if(sColour = 'vino_viejo'){
+			this.colour_frame = 1;
+		}
+		else if(sColour = 'vino_viejo'){
+			this.colour_frame = 1;
+		}
 		
 		//color texto: #837485
 		//texto del nombre
@@ -33,6 +49,13 @@ export default class Material_Record extends Documents{
 		this.fechaCrea.setFontSize(this.fontsize);
 		this.interactiveGroup.add(this.fechaCrea);
 		this.add(this.fechaCrea);
+
+		this.clr = this.scene.add.sprite(33, 1, 'colores_registro_material', this.colour_frame);
+		this.clr.setOrigin(0.5, 0.5)
+		this.clr.setScale(0.4);
+		this.interactiveGroup.add(this.clr);
+		this.add(this.clr);
+
 
         this.makeChildsInteractive();
     }
