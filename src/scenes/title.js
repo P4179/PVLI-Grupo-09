@@ -21,6 +21,10 @@ export default class Title extends Phaser.Scene {
 	// Se crean los objetos que va a haber en esta escena
 	create() {
 		localStorage.setItem('score', 0);
+		localStorage.setItem('Mom', 0);
+		localStorage.setItem('Son', 0);
+		localStorage.setItem('Daughter', 0);
+		localStorage.setItem('Dog', 0);
 		
 		// Añadimos la imagen de la pantalla del título a la escena
 		// los objetos de la clase Image se utilizan para elementos estáticos

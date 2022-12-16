@@ -1,5 +1,7 @@
+import Continue from '../objects/continue.js';
+import Member from '../objects/member.js';
+
 // Escena de la pantalla final
-// Se muestra un texto que al pulsarlo te regresa a la pantalla de título
 
 export default class Family extends Phaser.Scene {
 	// Constructor de la escena
@@ -16,30 +18,62 @@ export default class Family extends Phaser.Scene {
 	create() {
 		const CANVAS_WIDTH = this.game.config.width;
 		const CANVAS_HEIGHT = this.game.config.height;
+		const WHITE = '0xFFFFFF';
+
+		this.money = parseInt(localStorage.getItem('score')) * 10;
 
 		// se añade el texto a la escena actual
-		var end = this.add.text(CANVAS_WIDTH/2, CANVAS_HEIGHT/2, "Family", {fontFamily: 'Arial'})
-		.setOrigin(0.5, 0.5).setStyle({fontSize: 100, color: 'red'});
+		this.add.bitmapText(CANVAS_WIDTH/2, 80, "documentFont", "FAMILY",)
+			.setTintFill(WHITE).setOrigin(0.5, 0.5);
+		this.add.image(CANVAS_WIDTH/2, 120, 'white_line');
 
-		// se hace que el texto sea interactivo, de modo que al pulsarlo se produzca un evento
-		// si no se añaden argumentos a la función el área de toque es el de la textura
-		end.setInteractive();
-		// se produce este evento justo cuando se toca la imagen
-		end.on('pointerdown', () => {
-			this.loadBoxLevel();
-		});
+		this.add.bitmapText(200, CANVAS_HEIGHT / 2 - 130, "documentFont", "Basic care: 100 yuanes")
+			.setTintFill(WHITE).setOrigin(0.5, 0.5).setFontSize(25);
 
-		// texto con la puntuación
-		// se convierte la puntuación a un entero porque todo lo que está guardado en localStorage es un string
-		var score = this.add.text(CANVAS_WIDTH/2, CANVAS_HEIGHT/2 + 80, "Score: " + parseInt(localStorage.getItem('score')), 
-			{fontFamily: 'Arial'}).setOrigin(0.5, 0.5).setFontSize(25);
+		this.add.bitmapText(CANVAS_WIDTH - 200, CANVAS_HEIGHT / 2 - 130, "documentFont", 
+			"Money: " + this.money + " yuanes")
+			.setTintFill(WHITE).setOrigin(0.5, 0.5).setFontSize(25);
+
+		this.add.image(CANVAS_WIDTH/2, CANVAS_HEIGHT - 150, 'white_line').setScale(2.3, 1);
+
+		this.finalMoney = this.add.bitmapText(CANVAS_WIDTH - 200, CANVAS_HEIGHT - 110, "documentFont", 
+			"Final money: " + this.money + " yuanes")
+			.setTintFill(WHITE).setOrigin(0.5, 0.5).setFontSize(25);
+
+		this.family = [];
+		this.family.push(new Member(this, 200, 220, "Mom"));
+		this.family.push(new Member(this, 200, 280, "Son"));
+		this.family.push(new Member(this, 200, 340, "Daughter"));
+		this.family.push(new Member(this, 200, 400, "Dog"));
+
+		new Continue(this, CANVAS_WIDTH / 2, CANVAS_HEIGHT - 50);
 	}
 
 	loadBoxLevel() {
+		for(var i = 0; i< this.family.length; ++i) {
+			this.family[i].death();
+		}
+
+		localStorage.setItem('score', this.money / 10);
+
 		let scene = 'boxLevel' + this.actDay;
 		if(this.actDay >= 3) {
 			scene = 'title';
 		}
 		this.scene.start(scene);
+	}
+
+	checkMoney() {
+		return this.money < 100;
+	}
+
+	substractMoney() {
+		this.money = this.money - 100;
+		this.finalMoney.setText("Final money: " + this.money + " yuanes");
+	}
+
+	recoverMoney() {
+		this.money = this.money + 100;
+		this.finalMoney.setText("Final money: " + this.money + " yuanes");
 	}
 }
