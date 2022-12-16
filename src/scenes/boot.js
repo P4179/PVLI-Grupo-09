@@ -128,6 +128,11 @@ export default class Boot extends Phaser.Scene {
     this.load.spritesheet('character', 'player.png', {frameWidth: 64, frameHeight: 64});
     this.load.image('box', 'box.png');
     this.load.image('batt', 'battery.png');
+
+    // RECURSOS FAMILIA
+    this.load.setPath('assets/sprites/family');
+    this.load.spritesheet('button_family', 'button_family.png', {frameWidth: 290, frameHeight: 290});
+    this.load.image('white_line', 'white_line.png');
   }
 
   // Creación de la escena
