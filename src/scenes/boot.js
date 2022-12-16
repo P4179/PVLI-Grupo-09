@@ -86,7 +86,7 @@ export default class Boot extends Phaser.Scene {
     // Puntos del reloj
     this.load.image('puntos', 'puntos.png');
     // Bola de tenis
-    this.load.spritesheet('bola_tenis', 'bola_tenis.png', {frameWidth: 37.625, frameHeight: 39.5});
+    this.load.spritesheet('bola_tenis', 'bola_tenis.png', {frameWidth: 37.625, frameHeight: 39.5})
 
     // Botones
     this.load.setPath('./assets/sprites/botones');
