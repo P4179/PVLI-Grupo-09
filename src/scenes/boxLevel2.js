@@ -1,6 +1,6 @@
 import Reset from '../objects/reset_button.js';
 import Character from '../objects/character.js';
-import Box from '../objects/box.js';
+import Battery from '../objects/battery.js';
 
 export default class BoxLevel2 extends Phaser.Scene {
 	constructor() {
@@ -67,5 +67,14 @@ export default class BoxLevel2 extends Phaser.Scene {
         });
 
         new Reset(this, CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
+
+        this.battery = new Battery(this, 24, 66, 1);
+        this.physics.add.collider(this.character, this.battery, (c, b)=>{
+            b.setVisible(false);
+            if(b.battPickedUp() === 0){
+                this.scene.start('day3');
+            }
+            b.destroy();
+        });
 	}
 }

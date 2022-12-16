@@ -125,11 +125,12 @@ export default class Boot extends Phaser.Scene {
     this.load.spritesheet('reset', 'reset.png', {frameWidth: 39, frameHeight: 44});
     this.load.spritesheet('character', 'player.png', {frameWidth: 64, frameHeight: 64});
     this.load.image('box', 'box.png');
+    this.load.image('batt', 'battery.png');
   }
 
   // Creación de la escena
   // En este caso, solo se pasa a la escena del primer nivel
   create() {
-    this.scene.start('initialScene');
+    this.scene.start('boxLevel2');
   }
 }
