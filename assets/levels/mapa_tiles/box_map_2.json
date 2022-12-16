@@ -20,12 +20,6 @@
          "id":5,
          "name":"walls",
          "opacity":1,
-         "properties":[
-                {
-                 "name":"colisiona",
-                 "type":"bool",
-                 "value":true
-                }],
          "type":"tilelayer",
          "visible":true,
          "width":16,
@@ -435,6 +429,16 @@
          "spacing":0,
          "tilecount":135,
          "tileheight":33,
+         "tiles":[
+                {
+                 "id":20,
+                 "properties":[
+                        {
+                         "name":"colisiona",
+                         "type":"bool",
+                         "value":true
+                        }]
+                }],
          "tilewidth":24
         }, 
         {
