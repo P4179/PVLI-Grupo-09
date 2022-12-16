@@ -72,7 +72,7 @@ export default class BoxLevel1 extends Phaser.Scene {
         this.physics.add.collider(this.character, this.battery1, (c, b)=>{
             b.setVisible(false);
             if(b.battPickedUp() === 0){
-                this.scene.start('day3');
+                this.scene.start('day2');
             }
             b.destroy();
         });
