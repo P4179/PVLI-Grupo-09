@@ -1,7 +1,7 @@
 import StatueManagerLv3 from '../auxs/statueManagerLv3.js';
 import DayBase from './dayBase.js';
 import XRAY from '../objects/xray.js';
-import ScalinePostFX from '/assets/pipelines/ScalinePostFX.js'; 
+import ScalinePostFX from '../../assets/pipelines/ScalinePostFX.js'; 
 
 // Escena que se trata del nivel 1 del juego
 
