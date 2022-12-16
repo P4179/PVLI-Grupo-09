@@ -6,6 +6,8 @@ export default class StatueLv2 extends Statue {
 	constructor(scene, info) {
 		super(scene, info);
 
+		this.sound = info.sound;
+
 		this.impacted = this.scene.tweens.add({
 			targets: this,
 			x: this.x + 30,
@@ -22,7 +24,7 @@ export default class StatueLv2 extends Statue {
 		this.ACDocument = new Authenticity_Certificate(this.scene, CANVAS_WIDTH / 2 - 160, CANVAS_HEIGHT / 2 - 50,
 			info.name, info.expiration_date, info.photo, info.creation_date, info.serial_number);
 		this.MRDocument = new Material_Record(this.scene, CANVAS_WIDTH / 2 - 110, CANVAS_HEIGHT / 2 - 50,
-			info.name, info.creation_date2, info.color);
+			info.name2, info.creation_date2, info.color);
 
 		this.documents.add(this.ACDocument);
 		this.documents.add(this.MRDocument);
