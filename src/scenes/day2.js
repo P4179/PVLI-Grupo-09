@@ -16,6 +16,9 @@ export default class Day2 extends DayBase {
   create() {
     super.create();
 
+    this.highSound = this.sound.add('high_sound');
+    this.lowSound = this.sound.add('low_sound');
+
     // se crea el botón de rayos X
     let button_shoot = new Button_Shoot(this, this.game.config.width - 50, this.game.config.height - 125);
 
@@ -27,12 +30,23 @@ export default class Day2 extends DayBase {
         // se produzca lo que hay en el arrow function
         // la función tiene como parámetros los objetos que han colisionado
         this.physics.add.collider(button_shoot.ball, this.statueManager.getGroup(), (ball, statue) => {
+          this.statueCrashSound(statue);
+
           // se para la fuerza horizontal de la bola y se la da una fuerza hacia arriba
           // la estatua reproduce su tween
           ball.hasCollided();
           statue.impacted.play();
         });
     })
+  }
 
+  // reproduce el sonido oportuno cuando la bola choca contra la estatua
+  statueCrashSound(statue) {
+     if(statue.sound === "agudo") {
+        this.highSound.play();
+      }
+      else if(statue.sound === 'grave') {
+        this.lowSound.play();
+      }
   }
 }

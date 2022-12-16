@@ -1,30 +1,5 @@
 [
   {
-    "sprite": "man1",
-    "name": "Xiang",
-    "expiration_date": {
-      "day": 6,
-      "month": 11,
-      "year": 2080
-    },
-    "photo": "man1",
-    "creation_date": {
-      "day": 30,
-      "month": 8,
-      "year": -238
-    },
-    "serial_number": "XX-0000",
-    "color": "mostaza",
-    "creation_date2": {
-      "day": 13,
-      "month": 8,
-      "year": -18
-    },
-    "sound": "agudo",
-    "pass": false
-  },
-
-  {
     "sprite": "man2",
     "name": "Xiang",
     "expiration_date": {
@@ -40,10 +15,505 @@
     },
     "serial_number": "XX-0000",
     "color": "mostaza",
+    "name2": "Xiang",
     "creation_date2": {
       "day": 13,
       "month": 8,
       "year": -18
+    },
+    "sound": "grave",
+    "pass": false
+  },
+
+  {
+    "sprite": "man1",
+    "name": "Hao",
+    "expiration_date": {
+      "day": 21,
+      "month": 2,
+      "year": 2124
+    },
+    "photo": "man1",
+    "creation_date": {
+      "day": 11,
+      "month": 3,
+      "year": -220
+    },
+    "serial_number": "XX-0110",
+    "color": "terracota",
+    "name2": "Hao",
+    "creation_date2": {
+      "day": 11,
+      "month": 3,
+      "year": -220
+    },
+    "sound": "agudo",
+    "pass": true
+  },
+
+  {
+    "sprite": "woman3",
+    "name": "Guo",
+    "expiration_date": {
+      "day": 19,
+      "month": 7,
+      "year": 2118
+    },
+    "photo": "woman3",
+    "creation_date": {
+      "day": 18,
+      "month": 2,
+      "year": -226
+    },
+    "serial_number": "XX-0010",
+    "color": "rojo_fresa",
+    "name2": "Guo",
+    "creation_date2": {
+      "day": 18,
+      "month": 2,
+      "year": -226
+    },
+    "sound": "agudo",
+    "pass": true
+  },
+
+  {
+    "sprite": "woman4",
+    "name": "Bowen",
+    "expiration_date": {
+      "day": 15,
+      "month": 3,
+      "year": 2032
+    },
+    "photo": "woman4",
+    "creation_date": {
+      "day": 5,
+      "month": 12,
+      "year": -246
+    },
+    "serial_number": "XX-0001",
+    "color": "mostaza",
+    "name2": "Bowen",
+    "creation_date2": {
+      "day": 13,
+      "month": 8,
+      "year": -18
+    },
+    "sound": "agudo",
+    "pass": false
+  },
+
+  {
+    "sprite": "man1",
+    "name": "Jing",
+    "expiration_date": {
+      "day": 3,
+      "month": 4,
+      "year": 2127
+    },
+    "photo": "man1",
+    "creation_date": {
+      "day": 6,
+      "month": 2,
+      "year": -240
+    },
+    "serial_number": "XX-0100",
+    "color": "terracota",
+    "name2": "Jong",
+    "creation_date2": {
+      "day": 6,
+      "month": 2,
+      "year": -240
+    },
+    "sound": "agudo",
+    "pass": false
+  },
+
+  {
+    "sprite": "woman1",
+    "name": "Ming",
+    "expiration_date": {
+      "day": 5,
+      "month": 2,
+      "year": 1950
+    },
+    "photo": "woman1_Fake",
+    "creation_date": {
+      "day": 15,
+      "month": 4,
+      "year": -221
+    },
+    "serial_number": "XX-0000",
+    "color": "vino_viejo",
+    "name2": "Ming",
+    "creation_date2": {
+      "day": 15,
+      "month": 4,
+      "year": -221
+    },
+    "sound": "agudo",
+    "pass": false
+  },
+
+  {
+    "sprite": "woman2",
+    "name": "Lee",
+    "expiration_date": {
+      "day": 11,
+      "month": 10,
+      "year": 2144
+    },
+    "photo": "woman2",
+    "creation_date": {
+      "day": 10,
+      "month": 12,
+      "year": -225
+    },
+    "serial_number": "XX-1100",
+    "color": "terracota",
+    "name2": "Lee",
+    "creation_date2": {
+      "day": 10,
+      "month": 12,
+      "year": -225
+    },
+    "sound": "agudo",
+    "pass": true
+  },
+
+  {
+    "sprite": "man1",
+    "name": "Chung",
+    "expiration_date": {
+      "day": 6,
+      "month": 2,
+      "year": 2079
+    },
+    "photo": "man1",
+    "creation_date": {
+      "day": 28,
+      "month": 4,
+      "year": -242
+    },
+    "serial_number": "XX-1001",
+    "color": "terracota",
+    "name2": "Chung",
+    "creation_date2": {
+      "day": 28,
+      "month": 4,
+      "year": -242
+    },
+    "sound": "agudo",
+    "pass": false
+  },
+
+  {
+    "sprite": "man4",
+    "name": "Jie",
+    "expiration_date": {
+      "day": 22,
+      "month": 8,
+      "year": 2159
+    },
+    "photo": "man4",
+    "creation_date": {
+      "day": 9,
+      "month": 11,
+      "year": -227
+    },
+    "serial_number": "XX-0011",
+    "color": "vino_viejo",
+    "name2": "Jie",
+    "creation_date2": {
+      "day": 9,
+      "month": 11,
+      "year": -227
+    },
+    "sound": "agudo",
+    "pass": true
+  },
+
+  {
+    "sprite": "woman4",
+    "name": "Wen",
+    "expiration_date": {
+      "day": 9,
+      "month": 4,
+      "year": 2057
+    },
+    "photo": "woman4",
+    "creation_date": {
+      "day": 22,
+      "month": 9,
+      "year": -245
+    },
+    "serial_number": "XX-0010",
+    "color": "mostaza",
+    "name2": "Wen",
+    "creation_date2": {
+      "day": 22,
+      "month": 9,
+      "year": -245
+    },
+    "sound": "agudo",
+    "pass": true
+  },
+
+  {
+    "sprite": "manGreen",
+    "name": "Gen",
+    "expiration_date": {
+      "day": 3,
+      "month": 4,
+      "year": 1600
+    },
+    "photo": "manGreen",
+    "creation_date": {
+      "day": 5,
+      "month": 9,
+      "year": -229
+    },
+    "serial_number": "XX-0001",
+    "color": "terracota",
+    "name2": "Gen",
+    "creation_date2": {
+      "day": 5,
+      "month": 9,
+      "year": -229
+    },
+    "sound": "agudo",
+    "pass": false
+  },
+
+  {
+    "sprite": "man1",
+    "name": "Jiao",
+    "expiration_date": {
+      "day": 6,
+      "month": 2,
+      "year": 2059
+    },
+    "photo": "man1",
+    "creation_date": {
+      "day": 16,
+      "month": 1,
+      "year": -232
+    },
+    "serial_number": "XX-1000",
+    "color": "terracota",
+    "name2": "Jiao",
+    "creation_date2": {
+      "day": 16,
+      "month": 1,
+      "year": -232
+    },
+    "sound": "agudo",
+    "pass": true
+  },
+
+  {
+    "sprite": "woman3",
+    "name": "Liu",
+    "expiration_date": {
+      "day": 29,
+      "month": 10,
+      "year": 2198
+    },
+    "photo": "woman3",
+    "creation_date": {
+      "day": 24,
+      "month": 3,
+      "year": -230
+    },
+    "serial_number": "XX-1010",
+    "color": "rojo_fresa",
+    "name2": "Liu",
+    "creation_date2": {
+      "day": 24,
+      "month": 3,
+      "year": -230
+    },
+    "sound": "grave",
+    "pass": false
+  },
+
+  {
+    "sprite": "woman1",
+    "name": "Luan",
+    "expiration_date": {
+      "day": 6,
+      "month": 7,
+      "year": 2119
+    },
+    "photo": "woman1_Fake",
+    "creation_date": {
+      "day": 20,
+      "month": 2,
+      "year": -230
+    },
+    "serial_number": "XX-1110",
+    "color": "vino_viejo",
+    "name2": "Luan",
+    "creation_date2": {
+      "day": 20,
+      "month": 2,
+      "year": -230
+    },
+    "sound": "agudo",
+    "pass": false
+  },
+
+  {
+    "sprite": "man3",
+    "name": "Nuo",
+    "expiration_date": {
+      "day": 4,
+      "month": 3,
+      "year": 2035
+    },
+    "photo": "man3",
+    "creation_date": {
+      "day": 30,
+      "month": 10,
+      "year": -230
+    },
+    "serial_number": "XX-0010",
+    "color": "mostaza",
+    "name2": "Nuo",
+    "creation_date2": {
+      "day": 30,
+      "month": 10,
+      "year": -230
+    },
+    "sound": "agudo",
+    "pass": false
+  },
+
+  {
+    "sprite": "woman4",
+    "name": "Nuwa",
+    "expiration_date": {
+      "day": 5,
+      "month": 6,
+      "year": 2023
+    },
+    "photo": "woman4",
+    "creation_date": {
+      "day": 22,
+      "month": 1,
+      "year": -235
+    },
+    "serial_number": "XX-1111",
+    "color": "mostaza",
+    "name2": "Nuwa",
+    "creation_date2": {
+      "day": 22,
+      "month": 1,
+      "year": -235
+    },
+    "sound": "agudo",
+    "pass": true
+  },
+
+  {
+    "sprite": "woman3",
+    "name": "QiQi",
+    "expiration_date": {
+      "day": 10,
+      "month": 11,
+      "year": 2087
+    },
+    "photo": "woman3",
+    "creation_date": {
+      "day": 7,
+      "month": 6,
+      "year": -241
+    },
+    "serial_number": "XX-0010",
+    "color": "rojo_fresa",
+    "name2": "QiQi",
+    "creation_date2": {
+      "day": 4,
+      "month": 2,
+      "year": -100
+    },
+    "sound": "agudo",
+    "pass": false
+  },
+
+  {
+    "sprite": "man2",
+    "name": "Liyue",
+    "expiration_date": {
+      "day": 29,
+      "month": 6,
+      "year": 2104
+    },
+    "photo": "man2",
+    "creation_date": {
+      "day": 11,
+      "month": 12,
+      "year": -222
+    },
+    "serial_number": "XX-0000",
+    "color": "terracota",
+    "name2": "Liyue",
+    "creation_date2": {
+      "day": 11,
+      "month": 12,
+      "year": -222
+    },
+    "sound": "agudo",
+    "pass": false
+  },
+
+  {
+    "sprite": "woman4",
+    "name": "Yun",
+    "expiration_date": {
+      "day": 22,
+      "month": 1,
+      "year": 2131
+    },
+    "photo": "woman4",
+    "creation_date": {
+      "day": 16,
+      "month": 10,
+      "year": -246
+    },
+    "serial_number": "XX-0110",
+    "color": "terracota",
+    "name2": "Yun",
+    "creation_date2": {
+      "day": 16,
+      "month": 10,
+      "year": -246
+    },
+    "sound": "agudo",
+    "pass": false
+  },
+
+  {
+    "sprite": "man2",
+    "name": "Bo",
+    "expiration_date": {
+      "day": 9,
+      "month": 3,
+      "year": 2032
+    },
+    "photo": "man2_Fake",
+    "creation_date": {
+      "day": 17,
+      "month": 5,
+      "year": -242
+    },
+    "serial_number": "XX-0100",
+    "color": "mostaza",
+    "name2": "Bo",
+    "creation_date2": {
+      "day": 17,
+      "month": 5,
+      "year": -242
     },
     "sound": "agudo",
     "pass": false
