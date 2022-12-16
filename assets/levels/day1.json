@@ -14,7 +14,7 @@
       "year": -218
     },
     "serial_number": "XX-0010",
-    "pass": false
+    "pass": true
   },
 
   {
@@ -180,14 +180,14 @@
   },
 
   {
-    "sprite": "man2",
+    "sprite": "woman2",
     "name": "Mei",
     "expiration_date": {
       "day": 11,
       "month": 5,
       "year": 2069
     },
-    "photo": "man2",
+    "photo": "woman2_Fake",
     "creation_date": {
       "day": 6,
       "month": 9,
