@@ -82,7 +82,6 @@ export default class Character extends Phaser.GameObjects.Sprite {
 	}
 
 	enabledInput(enable) {
-		console.log(enable);
 		this.wKey.enabled = enable;
         this.aKey.enabled = enable;
         this.sKey.enabled = enable;
