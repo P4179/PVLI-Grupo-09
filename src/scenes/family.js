@@ -11,7 +11,7 @@ export default class Family extends Phaser.Scene {
 
 	// se reciben los datos que se han pasado de la escena anterior y se guardan en un atributo de la clase
 	init(data){
-		this.actDay = 3;
+		this.actDay = data.dayNumber;
 	}
 	
 	// Creación de la escena
@@ -21,7 +21,7 @@ export default class Family extends Phaser.Scene {
 		const WHITE = '0xFFFFFF';
 
 		// precio de los cuidados básicos
-		this.basicCares = 100;
+		this.basicCares = 10;
 
 		// el dinero es la puntuación multiplicado por 10
 		this.money = parseInt(localStorage.getItem('score')) * 10;
