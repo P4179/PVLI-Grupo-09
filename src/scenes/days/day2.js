@@ -22,7 +22,7 @@ export default class Day2 extends DayBase {
     // se crea el botón de rayos X
     let button_shoot = new Button_Shoot(this, this.game.config.width - 50, this.game.config.height - 125);
 
-    this.events.on('startDay', () => {
+    this.events.once('startDay', () => {
       // los botones sí y no acceden al statueManager para llamar al método que instancia la siguiente estatua
         this.statueManager = new StatueManager(this, 2);
 

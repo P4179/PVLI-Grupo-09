@@ -23,7 +23,11 @@ export default class Day3 extends DayBase {
     // se crea el botón de rayos X
     new XRAY(this, this.game.config.width - 50, this.game.config.height - 125);
 
-    this.events.on('startDay', () => {
+    // los capturadores de evento no se eliminan cuando se cambia de escena
+    // Por lo tanto, si está escena se vuelve a activar y se utiliza this.scene.on hay dos capturades:
+    // el de la vez pasada y el nuevo, entonces se crea la primera estatua dos veces
+    // Para evitarlo se utiliza once que hace que se capture solo una vez
+    this.events.once('startDay', () => {
       // los botones sí y no acceden al statueManager para llamar al método que instancia la siguiente estatua
         this.statueManager = new StatueManager(this, 3);
     });
