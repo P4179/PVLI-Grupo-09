@@ -12,7 +12,7 @@ export default class Date extends Phaser.GameObjects.BitmapText {
     * @param {number} year
     */
     constructor(scene, x, y, day, month, year){
-        super(scene, x, y, 'documentFont');
+        super(scene, x, y, 'generalFont');
 
         this._day = day;
         this._month = month;

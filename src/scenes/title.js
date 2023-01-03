@@ -1,4 +1,4 @@
-import Start from '../objects/start.js';
+import Start from '../objects/interface/start.js';
 
 // Escena de Título
 
@@ -21,10 +21,10 @@ export default class Title extends Phaser.Scene {
 	// Se crean los objetos que va a haber en esta escena
 	create() {
 		localStorage.setItem('score', 0);
-		localStorage.setItem('Mom', 0);
-		localStorage.setItem('Son', 0);
-		localStorage.setItem('Daughter', 0);
-		localStorage.setItem('Dog', 0);
+		localStorage.setItem('Wife', JSON.stringify({death: false, date: ''}));
+		localStorage.setItem('Son', JSON.stringify({death: false, date: ''}));
+		localStorage.setItem('Daughter', JSON.stringify({death: false, date: ''}));
+		localStorage.setItem('Dog', JSON.stringify({death: false, date: ''}));
 		
 		// Añadimos la imagen de la pantalla del título a la escena
 		// los objetos de la clase Image se utilizan para elementos estáticos

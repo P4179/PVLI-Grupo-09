@@ -1,9 +1,9 @@
-import Calendar from '../objects/calendar.js';
-import Fails from '../objects/fails.js';
-import Buttons_Yes_No from '../objects/button_yes_no.js';
-import Comparator from '../objects/comparator.js';
-import Background from '../objects/background.js';
-import Clock from '../objects/clock.js';
+import Calendar from '../objects/interface/calendar.js';
+import Fails from '../objects/interface/fails.js';
+import Buttons_Yes_No from '../objects/buttons/button_yes_no.js';
+import Comparator from '../objects/buttons/comparator.js';
+import Background from '../objects/interface/background.js';
+import Clock from '../objects/interface/clock.js';
 import Manual from '../objects/manual.js';
 
 // HUD
@@ -38,7 +38,7 @@ export default class HUD extends Phaser.GameObjects.Container {
 		// instancia de Fails
 		this.fails = new Fails(this.scene, CANVAS_WIDTH - 10, 10);
 
-		this.comparator_text = this.scene.add.bitmapText(0 + 15, 0 + 15, 'documentFont', 'hello', 31);
+		this.comparator_text = this.scene.add.bitmapText(0 + 15, 0 + 15, 'generalFont', 'hello', 31);
 		this.comparator_text.setDepth(99);
 		this.comparator_text.setTintFill(0xFFFFFF);
 		this.comparator_text.setOrigin(0);
@@ -68,10 +68,12 @@ export default class HUD extends Phaser.GameObjects.Container {
 	}
 
 	showComparatorText(text){
-		if(text === 'Correct')
+		if(text === 'Correct') {
 			this.comparator_text.setTintFill(0x21E521);
-		if(text === 'Inorrect')
+		}
+		if(text === 'Incorrect') {
 			this.comparator_text.setTintFill(0xE52121);
+		}
 		this.tween.play();
 		this.comparator_text.text = text;
 		this.comparator_text.setVisible(true);

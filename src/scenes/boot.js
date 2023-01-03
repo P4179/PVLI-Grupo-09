@@ -10,19 +10,23 @@ export default class Boot extends Phaser.Scene {
   preload() {
     // NIVELES
     this.load.setPath('./assets/levels');
+    // Días
     this.load.text('day1', 'day1.json');
     this.load.text('day2', 'day2.json');
     this.load.text('day3', 'day3.json');
+    // Niveles de cajas
     this.load.tilemapTiledJSON('tilemap_nivel_1', 'mapa_tiles/box_map_1.json');
     this.load.tilemapTiledJSON('tilemap_nivel_2', 'mapa_tiles/box_map_2.json');
     this.load.image('patrones_tilemap', 'mapa_tiles/prueba.png');
     
     // TEXTO BITMAP
     this.load.setPath('./assets/fonts');
-    // Texto para los documentos
-    this.load.bitmapFont('documentFont', 'BMYbitmap/BMYbitmap.png', 'BMYbitmap/BMYbitmap.xml');
-    // Texto para el periodico
-    this.load.bitmapFont('newsFont', 'news_bitmap/news_bitmap.png', 'news_bitmap/news_bitmap.xml')
+    // Texto
+    this.load.bitmapFont('generalFont', 'generalFont/general_bitmap.png', 'generalFont/general_bitmap.xml');
+    // Texto para el periódico
+    this.load.bitmapFont('newsFont', 'newsFont/news_bitmap.png', 'newsFont/news_bitmap.xml');
+    // Texto para los diálogos
+    this.load.bitmapFont('dialogsFont', 'dialogsFont/dialogs_bitmap.png', 'dialogsFont/dialogs_bitmap.xml');
     
     // SPRITES
     // Fondo de los niveles
@@ -111,6 +115,17 @@ export default class Boot extends Phaser.Scene {
     this.load.image('xrayItems','Items.png');
     this.load.image('validStamps','validStamps.png');
 
+    // Niveles cajas
+    this.load.setPath('./assets/sprites/niveles_cajas');
+    this.load.spritesheet('reset', 'reset.png', {frameWidth: 39, frameHeight: 44});
+    this.load.spritesheet('character', 'player.png', {frameWidth: 64, frameHeight: 64});
+    this.load.image('batt', 'battery.png');
+
+    // Sprites pantalla familia
+    this.load.setPath('assets/sprites/familia');
+    this.load.spritesheet('button_family', 'button_family.png', {frameWidth: 290, frameHeight: 290});
+    this.load.image('white_line', 'white_line.png');
+
     // AUDIOS
     this.load.setPath('./assets/audio');
     this.load.audio("success", "success.mp3");
@@ -121,18 +136,6 @@ export default class Boot extends Phaser.Scene {
     this.load.audio("xrayS", "beep.mp3");
     this.load.audio('high_sound', 'plate_breaking.mp3');
     this.load.audio('low_sound', 'stone_hit.mp3');
-
-    // NIVELES CAJAS
-    this.load.setPath('./assets/sprites/niveles_cajas');
-    this.load.spritesheet('reset', 'reset.png', {frameWidth: 39, frameHeight: 44});
-    this.load.spritesheet('character', 'player.png', {frameWidth: 64, frameHeight: 64});
-    this.load.image('box', 'box.png');
-    this.load.image('batt', 'battery.png');
-
-    // RECURSOS FAMILIA
-    this.load.setPath('assets/sprites/family');
-    this.load.spritesheet('button_family', 'button_family.png', {frameWidth: 290, frameHeight: 290});
-    this.load.image('white_line', 'white_line.png');
   }
 
   // Creación de la escena
