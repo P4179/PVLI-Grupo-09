@@ -10,7 +10,7 @@ export default class InitialScene extends DialogScene {
         const CANVAS_HEIGHT = this.game.config.height;
 
         let info = {
-            text: "In today's daily news, we've been informed that our fellow comrades previously kidnapped by the opium-loving b*itish have managed to escape their evil grasps. That's not all though, we've also noticed some impostors trying to get into our great nation! And so, we need you, the smartest, bravest, handsomest, poorest of all to assist us in the protection of this country. Apply today at your nearest Qin Shi Huang office. We promise we won't exploit you THAT much!!!!!",
+            text: "Statues from the terracota army who were kidnapped by opium-loving british people and were exposed in the British Museum have managed to escape from their evil grasps. That's not all though, we've also noticed some impostors trying to get into our great nation! And so, we need you, the smartest, bravest, handsomest, poorest of all to assist us to return the real ones to the emperor tomb. Apply today at your nearest Qin Shi Huang office. We promise we won't exploit you THAT much!!!!!",
             x: 50,
             y: CANVAS_HEIGHT / 2 - 130,
             size: 30,

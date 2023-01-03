@@ -15,7 +15,7 @@ export default class DayBase extends Phaser.Scene {
     this.CANVAS_HEIGHT = this.game.config.height;
     
     // temporizador
-    this.timer = this.minutesToMs(1);
+    this.timer = this.minutesToMs(4);
     // tiempo transcurrido desde el comienzo del día
 
     // HUD

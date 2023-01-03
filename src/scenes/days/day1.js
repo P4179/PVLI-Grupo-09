@@ -20,7 +20,6 @@ export default class Day1 extends DayBase {
 
     // cuando comienza el nuevo día se instancia el statueManager
     this.events.once('startDay', () => {
-      console.log("hola");
       // los botones sí y no acceden al statueManager para llamar al método que instancia la siguiente estatua
         this.statueManager = new StatueManager(this, 1);
     });
